@@ -1,0 +1,392 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/bin/Halcon_YouloBe.dll"
+		},
+		{
+			"path" : "C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/bin/Halcon_YouloBe.lib"
+		},
+		{
+			"path" : "C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/bin/Halcon_YouloBe.pdb"
+		}
+	],
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"HALCON_AddExtensionPackage",
+			"install",
+			"target_link_libraries",
+			"add_dependencies",
+			"target_include_directories",
+			"target_sources"
+		],
+		"files" : 
+		[
+			"C:/Users/young/AppData/Roaming/MVTec/HALCON-24.11-Progress-Steady/examples/cmake/UseHALCON.cmake",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 59,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 393,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 473,
+				"parent" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 403,
+				"parent" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 108,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 407,
+				"parent" : 1
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 91,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 1,
+				"line" : 80,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 1,
+				"line" : 84,
+				"parent" : 0
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	},
+	"compileDependencies" : 
+	[
+		{
+			"backtrace" : 4,
+			"id" : "HALCON::Halcon::@6890427a1f51a3e7e1df"
+		}
+	],
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /O2 /Ob2 /DNDEBUG -MD"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"define" : "Halcon_YouloBe_EXPORTS"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 7,
+					"path" : "C:/Users/young/AppData/Local/Programs/MVTec/HALCON-24.11-Progress-Steady/include/halconcpp"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/include"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/3rd/opencv/include"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/3rd/openvino/include"
+				},
+				{
+					"backtrace" : 4,
+					"isSystem" : true,
+					"path" : "C:/Users/young/AppData/Local/Programs/MVTec/HALCON-24.11-Progress-Steady/include"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				0,
+				1
+			]
+		},
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /O2 /Ob2 /DNDEBUG -MD"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"define" : "Halcon_YouloBe_EXPORTS"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 7,
+					"path" : "C:/Users/young/AppData/Local/Programs/MVTec/HALCON-24.11-Progress-Steady/include/halconcpp"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/include"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/3rd/opencv/include"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/3rd/openvino/include"
+				},
+				{
+					"backtrace" : 4,
+					"isSystem" : true,
+					"path" : "C:/Users/young/AppData/Local/Programs/MVTec/HALCON-24.11-Progress-Steady/include"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				2
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 6,
+			"id" : "Halcon_YouloBe_help::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 6,
+			"id" : "Halcon_YouloBe_html::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "Halcon_YouloBe::@6890427a1f51a3e7e1df",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 3,
+				"path" : "Halcon_YouloBe/lib/x64-win64"
+			},
+			{
+				"backtrace" : 3,
+				"path" : "Halcon_YouloBe/bin/x64-win64"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "C:/Program Files/Halcon_YouloBe"
+		}
+	},
+	"interfaceCompileDependencies" : 
+	[
+		{
+			"backtrace" : 4,
+			"id" : "HALCON::Halcon::@6890427a1f51a3e7e1df"
+		}
+	],
+	"interfaceLinkLibraries" : 
+	[
+		{
+			"backtrace" : 4,
+			"id" : "HALCON::Halcon::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 5,
+			"fragment" : "C:\\Users\\young\\AppData\\Local\\Programs\\MVTec\\HALCON-24.11-Progress-Steady/lib/x64-win64/halconcpp.lib"
+		},
+		{
+			"backtrace" : 5,
+			"fragment" : "C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/release/*.lib"
+		},
+		{
+			"backtrace" : 5,
+			"fragment" : "C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/release/*.lib"
+		}
+	],
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/INCREMENTAL:NO",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "C:\\Users\\young\\AppData\\Local\\Programs\\MVTec\\HALCON-24.11-Progress-Steady\\lib\\x64-win64\\halcon.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "C:\\Users\\young\\AppData\\Local\\Programs\\MVTec\\HALCON-24.11-Progress-Steady\\lib\\x64-win64\\halconcpp.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "C:\\Users\\young\\Desktop\\Source\\Halcon_Extension\\Halcon_YouloBe\\3rd\\opencv\\lib\\release\\*.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "C:\\Users\\young\\Desktop\\Source\\Halcon_Extension\\Halcon_YouloBe\\3rd\\openvino\\lib\\release\\*.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"linkLibraries" : 
+	[
+		{
+			"backtrace" : 4,
+			"id" : "HALCON::Halcon::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 5,
+			"fragment" : "C:\\Users\\young\\AppData\\Local\\Programs\\MVTec\\HALCON-24.11-Progress-Steady/lib/x64-win64/halconcpp.lib"
+		},
+		{
+			"backtrace" : 5,
+			"fragment" : "C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/release/*.lib"
+		},
+		{
+			"backtrace" : 5,
+			"fragment" : "C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/release/*.lib"
+		}
+	],
+	"name" : "Halcon_YouloBe",
+	"nameOnDisk" : "Halcon_YouloBe.dll",
+	"orderDependencies" : 
+	[
+		{
+			"backtrace" : 6,
+			"id" : "Halcon_YouloBe_help::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 6,
+			"id" : "Halcon_YouloBe_html::@6890427a1f51a3e7e1df"
+		}
+	],
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				4
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				3
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				5
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/HHalcon_YouloBe.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "source/Halcon_YouloBe.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "source/Halcon_yolo.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"path" : "include/Halcon_YouloBe.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 9,
+			"path" : "def/Halcon_YouloBe.def",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/CMakeFiles/7edf3dba5980a28d7e763161c1a61aeb/HHalcon_YouloBe.c.rule",
+			"sourceGroupIndex" : 2
+		}
+	],
+	"type" : "SHARED_LIBRARY"
+}

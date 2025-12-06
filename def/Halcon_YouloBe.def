@@ -1,0 +1,63 @@
+Init_YoloSeg<- CHInit_YoloSeg[::hv_DictHandle:]
+short.german
+  Laplace Filter.;
+  
+short.english
+  Laplace Filter.;
+
+module
+  foundation;
+
+chapter.german
+  BenutzerErweiterungen;
+
+chapter.english
+  UserExtensions;
+
+keywords.english
+  UserExtensions;
+
+parallelization
+  process_exclusively: false;
+  process_locally:     false;
+  process_mutual:      false;
+  method:              none;
+
+parameter
+  hv_DictHandle:      input_control;
+  default_type:       handle;
+  multivalue:         false;
+  sem_type:           handle;
+  type_list:          handle;
+
+Inferential_YoloSeg<- CHClass_YoloSeg[::hv_DictHandle:]
+short.german
+  Laplace Filter.;
+  
+short.english
+  Laplace Filter.;
+
+module
+  foundation;
+
+chapter.german
+  BenutzerErweiterungen;
+
+chapter.english
+  UserExtensions;
+
+keywords.english
+  UserExtensions;
+
+parallelization
+  process_exclusively: false;
+  process_locally:     false;
+  process_mutual:      false;
+  method:              none;
+
+parameter
+  hv_DictHandle:      input_control;
+  default_type:       handle;
+  multivalue:         false;
+  sem_type:           handle;
+  type_list:          handle;

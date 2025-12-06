@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>XMLPath:='.\\best.xml'</l>
+<l>Devices:='CPU'</l>
+<l>Index:=0</l>
+<l>FP16Enale:=0</l>
+<l>Confidence:= 0.25</l>
+<l>NMS:=0.5</l>
+<l>You_LoBe_Init (Index, XMLPath, Devices, FP16Enale, Confidence, NMS, DictHandle)</l>
+<c></c>
+<l>read_image (Image, '45.bmp_512_0.png')</l>
+<c></c>
+<c as_id="image_acquisition" as_name="Image Acquisition 01" as_grp="[2,4]" as_ord="1">    * Image Acquisition 01: Do something</c>
+<l>     set_dict_tuple (DictHandle, '置信度阈值', 0.5)</l>
+<l>*      zoom_image_size (Image, Image, 1536, 1536, 'constant')</l>
+<l>    You_LoBe_Inference (Image, Rectangles, LableImage, DictHandle, ClassName, Confidence)</l>
+<l>    threshold (LableImage, Regions, 1, 255)</l>
+<c></c>
+<c>    </c>
+<l>    dev_display (Image)</l>
+<c> </c>
+<l>    dev_display (Regions)</l>
+<c>    </c>
+<l>    dev_display (Rectangles)</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+<procedure name="Pr_YouLoBe">
+<interface>
+<io>
+<par name="InImage" base_type="iconic" dimension="0"/>
+</io>
+<oo>
+<par name="OutImage" base_type="iconic" dimension="0"/>
+</oo>
+<ic>
+<par name="DictHandle" base_type="ctrl" dimension="0"/>
+</ic>
+</interface>
+<body>
+<l>get_dict_tuple (DictHandle, '输入张量属性', InputTensorDict)</l>
+<c></c>
+<l>zoom_image_size (InImage, ImageZoom, InputTensorDict.['宽'], InputTensorDict.['高'], 'constant')</l>
+<l>if (InputTensorDict.['通道数']=3)</l>
+<l>    compose3 (ImageZoom, ImageZoom, ImageZoom, OutImage)</l>
+<l>else</l>
+<l>    OutImage := ImageZoom</l>
+<l>endif</l>
+<l>return ()</l>
+</body>
+<docu id="Pr_YouLoBe">
+<parameters>
+<parameter id="DictHandle"/>
+<parameter id="InImage"/>
+<parameter id="OutImage"/>
+</parameters>
+</docu>
+</procedure>
+<procedure name="You_LoBe_Inference">
+<interface>
+<io>
+<par name="Image" base_type="iconic" dimension="0"/>
+</io>
+<oo>
+<par name="Rectangles" base_type="iconic" dimension="0"/>
+<par name="LableImage" base_type="iconic" dimension="0"/>
+</oo>
+<ic>
+<par name="DictHandle" base_type="ctrl" dimension="0"/>
+</ic>
+<oc>
+<par name="ClassName" base_type="ctrl" dimension="0"/>
+<par name="Confidence" base_type="ctrl" dimension="0"/>
+</oc>
+</interface>
+<body>
+<l>    get_image_size (Image, Width, Height)</l>
+<l>ClassName:=[]</l>
+<l>Confidence:=[]</l>
+<l>gen_empty_obj (Rectangles)</l>
+<l>gen_empty_obj (BinImages)</l>
+<l>    for RR:=0 to Width-512 by 512</l>
+<l>            for CC:=0 to Width-512 by 512</l>
+<l>                try</l>
+<l>                    crop_part (Image, ImagePart, RR, CC, 640, 640)</l>
+<l>                    set_dict_object (ImagePart, DictHandle, 'InputImage')</l>
+<l>                    Inferential_YoloSeg (DictHandle)</l>
+<l>                    get_dict_object (Object, DictHandle, '目标region')</l>
+<l>                    move_region (Object, RegionMoved, RR, CC)</l>
+<l>                    get_dict_tuple (DictHandle, '类别', ClassTuple)</l>
+<l>                    get_dict_tuple (DictHandle, '置信度', ConfidenceTuple)</l>
+<l>                    ClassName:=[ClassName,ClassTuple]</l>
+<l>                    Confidence:=[Confidence,ConfidenceTuple]</l>
+<c></c>
+<l>                    concat_obj (Rectangles, RegionMoved, Rectangles)</l>
+<l>                    get_dict_object (binImage, DictHandle, 'OutputImage')</l>
+<l>                    crop_part (binImage, ImagePart1, 0, 0, 512, 512)</l>
+<l>                    concat_obj (BinImages, ImagePart1, BinImages)</l>
+<l>                    remove_dict_key (DictHandle, '目标region')</l>
+<l>                    remove_dict_key (DictHandle, 'OutputImage')</l>
+<l>                     remove_dict_key (DictHandle, '置信度')</l>
+<l>                    remove_dict_key (DictHandle, '类别')</l>
+<l>                catch (Exception)</l>
+<l>                endtry</l>
+<l>            endfor</l>
+<c></c>
+<l>    endfor</l>
+<l>    tile_images (BinImages, LableImage, Width/512, 'horizontal')</l>
+<l>return ()</l>
+</body>
+<docu id="You_LoBe_Inference">
+<parameters>
+<parameter id="ClassName"/>
+<parameter id="Confidence"/>
+<parameter id="DictHandle"/>
+<parameter id="Image"/>
+<parameter id="LableImage"/>
+<parameter id="Rectangles"/>
+</parameters>
+</docu>
+</procedure>
+<procedure name="You_LoBe_Init">
+<interface>
+<ic>
+<par name="Index" base_type="ctrl" dimension="0"/>
+<par name="XMLPath" base_type="ctrl" dimension="0"/>
+<par name="Devices" base_type="ctrl" dimension="0"/>
+<par name="FP16Enale" base_type="ctrl" dimension="0"/>
+<par name="Confidence" base_type="ctrl" dimension="0"/>
+<par name="NMS" base_type="ctrl" dimension="0"/>
+</ic>
+<oc>
+<par name="Handle" base_type="ctrl" dimension="0"/>
+</oc>
+</interface>
+<body>
+<l>create_dict (Handle)</l>
+<c></c>
+<l>set_dict_tuple (Handle, '工程路径', XMLPath)</l>
+<l>set_dict_tuple (Handle, '使用设备', Devices)</l>
+<l>set_dict_tuple (Handle, '工程序号', Index)</l>
+<l>set_dict_tuple (Handle, 'FP16加速', FP16Enale)</l>
+<l>set_dict_tuple (Handle, '置信度阈值', Confidence)</l>
+<l>set_dict_tuple (Handle, '重叠度', NMS)</l>
+<l>Init_YoloSeg (Handle)</l>
+<l>return ()</l>
+</body>
+<docu id="You_LoBe_Init">
+<parameters>
+<parameter id="Confidence"/>
+<parameter id="Devices"/>
+<parameter id="FP16Enale"/>
+<parameter id="Handle"/>
+<parameter id="Index"/>
+<parameter id="NMS"/>
+<parameter id="XMLPath"/>
+</parameters>
+</docu>
+</procedure>
+</hdevelop>

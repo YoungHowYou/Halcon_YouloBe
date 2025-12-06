@@ -1,0 +1,21 @@
+Inferential_YoloSeg(hv_DictHandle)
+short.ascii=Laplace Filter.
+keywords=UserExtensions
+module=0 Foundation
+parameter=hv_DictHandle
+parameter_class=input_control
+type_list=handle
+default_type=handle
+sem_type=handle
+multivalue=false
+Init_YoloSeg(hv_DictHandle)
+short.ascii=Laplace Filter.
+keywords=UserExtensions
+module=0 Foundation
+parameter=hv_DictHandle
+parameter_class=input_control
+type_list=handle
+default_type=handle
+sem_type=handle
+multivalue=false
+
