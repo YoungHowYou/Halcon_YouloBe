@@ -1,19 +1,31 @@
-Inferential_YoloSeg(hv_DictHandle)
+OpenvinoInfer(Handle,DictHandle)
 short.ascii=Laplace Filter.
 keywords=UserExtensions
 module=0 Foundation
-parameter=hv_DictHandle
+parameter=Handle
 parameter_class=input_control
 type_list=handle
 default_type=handle
 sem_type=handle
 multivalue=false
-Init_YoloSeg(hv_DictHandle)
+parameter=DictHandle
+parameter_class=input_control
+type_list=handle
+default_type=handle
+sem_type=handle
+multivalue=false
+OpenvinoLoadModel(DictHandle,Handle)
 short.ascii=Laplace Filter.
 keywords=UserExtensions
 module=0 Foundation
-parameter=hv_DictHandle
+parameter=DictHandle
 parameter_class=input_control
+type_list=handle
+default_type=handle
+sem_type=handle
+multivalue=false
+parameter=Handle
+parameter_class=output_control
 type_list=handle
 default_type=handle
 sem_type=handle

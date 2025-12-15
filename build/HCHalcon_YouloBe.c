@@ -39,13 +39,14 @@ Herror HcPreCallUser(int proc_index_local, Hproc_handle *proc_handle)
   return HcPreCall(offset + proc_index_local, proc_handle);
 }
 
-HUserExport Herror T_Inferential_YoloSeg(const Htuple hv_DictHandle)
+HUserExport Herror T_OpenvinoInfer(const Htuple Handle, const Htuple DictHandle)
 {
   Hproc_handle ph;
   Herror err = H_MSG_OK;
 
   err = HcPreCallUser(0,&ph);
-  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&hv_DictHandle);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&Handle);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,1,&DictHandle);
   if (err == H_MSG_OK)
   {
     err = HcCall(ph);
@@ -53,26 +54,29 @@ HUserExport Herror T_Inferential_YoloSeg(const Htuple hv_DictHandle)
   return HcPostCall(ph,err);
 }
 
-HUserExport Herror T_Init_YoloSeg(const Htuple hv_DictHandle)
+HUserExport Herror T_OpenvinoLoadModel(const Htuple DictHandle, Htuple *Handle)
 {
   Hproc_handle ph;
   Herror err = H_MSG_OK;
 
   err = HcPreCallUser(1,&ph);
-  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&hv_DictHandle);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&DictHandle);
   if (err == H_MSG_OK)
   {
+    HcInitOCT(ph,0,Handle);
     err = HcCall(ph);
   }
+  err = HcStoreOCT(ph,0,Handle,err);
   return HcPostCall(ph,err);
 }
 
-HUserExport Herror Inferential_YoloSeg(Hlong hv_DictHandle)
+HUserExport Herror OpenvinoInfer(Hlong Handle, Hlong DictHandle)
 {
   Hproc_handle ph;
   Herror err;
   err = HcPreCallUser(0,&ph);
-  if (err == H_MSG_OK) HcStoreICL(ph,0,hv_DictHandle);
+  if (err == H_MSG_OK) HcStoreICL(ph,0,Handle);
+  if (err == H_MSG_OK) HcStoreICL(ph,1,DictHandle);
   if (err == H_MSG_OK)
   {
     err = HcCall(ph);
@@ -80,16 +84,18 @@ HUserExport Herror Inferential_YoloSeg(Hlong hv_DictHandle)
   return HcPostCall(ph,err);
 }
 
-HUserExport Herror Init_YoloSeg(Hlong hv_DictHandle)
+HUserExport Herror OpenvinoLoadModel(Hlong DictHandle, Hlong *Handle)
 {
   Hproc_handle ph;
   Herror err;
   err = HcPreCallUser(1,&ph);
-  if (err == H_MSG_OK) HcStoreICL(ph,0,hv_DictHandle);
+  if (err == H_MSG_OK) HcStoreICL(ph,0,DictHandle);
   if (err == H_MSG_OK)
   {
+    HcInitOCL(ph,0);
     err = HcCall(ph);
   }
+  err = HcStoreOCL(ph,0,Handle,err);
   return HcPostCall(ph,err);
 }
 

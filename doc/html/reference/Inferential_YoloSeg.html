@@ -1089,23 +1089,23 @@ toggleLanguage(new_lang,1);return;}
 <h2 id="sec_synopsis">Signature</h2>
 <div data-if="hdevelop" style="display:inline;">
 <p>
-<code><b>Inferential_YoloSeg</b>( :  : <a href="#hv_DictHandle"><i>hv_DictHandle</i></a> : )</code></p>
+<code><b>Inferential_YoloSeg</b>( :  : <a href="#Handle"><i>Handle</i></a>, <a href="#DictHandle"><i>DictHandle</i></a> : )</code></p>
 </div>
 <div data-if="c" style="display:none;">
 <p>
-<code>Herror <b>T_Inferential_YoloSeg</b>(const Htuple <a href="#hv_DictHandle"><i>hv_DictHandle</i></a>)</code></p>
+<code>Herror <b>T_Inferential_YoloSeg</b>(const Htuple <a href="#Handle"><i>Handle</i></a>, const Htuple <a href="#DictHandle"><i>DictHandle</i></a>)</code></p>
 </div>
 <div data-if="cpp" style="display:none;">
 <p>
-<code>void <b>InferentialYoloSeg</b>(const HTuple&amp; <a href="#hv_DictHandle"><i>hv_DictHandle</i></a>)</code></p>
+<code>void <b>InferentialYoloSeg</b>(const HTuple&amp; <a href="#Handle"><i>Handle</i></a>, const HTuple&amp; <a href="#DictHandle"><i>DictHandle</i></a>)</code></p>
 </div>
 <div data-if="dotnet" style="display:none;">
 <p>
-<code>static void <a href="HHalconYouloBe.html">HHalconYouloBe</a>.<b>InferentialYoloSeg</b>(<a href="HTuple.html">HTuple</a> <a href="#hv_DictHandle"><i>hvDictHandle</i></a>)</code></p>
+<code>static void <a href="HHalconYouloBe.html">HHalconYouloBe</a>.<b>InferentialYoloSeg</b>(<a href="HTuple.html">HTuple</a> <a href="#Handle"><i>handle</i></a>, <a href="HTuple.html">HTuple</a> <a href="#DictHandle"><i>dictHandle</i></a>)</code></p>
 </div>
 <div data-if="python" style="display:none;">
 <p>
-<code>def <b>Inferential_YoloSeg</b>(<a href="#hv_DictHandle"><i>hv__dict_handle</i></a>: HHandle) -&gt; None</code></p>
+<code>def <b>Inferential_YoloSeg</b>(<a href="#Handle"><i>handle</i></a>: HHandle, <a href="#DictHandle"><i>dict_handle</i></a>: HHandle) -&gt; None</code></p>
 </div>
 <h2 id="sec_execution">Execution Information</h2>
 <ul>
@@ -1116,7 +1116,13 @@ toggleLanguage(new_lang,1);return;}
 <h2 id="sec_parameters">Parameters</h2>
   <div class="par">
 <div class="parhead">
-<span id="hv_DictHandle" class="parname"><b><code><span data-if="hdevelop" style="display:inline">hv_DictHandle</span><span data-if="c" style="display:none">hv_DictHandle</span><span data-if="cpp" style="display:none">hv_DictHandle</span><span data-if="dotnet" style="display:none">hvDictHandle</span><span data-if="python" style="display:none">hv__dict_handle</span></code></b> (input_control)  </span><span>handle <code>→</code> <span data-if="dotnet" style="display:none">HTuple</span><span data-if="python" style="display:none">HHandle</span><span data-if="cpp" style="display:none">HTuple</span><span data-if="c" style="display:none">Htuple</span><span data-if="hdevelop" style="display:inline"> (handle)</span><span data-if="dotnet" style="display:none"> (<i>IntPtr</i>)</span><span data-if="cpp" style="display:none"> (<i>HHandle</i>)</span><span data-if="c" style="display:none"> (<i>handle</i>)</span></span>
+<span id="Handle" class="parname"><b><code><span data-if="hdevelop" style="display:inline">Handle</span><span data-if="c" style="display:none">Handle</span><span data-if="cpp" style="display:none">Handle</span><span data-if="dotnet" style="display:none">handle</span><span data-if="python" style="display:none">handle</span></code></b> (input_control)  </span><span>handle <code>→</code> <span data-if="dotnet" style="display:none">HTuple</span><span data-if="python" style="display:none">HHandle</span><span data-if="cpp" style="display:none">HTuple</span><span data-if="c" style="display:none">Htuple</span><span data-if="hdevelop" style="display:inline"> (handle)</span><span data-if="dotnet" style="display:none"> (<i>IntPtr</i>)</span><span data-if="cpp" style="display:none"> (<i>HHandle</i>)</span><span data-if="c" style="display:none"> (<i>handle</i>)</span></span>
+</div>
+<p class="pardesc"></p>
+</div>
+  <div class="par">
+<div class="parhead">
+<span id="DictHandle" class="parname"><b><code><span data-if="hdevelop" style="display:inline">DictHandle</span><span data-if="c" style="display:none">DictHandle</span><span data-if="cpp" style="display:none">DictHandle</span><span data-if="dotnet" style="display:none">dictHandle</span><span data-if="python" style="display:none">dict_handle</span></code></b> (input_control)  </span><span>handle <code>→</code> <span data-if="dotnet" style="display:none">HTuple</span><span data-if="python" style="display:none">HHandle</span><span data-if="cpp" style="display:none">HTuple</span><span data-if="c" style="display:none">Htuple</span><span data-if="hdevelop" style="display:inline"> (handle)</span><span data-if="dotnet" style="display:none"> (<i>IntPtr</i>)</span><span data-if="cpp" style="display:none"> (<i>HHandle</i>)</span><span data-if="c" style="display:none"> (<i>handle</i>)</span></span>
 </div>
 <p class="pardesc"></p>
 </div>

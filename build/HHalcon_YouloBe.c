@@ -22,21 +22,21 @@
 #else
 #  include "HlibXpi.h"
 #endif
-Herror CHClass_YoloSeg(Hproc_handle proc_id);
-Herror CHInit_YoloSeg(Hproc_handle proc_id);
+Herror OpenvinoInfer(Hproc_handle proc_id);
+Herror OpenvinoLoadModel(Hproc_handle proc_id);
 
 
 
 static Herror HSystem0(int32_t xid)
 {
-  HCkP(HXPkgSetOpInfo(xid,0,HOIID_ParameterType,0,"h"));
+  HCkP(HXPkgSetOpInfo(xid,0,HOIID_ParameterType,0,"hh"));
   HCkP(HXPkgSetOpInfo(xid,0,HOIID_NumInpObjPar,0));
   HCkP(HXPkgSetOpInfo(xid,0,HOIID_NumOutpObjPar,0));
-  HCkP(HXPkgSetOpInfo(xid,0,HOIID_NumInpCtrlPar,1));
+  HCkP(HXPkgSetOpInfo(xid,0,HOIID_NumInpCtrlPar,2));
   HCkP(HXPkgSetOpInfo(xid,0,HOIID_NumOutpCtrlPar,0));
-  HCkP(HXPkgSetOpInfo(xid,0,HOIID_LogicalName,"Inferential_YoloSeg"));
-  HCkP(HXPkgSetOpInfo(xid,0,HOIID_PhysicalName,"CHClass_YoloSeg"));
-  HCkP(HXPkgSetOpInfo(xid,0,HOIID_procedure,CHClass_YoloSeg));
+  HCkP(HXPkgSetOpInfo(xid,0,HOIID_LogicalName,"OpenvinoInfer"));
+  HCkP(HXPkgSetOpInfo(xid,0,HOIID_PhysicalName,"OpenvinoInfer"));
+  HCkP(HXPkgSetOpInfo(xid,0,HOIID_procedure,OpenvinoInfer));
   HCkP(HXPkgSetOpInfo(xid,0,HOIID_module,1ul));
   HCkP(HXPkgSetOpInfo(xid,0,HOIID_process_excl_local,HAG_PAR_NO_RESTRICT));
 #ifndef HC_NO_COMPUTE_DEVICES
@@ -49,13 +49,14 @@ static Herror HSystem0(int32_t xid)
   HCkP(HXPkgSetOpInfo(xid,0,HOIID_parallelRegionsplit,0));
 
   HCkP(HXPkgSetOpInfo(xid,1,HOIID_ParameterType,0,"h"));
+  HCkP(HXPkgSetOpInfo(xid,1,HOIID_ParameterType,1,"h"));
   HCkP(HXPkgSetOpInfo(xid,1,HOIID_NumInpObjPar,0));
   HCkP(HXPkgSetOpInfo(xid,1,HOIID_NumOutpObjPar,0));
   HCkP(HXPkgSetOpInfo(xid,1,HOIID_NumInpCtrlPar,1));
-  HCkP(HXPkgSetOpInfo(xid,1,HOIID_NumOutpCtrlPar,0));
-  HCkP(HXPkgSetOpInfo(xid,1,HOIID_LogicalName,"Init_YoloSeg"));
-  HCkP(HXPkgSetOpInfo(xid,1,HOIID_PhysicalName,"CHInit_YoloSeg"));
-  HCkP(HXPkgSetOpInfo(xid,1,HOIID_procedure,CHInit_YoloSeg));
+  HCkP(HXPkgSetOpInfo(xid,1,HOIID_NumOutpCtrlPar,1));
+  HCkP(HXPkgSetOpInfo(xid,1,HOIID_LogicalName,"OpenvinoLoadModel"));
+  HCkP(HXPkgSetOpInfo(xid,1,HOIID_PhysicalName,"OpenvinoLoadModel"));
+  HCkP(HXPkgSetOpInfo(xid,1,HOIID_procedure,OpenvinoLoadModel));
   HCkP(HXPkgSetOpInfo(xid,1,HOIID_module,1ul));
   HCkP(HXPkgSetOpInfo(xid,1,HOIID_process_excl_local,HAG_PAR_NO_RESTRICT));
 #ifndef HC_NO_COMPUTE_DEVICES

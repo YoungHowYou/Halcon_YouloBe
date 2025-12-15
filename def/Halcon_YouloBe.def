@@ -1,4 +1,5 @@
-Init_YoloSeg<- CHInit_YoloSeg[::hv_DictHandle:]
+
+OpenvinoLoadModel<- OpenvinoLoadModel[::DictHandle:Handle]
 short.german
   Laplace Filter.;
   
@@ -24,13 +25,21 @@ parallelization
   method:              none;
 
 parameter
-  hv_DictHandle:      input_control;
+  DictHandle:         input_control;
   default_type:       handle;
   multivalue:         false;
   sem_type:           handle;
   type_list:          handle;
 
-Inferential_YoloSeg<- CHClass_YoloSeg[::hv_DictHandle:]
+parameter
+  Handle:             output_control;
+  sem_type:           handle;
+  type_list:          handle;
+  default_type:       handle;
+  multivalue:         false;
+
+
+OpenvinoInfer<- OpenvinoInfer[::Handle,DictHandle:]
 short.german
   Laplace Filter.;
   
@@ -56,7 +65,14 @@ parallelization
   method:              none;
 
 parameter
-  hv_DictHandle:      input_control;
+  Handle:             input_control;
+  default_type:       handle;
+  multivalue:         false;
+  sem_type:           handle;
+  type_list:          handle;
+
+parameter
+  DictHandle:         input_control;
   default_type:       handle;
   multivalue:         false;
   sem_type:           handle;

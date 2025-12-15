@@ -51,25 +51,28 @@ Hproc_handle PreCallUser(int proc_index_local)
 
 
 
-#ifdef InferentialYoloSeg
-# error An existing macro name conflicts with InferentialYoloSeg
+#ifdef OpenvinoInfer
+# error An existing macro name conflicts with OpenvinoInfer
 #endif
-HUserExport void HalconCpp::InferentialYoloSeg(const HTuple& hv_DictHandle)
+HUserExport void HalconCpp::OpenvinoInfer(const HTuple& Handle, const HTuple& DictHandle)
 {
   Hproc_handle proc = PreCallUser(0);
-  HalconAPI::Store(proc,0,hv_DictHandle);
+  HalconAPI::Store(proc,0,Handle);
+  HalconAPI::Store(proc,1,DictHandle);
   HalconAPI::CallProcedure(proc);
   HalconAPI::PostCall(proc);
 }
 
-#ifdef InitYoloSeg
-# error An existing macro name conflicts with InitYoloSeg
+#ifdef OpenvinoLoadModel
+# error An existing macro name conflicts with OpenvinoLoadModel
 #endif
-HUserExport void HalconCpp::InitYoloSeg(const HTuple& hv_DictHandle)
+HUserExport void HalconCpp::OpenvinoLoadModel(const HTuple& DictHandle, HTuple* Handle)
 {
   Hproc_handle proc = PreCallUser(1);
-  HalconAPI::Store(proc,0,hv_DictHandle);
+  HalconAPI::Store(proc,0,DictHandle);
+  HalconAPI::InitOutp(proc,0);
   HalconAPI::CallProcedure(proc);
+  HalconAPI::Load(proc,0,Handle);
   HalconAPI::PostCall(proc);
 }
 

@@ -446,8 +446,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\HHalcon_YouloBe.c" />
+    <ClCompile Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\source\Halcon_OpenVino.cpp" />
     <ClCompile Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\source\Halcon_YouloBe.c" />
-    <ClCompile Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\source\Halcon_yolo.cpp" />
+    <ClInclude Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include\Halcon_Def.h" />
     <ClInclude Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include\Halcon_YouloBe.h" />
     <ClInclude Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def" />
   </ItemGroup>

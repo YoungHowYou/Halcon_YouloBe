@@ -60,8 +60,9 @@ HALCON_AddExtensionPackage(Halcon_YouloBe
   DEF_FILES
     def/Halcon_YouloBe.def
   SOURCES
+    source/Halcon_OpenVino.cpp
     source/Halcon_YouloBe.c
-    source/Halcon_yolo.cpp
+
   CHAPTERS
     userextensions
   CLASSES

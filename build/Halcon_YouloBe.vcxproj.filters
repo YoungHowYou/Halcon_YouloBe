@@ -4,14 +4,17 @@
     <ClCompile Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\HHalcon_YouloBe.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\source\Halcon_YouloBe.c">
+    <ClCompile Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\source\Halcon_OpenVino.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\source\Halcon_yolo.cpp">
+    <ClCompile Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\source\Halcon_YouloBe.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include\Halcon_Def.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include\Halcon_YouloBe.h">
       <Filter>Header Files</Filter>
     </ClInclude>

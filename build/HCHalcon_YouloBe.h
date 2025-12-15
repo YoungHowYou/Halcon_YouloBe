@@ -23,10 +23,10 @@
 extern "C" {
 #endif
 
-HUserExport Herror T_Inferential_YoloSeg(const Htuple hv_DictHandle);
-HUserExport Herror Inferential_YoloSeg(Hlong hv_DictHandle);
-HUserExport Herror T_Init_YoloSeg(const Htuple hv_DictHandle);
-HUserExport Herror Init_YoloSeg(Hlong hv_DictHandle);
+HUserExport Herror T_OpenvinoInfer(const Htuple Handle, const Htuple DictHandle);
+HUserExport Herror OpenvinoInfer(Hlong Handle, Hlong DictHandle);
+HUserExport Herror T_OpenvinoLoadModel(const Htuple DictHandle, Htuple *Handle);
+HUserExport Herror OpenvinoLoadModel(Hlong DictHandle, Hlong *Handle);
 
 
 #if defined(__cplusplus)

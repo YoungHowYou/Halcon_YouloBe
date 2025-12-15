@@ -30,10 +30,10 @@ namespace HalconCpp
    ***************************************************************************/
 
 // Laplace Filter.
-HUserExport void InferentialYoloSeg(const HTuple& hv_DictHandle);
+HUserExport void OpenvinoInfer(const HTuple& Handle, const HTuple& DictHandle);
 
 // Laplace Filter.
-HUserExport void InitYoloSeg(const HTuple& hv_DictHandle);
+HUserExport void OpenvinoLoadModel(const HTuple& DictHandle, HTuple* Handle);
 
 }
 

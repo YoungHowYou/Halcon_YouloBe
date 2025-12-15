@@ -1,13 +1,12 @@
 #include "Halcon_YouloBe.h"
-
-Herror CHInit_YoloSeg(Hproc_handle proc_handle)
+Herror OpenvinoLoadModel(Hproc_handle proc_handle)
 {
 
-    return HInit_YoloSeg(proc_handle);
+    return Openvino加载模型( proc_handle);
+
 }
-
-Herror CHClass_YoloSeg(Hproc_handle proc_handle)
+Herror OpenvinoInfer(Hproc_handle proc_handle)
 {
+    return Openvino推理模型( proc_handle);
 
-    return HProcess_YoloSeg(proc_handle);
 }
