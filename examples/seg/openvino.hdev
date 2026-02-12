@@ -8,8 +8,13 @@
 <l>set_dict_tuple(DictHandle, '使用设备','GPU')</l>
 <l>OpenvinoLoadModel (DictHandle, Handle)</l>
 <c></c>
-<l>read_image (Image, './5_0_41_470_1110.png')</l>
+<l>read_image (Image, './52_1.png')</l>
+<l>zoom_image_size (Image, Image, 256, 256, 'constant')</l>
+<c></c>
+<c></c>
 <l>OpenVinoInferImage (Image, OutImage, DictHandle, Handle)</l>
+<c></c>
+<c></c>
 <l>threshold (OutImage, Regions, 1, 1)</l>
 <c></c>
 <l>read_image (Image, './9_17_18_413_130296.png')</l>
