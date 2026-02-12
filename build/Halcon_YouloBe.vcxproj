@@ -22,7 +22,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D7E66B5A-1BC6-3E45-804E-9EFE0EC6FFC4}</ProjectGuid>
+    <ProjectGuid>{3AF18D90-B373-3D0C-A3A9-5A882FCA2E35}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
@@ -63,25 +63,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\bin\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\bin\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Halcon_YouloBe.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Halcon_YouloBe</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\bin\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\bin\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Halcon_YouloBe.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Halcon_YouloBe</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\bin\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\bin\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Halcon_YouloBe.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Halcon_YouloBe</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\bin\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\bin\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Halcon_YouloBe.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Halcon_YouloBe</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.dll</TargetExt>
@@ -91,7 +91,7 @@
   <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/young/AppData/Local/Programs/MVTec/HALCON-24.11-Progress-Steady/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -117,10 +117,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";Halcon_YouloBe_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -128,15 +128,15 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halcon.lib;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halconcpp.lib;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\lib\release\*.lib;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\lib\release\*.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halcon.lib;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halconcpp.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\lib\release\*.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\lib\release\*.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DataExecutionPrevention></DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
-      <ImportLibrary>C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/bin/Halcon_YouloBe.lib</ImportLibrary>
+      <ImportLibrary>D:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/bin/Halcon_YouloBe.lib</ImportLibrary>
       <LinkErrorReporting></LinkErrorReporting>
-      <ProgramDataBaseFile>C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/bin/Halcon_YouloBe.pdb</ProgramDataBaseFile>
+      <ProgramDataBaseFile>D:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/bin/Halcon_YouloBe.pdb</ProgramDataBaseFile>
       <RandomizedBaseAddress></RandomizedBaseAddress>
       <SubSystem></SubSystem>
     </Link>
@@ -146,7 +146,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/young/AppData/Local/Programs/MVTec/HALCON-24.11-Progress-Steady/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -173,10 +173,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";Halcon_YouloBe_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -184,15 +184,15 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halcon.lib;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halconcpp.lib;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\lib\release\*.lib;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\lib\release\*.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halcon.lib;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halconcpp.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\lib\release\*.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\lib\release\*.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DataExecutionPrevention></DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
-      <ImportLibrary>C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/bin/Halcon_YouloBe.lib</ImportLibrary>
+      <ImportLibrary>D:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/bin/Halcon_YouloBe.lib</ImportLibrary>
       <LinkErrorReporting></LinkErrorReporting>
-      <ProgramDataBaseFile>C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/bin/Halcon_YouloBe.pdb</ProgramDataBaseFile>
+      <ProgramDataBaseFile>D:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/bin/Halcon_YouloBe.pdb</ProgramDataBaseFile>
       <RandomizedBaseAddress></RandomizedBaseAddress>
       <SubSystem></SubSystem>
     </Link>
@@ -202,7 +202,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/young/AppData/Local/Programs/MVTec/HALCON-24.11-Progress-Steady/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -229,10 +229,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";Halcon_YouloBe_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -240,15 +240,15 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halcon.lib;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halconcpp.lib;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\lib\release\*.lib;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\lib\release\*.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halcon.lib;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halconcpp.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\lib\release\*.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\lib\release\*.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DataExecutionPrevention></DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
-      <ImportLibrary>C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/bin/MinSizeRel/Halcon_YouloBe.lib</ImportLibrary>
+      <ImportLibrary>D:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/bin/MinSizeRel/Halcon_YouloBe.lib</ImportLibrary>
       <LinkErrorReporting></LinkErrorReporting>
-      <ProgramDataBaseFile>C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/bin/MinSizeRel/Halcon_YouloBe.pdb</ProgramDataBaseFile>
+      <ProgramDataBaseFile>D:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/bin/MinSizeRel/Halcon_YouloBe.pdb</ProgramDataBaseFile>
       <RandomizedBaseAddress></RandomizedBaseAddress>
       <SubSystem></SubSystem>
     </Link>
@@ -258,7 +258,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/young/AppData/Local/Programs/MVTec/HALCON-24.11-Progress-Steady/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -284,10 +284,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";Halcon_YouloBe_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -295,15 +295,15 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halcon.lib;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halconcpp.lib;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\lib\release\*.lib;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\lib\release\*.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halcon.lib;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halconcpp.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\lib\release\*.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\lib\release\*.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DataExecutionPrevention></DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
-      <ImportLibrary>C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/bin/RelWithDebInfo/Halcon_YouloBe.lib</ImportLibrary>
+      <ImportLibrary>D:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/bin/RelWithDebInfo/Halcon_YouloBe.lib</ImportLibrary>
       <LinkErrorReporting></LinkErrorReporting>
-      <ProgramDataBaseFile>C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/bin/RelWithDebInfo/Halcon_YouloBe.pdb</ProgramDataBaseFile>
+      <ProgramDataBaseFile>D:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/bin/RelWithDebInfo/Halcon_YouloBe.pdb</ProgramDataBaseFile>
       <RandomizedBaseAddress></RandomizedBaseAddress>
       <SubSystem></SubSystem>
     </Link>
@@ -312,15 +312,15 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\7edf3dba5980a28d7e763161c1a61aeb\HHalcon_YouloBe.c.rule">
+    <CustomBuild Include="D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\009d96d4893f23211611adfa4fb0eb8d\HHalcon_YouloBe.c.rule">
       <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating extension package main for Halcon_YouloBe</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build
+cd D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe -u -H -pHalcon_YouloBe C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def
+C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe -u -H -pHalcon_YouloBe D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -328,17 +328,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\HHalcon_YouloBe.c</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\HHalcon_YouloBe.c</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating extension package main for Halcon_YouloBe</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build
+cd D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe -u -H -pHalcon_YouloBe C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def
+C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe -u -H -pHalcon_YouloBe D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -346,17 +346,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\HHalcon_YouloBe.c</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\HHalcon_YouloBe.c</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating extension package main for Halcon_YouloBe</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build
+cd D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe -u -H -pHalcon_YouloBe C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def
+C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe -u -H -pHalcon_YouloBe D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -364,17 +364,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\HHalcon_YouloBe.c</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\HHalcon_YouloBe.c</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating extension package main for Halcon_YouloBe</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build
+cd D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe -u -H -pHalcon_YouloBe C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def
+C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe -u -H -pHalcon_YouloBe D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -382,17 +382,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\HHalcon_YouloBe.c</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\HHalcon_YouloBe.c</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\CMakeLists.txt">
+    <CustomBuild Include="D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe -BC:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build --check-stamp-file C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Desktop/Source/Halcon_Extension/Halcon_YouloBe -BD:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build --check-stamp-file D:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -400,12 +400,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\WindowsPaths.cmake;C:\Users\young\AppData\Roaming\MVTec\HALCON-24.11-Progress-Steady\examples\cmake\FindHALCON.cmake;C:\Users\young\AppData\Roaming\MVTec\HALCON-24.11-Progress-Steady\examples\cmake\UseHALCON.cmake;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeCCompiler.cmake;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeCXXCompiler.cmake;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeRCCompiler.cmake;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\WindowsPaths.cmake;C:\Users\young\AppData\Roaming\MVTec\HALCON-24.11-Progress-Steady\examples\cmake\FindHALCON.cmake;C:\Users\young\AppData\Roaming\MVTec\HALCON-24.11-Progress-Steady\examples\cmake\UseHALCON.cmake;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeCCompiler.cmake;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeCXXCompiler.cmake;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeRCCompiler.cmake;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe -BC:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build --check-stamp-file C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Desktop/Source/Halcon_Extension/Halcon_YouloBe -BD:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build --check-stamp-file D:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -413,12 +413,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\WindowsPaths.cmake;C:\Users\young\AppData\Roaming\MVTec\HALCON-24.11-Progress-Steady\examples\cmake\FindHALCON.cmake;C:\Users\young\AppData\Roaming\MVTec\HALCON-24.11-Progress-Steady\examples\cmake\UseHALCON.cmake;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeCCompiler.cmake;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeCXXCompiler.cmake;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeRCCompiler.cmake;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\WindowsPaths.cmake;C:\Users\young\AppData\Roaming\MVTec\HALCON-24.11-Progress-Steady\examples\cmake\FindHALCON.cmake;C:\Users\young\AppData\Roaming\MVTec\HALCON-24.11-Progress-Steady\examples\cmake\UseHALCON.cmake;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeCCompiler.cmake;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeCXXCompiler.cmake;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeRCCompiler.cmake;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe -BC:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build --check-stamp-file C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Desktop/Source/Halcon_Extension/Halcon_YouloBe -BD:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build --check-stamp-file D:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -426,12 +426,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\WindowsPaths.cmake;C:\Users\young\AppData\Roaming\MVTec\HALCON-24.11-Progress-Steady\examples\cmake\FindHALCON.cmake;C:\Users\young\AppData\Roaming\MVTec\HALCON-24.11-Progress-Steady\examples\cmake\UseHALCON.cmake;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeCCompiler.cmake;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeCXXCompiler.cmake;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeRCCompiler.cmake;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\WindowsPaths.cmake;C:\Users\young\AppData\Roaming\MVTec\HALCON-24.11-Progress-Steady\examples\cmake\FindHALCON.cmake;C:\Users\young\AppData\Roaming\MVTec\HALCON-24.11-Progress-Steady\examples\cmake\UseHALCON.cmake;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeCCompiler.cmake;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeCXXCompiler.cmake;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeRCCompiler.cmake;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe -BC:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build --check-stamp-file C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Desktop/Source/Halcon_Extension/Halcon_YouloBe -BD:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build --check-stamp-file D:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -439,35 +439,35 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\WindowsPaths.cmake;C:\Users\young\AppData\Roaming\MVTec\HALCON-24.11-Progress-Steady\examples\cmake\FindHALCON.cmake;C:\Users\young\AppData\Roaming\MVTec\HALCON-24.11-Progress-Steady\examples\cmake\UseHALCON.cmake;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeCCompiler.cmake;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeCXXCompiler.cmake;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeRCCompiler.cmake;C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\WindowsPaths.cmake;C:\Users\young\AppData\Roaming\MVTec\HALCON-24.11-Progress-Steady\examples\cmake\FindHALCON.cmake;C:\Users\young\AppData\Roaming\MVTec\HALCON-24.11-Progress-Steady\examples\cmake\UseHALCON.cmake;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeCCompiler.cmake;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeCXXCompiler.cmake;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeRCCompiler.cmake;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\4.2.0-rc3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\HHalcon_YouloBe.c" />
-    <ClCompile Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\source\Halcon_OpenVino.cpp" />
-    <ClCompile Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\source\Halcon_YouloBe.c" />
-    <ClInclude Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include\Halcon_Def.h" />
-    <ClInclude Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include\Halcon_YouloBe.h" />
-    <ClInclude Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def" />
+    <ClCompile Include="D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\HHalcon_YouloBe.c" />
+    <ClCompile Include="D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\source\Halcon_OpenVino.cpp" />
+    <ClCompile Include="D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\source\Halcon_YouloBe.c" />
+    <ClInclude Include="D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include\Halcon_Def.h" />
+    <ClInclude Include="D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include\Halcon_YouloBe.h" />
+    <ClInclude Include="D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\ZERO_CHECK.vcxproj">
-      <Project>{5243CBAF-F487-37D7-A892-8B63DB2683DD}</Project>
+    <ProjectReference Include="D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\ZERO_CHECK.vcxproj">
+      <Project>{7ECB85BD-296C-3FE4-BAF8-14961A9EF379}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\Halcon_YouloBe_help.vcxproj">
-      <Project>{B573F4B4-B5F8-39A0-959C-39787BF5007B}</Project>
+    <ProjectReference Include="D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\Halcon_YouloBe_help.vcxproj">
+      <Project>{9EAA882E-15E2-31C0-AD25-13F61B7499F1}</Project>
       <Name>Halcon_YouloBe_help</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\Halcon_YouloBe_html.vcxproj">
-      <Project>{16632564-61AF-35FC-9A6B-9981E7ED06F6}</Project>
+    <ProjectReference Include="D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\Halcon_YouloBe_html.vcxproj">
+      <Project>{51B9F3D5-113D-3BFE-B389-6B766A305D86}</Project>
       <Name>Halcon_YouloBe_html</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

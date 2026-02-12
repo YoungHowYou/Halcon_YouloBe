@@ -22,6 +22,9 @@
 #else
 #  include "HlibXpi.h"
 #endif
+Herror CHPNGIn(Hproc_handle proc_id);
+Herror CHPNGOut(Hproc_handle proc_id);
+Herror CHCremap(Hproc_handle proc_id);
 Herror OpenvinoInfer(Hproc_handle proc_id);
 Herror OpenvinoLoadModel(Hproc_handle proc_id);
 
@@ -29,14 +32,14 @@ Herror OpenvinoLoadModel(Hproc_handle proc_id);
 
 static Herror HSystem0(int32_t xid)
 {
-  HCkP(HXPkgSetOpInfo(xid,0,HOIID_ParameterType,0,"hh"));
-  HCkP(HXPkgSetOpInfo(xid,0,HOIID_NumInpObjPar,0));
-  HCkP(HXPkgSetOpInfo(xid,0,HOIID_NumOutpObjPar,0));
-  HCkP(HXPkgSetOpInfo(xid,0,HOIID_NumInpCtrlPar,2));
+  HCkP(HXPkgSetOpInfo(xid,0,HOIID_ParameterType,0,"i"));
+  HCkP(HXPkgSetOpInfo(xid,0,HOIID_NumInpObjPar,1));
+  HCkP(HXPkgSetOpInfo(xid,0,HOIID_NumOutpObjPar,1));
+  HCkP(HXPkgSetOpInfo(xid,0,HOIID_NumInpCtrlPar,1));
   HCkP(HXPkgSetOpInfo(xid,0,HOIID_NumOutpCtrlPar,0));
-  HCkP(HXPkgSetOpInfo(xid,0,HOIID_LogicalName,"OpenvinoInfer"));
-  HCkP(HXPkgSetOpInfo(xid,0,HOIID_PhysicalName,"OpenvinoInfer"));
-  HCkP(HXPkgSetOpInfo(xid,0,HOIID_procedure,OpenvinoInfer));
+  HCkP(HXPkgSetOpInfo(xid,0,HOIID_LogicalName,"PNGIn"));
+  HCkP(HXPkgSetOpInfo(xid,0,HOIID_PhysicalName,"CHPNGIn"));
+  HCkP(HXPkgSetOpInfo(xid,0,HOIID_procedure,CHPNGIn));
   HCkP(HXPkgSetOpInfo(xid,0,HOIID_module,1ul));
   HCkP(HXPkgSetOpInfo(xid,0,HOIID_process_excl_local,HAG_PAR_NO_RESTRICT));
 #ifndef HC_NO_COMPUTE_DEVICES
@@ -48,15 +51,13 @@ static Herror HSystem0(int32_t xid)
   HCkP(HXPkgSetOpInfo(xid,0,HOIID_parallelMinCosts,0));
   HCkP(HXPkgSetOpInfo(xid,0,HOIID_parallelRegionsplit,0));
 
-  HCkP(HXPkgSetOpInfo(xid,1,HOIID_ParameterType,0,"h"));
-  HCkP(HXPkgSetOpInfo(xid,1,HOIID_ParameterType,1,"h"));
-  HCkP(HXPkgSetOpInfo(xid,1,HOIID_NumInpObjPar,0));
-  HCkP(HXPkgSetOpInfo(xid,1,HOIID_NumOutpObjPar,0));
-  HCkP(HXPkgSetOpInfo(xid,1,HOIID_NumInpCtrlPar,1));
-  HCkP(HXPkgSetOpInfo(xid,1,HOIID_NumOutpCtrlPar,1));
-  HCkP(HXPkgSetOpInfo(xid,1,HOIID_LogicalName,"OpenvinoLoadModel"));
-  HCkP(HXPkgSetOpInfo(xid,1,HOIID_PhysicalName,"OpenvinoLoadModel"));
-  HCkP(HXPkgSetOpInfo(xid,1,HOIID_procedure,OpenvinoLoadModel));
+  HCkP(HXPkgSetOpInfo(xid,1,HOIID_NumInpObjPar,1));
+  HCkP(HXPkgSetOpInfo(xid,1,HOIID_NumOutpObjPar,1));
+  HCkP(HXPkgSetOpInfo(xid,1,HOIID_NumInpCtrlPar,0));
+  HCkP(HXPkgSetOpInfo(xid,1,HOIID_NumOutpCtrlPar,0));
+  HCkP(HXPkgSetOpInfo(xid,1,HOIID_LogicalName,"PNGOut"));
+  HCkP(HXPkgSetOpInfo(xid,1,HOIID_PhysicalName,"CHPNGOut"));
+  HCkP(HXPkgSetOpInfo(xid,1,HOIID_procedure,CHPNGOut));
   HCkP(HXPkgSetOpInfo(xid,1,HOIID_module,1ul));
   HCkP(HXPkgSetOpInfo(xid,1,HOIID_process_excl_local,HAG_PAR_NO_RESTRICT));
 #ifndef HC_NO_COMPUTE_DEVICES
@@ -67,6 +68,64 @@ static Herror HSystem0(int32_t xid)
   HCkP(HXPkgSetOpInfo(xid,1,HOIID_numCost,0));
   HCkP(HXPkgSetOpInfo(xid,1,HOIID_parallelMinCosts,0));
   HCkP(HXPkgSetOpInfo(xid,1,HOIID_parallelRegionsplit,0));
+
+  HCkP(HXPkgSetOpInfo(xid,2,HOIID_ParameterType,0,"h"));
+  HCkP(HXPkgSetOpInfo(xid,2,HOIID_NumInpObjPar,0));
+  HCkP(HXPkgSetOpInfo(xid,2,HOIID_NumOutpObjPar,0));
+  HCkP(HXPkgSetOpInfo(xid,2,HOIID_NumInpCtrlPar,1));
+  HCkP(HXPkgSetOpInfo(xid,2,HOIID_NumOutpCtrlPar,0));
+  HCkP(HXPkgSetOpInfo(xid,2,HOIID_LogicalName,"remap"));
+  HCkP(HXPkgSetOpInfo(xid,2,HOIID_PhysicalName,"CHCremap"));
+  HCkP(HXPkgSetOpInfo(xid,2,HOIID_procedure,CHCremap));
+  HCkP(HXPkgSetOpInfo(xid,2,HOIID_module,1ul));
+  HCkP(HXPkgSetOpInfo(xid,2,HOIID_process_excl_local,HAG_PAR_NO_RESTRICT));
+#ifndef HC_NO_COMPUTE_DEVICES
+  HCkP(HXPkgSetOpInfo(xid,2,HOIID_compute_device,0));
+#endif
+  HCkP(HXPkgSetOpInfo(xid,2,HOIID_parallelization,0));
+  HCkP(HXPkgSetOpInfo(xid,2,HOIID_aopCost,NULL));
+  HCkP(HXPkgSetOpInfo(xid,2,HOIID_numCost,0));
+  HCkP(HXPkgSetOpInfo(xid,2,HOIID_parallelMinCosts,0));
+  HCkP(HXPkgSetOpInfo(xid,2,HOIID_parallelRegionsplit,0));
+
+  HCkP(HXPkgSetOpInfo(xid,3,HOIID_ParameterType,0,"hh"));
+  HCkP(HXPkgSetOpInfo(xid,3,HOIID_NumInpObjPar,0));
+  HCkP(HXPkgSetOpInfo(xid,3,HOIID_NumOutpObjPar,0));
+  HCkP(HXPkgSetOpInfo(xid,3,HOIID_NumInpCtrlPar,2));
+  HCkP(HXPkgSetOpInfo(xid,3,HOIID_NumOutpCtrlPar,0));
+  HCkP(HXPkgSetOpInfo(xid,3,HOIID_LogicalName,"OpenvinoInfer"));
+  HCkP(HXPkgSetOpInfo(xid,3,HOIID_PhysicalName,"OpenvinoInfer"));
+  HCkP(HXPkgSetOpInfo(xid,3,HOIID_procedure,OpenvinoInfer));
+  HCkP(HXPkgSetOpInfo(xid,3,HOIID_module,1ul));
+  HCkP(HXPkgSetOpInfo(xid,3,HOIID_process_excl_local,HAG_PAR_NO_RESTRICT));
+#ifndef HC_NO_COMPUTE_DEVICES
+  HCkP(HXPkgSetOpInfo(xid,3,HOIID_compute_device,0));
+#endif
+  HCkP(HXPkgSetOpInfo(xid,3,HOIID_parallelization,0));
+  HCkP(HXPkgSetOpInfo(xid,3,HOIID_aopCost,NULL));
+  HCkP(HXPkgSetOpInfo(xid,3,HOIID_numCost,0));
+  HCkP(HXPkgSetOpInfo(xid,3,HOIID_parallelMinCosts,0));
+  HCkP(HXPkgSetOpInfo(xid,3,HOIID_parallelRegionsplit,0));
+
+  HCkP(HXPkgSetOpInfo(xid,4,HOIID_ParameterType,0,"h"));
+  HCkP(HXPkgSetOpInfo(xid,4,HOIID_ParameterType,1,"h"));
+  HCkP(HXPkgSetOpInfo(xid,4,HOIID_NumInpObjPar,0));
+  HCkP(HXPkgSetOpInfo(xid,4,HOIID_NumOutpObjPar,0));
+  HCkP(HXPkgSetOpInfo(xid,4,HOIID_NumInpCtrlPar,1));
+  HCkP(HXPkgSetOpInfo(xid,4,HOIID_NumOutpCtrlPar,1));
+  HCkP(HXPkgSetOpInfo(xid,4,HOIID_LogicalName,"OpenvinoLoadModel"));
+  HCkP(HXPkgSetOpInfo(xid,4,HOIID_PhysicalName,"OpenvinoLoadModel"));
+  HCkP(HXPkgSetOpInfo(xid,4,HOIID_procedure,OpenvinoLoadModel));
+  HCkP(HXPkgSetOpInfo(xid,4,HOIID_module,1ul));
+  HCkP(HXPkgSetOpInfo(xid,4,HOIID_process_excl_local,HAG_PAR_NO_RESTRICT));
+#ifndef HC_NO_COMPUTE_DEVICES
+  HCkP(HXPkgSetOpInfo(xid,4,HOIID_compute_device,0));
+#endif
+  HCkP(HXPkgSetOpInfo(xid,4,HOIID_parallelization,0));
+  HCkP(HXPkgSetOpInfo(xid,4,HOIID_aopCost,NULL));
+  HCkP(HXPkgSetOpInfo(xid,4,HOIID_numCost,0));
+  HCkP(HXPkgSetOpInfo(xid,4,HOIID_parallelMinCosts,0));
+  HCkP(HXPkgSetOpInfo(xid,4,HOIID_parallelRegionsplit,0));
 
 return H_MSG_OK;
 }
@@ -86,7 +145,7 @@ HUserExport Herror HXPkgInit(int32_t xpkg_id)
 {
 
   int32_t osid;
-  HCkP(HXPkgOpenId(xpkg_id, HALCON_VERSION_CODE,H_OPERATOR_INFO_DERIVATE, 2, &osid));
+  HCkP(HXPkgOpenId(xpkg_id, HALCON_VERSION_CODE,H_OPERATOR_INFO_DERIVATE, 5, &osid));
   m_offset = osid;
 
   HCkP(HSystem0(xpkg_id));

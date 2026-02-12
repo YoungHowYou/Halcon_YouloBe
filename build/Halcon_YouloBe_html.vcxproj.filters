@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\3aba399ff13e384bb1ab5a057c95921a\reference.rule">
+    <CustomBuild Include="D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\ec39588f55de46a0b262481fcc290362\reference.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\35f420405b5420a764963a3e8960b483\Halcon_YouloBe_html.rule">
+    <CustomBuild Include="D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\3788b16a417a6d0b675caae21a09d1b6\Halcon_YouloBe_html.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\CMakeLists.txt" />
+    <CustomBuild Include="D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\Halcon_YouloBe_html" />
+    <None Include="D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\CMakeFiles\Halcon_YouloBe_html" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{97550AF9-E22A-3B62-8938-BB341F8D162C}</UniqueIdentifier>
+      <UniqueIdentifier>{9127E59C-80C6-3AF7-871F-BAC8EF57728B}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

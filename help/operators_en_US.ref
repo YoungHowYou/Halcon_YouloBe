@@ -1,3 +1,43 @@
+PNGIn(inimage,outimage,acceleration)
+short.ascii=Laplace Filter.
+keywords=UserExtensions
+module=0 Foundation
+parameter=inimage
+parameter_class=input_object
+sem_type=image
+multivalue=optional
+parameter=outimage
+parameter_class=output_object
+sem_type=image
+multivalue=optional
+parameter=acceleration
+parameter_class=input_control
+type_list=integer
+default_type=integer
+sem_type=number
+multivalue=false
+PNGOut(inimage,outimage)
+short.ascii=Laplace Filter.
+keywords=UserExtensions
+module=0 Foundation
+parameter=inimage
+parameter_class=input_object
+sem_type=image
+multivalue=optional
+parameter=outimage
+parameter_class=output_object
+sem_type=image
+multivalue=optional
+remap(hv_DictHandle)
+short.ascii=Laplace Filter.
+keywords=UserExtensions
+module=0 Foundation
+parameter=hv_DictHandle
+parameter_class=input_control
+type_list=handle
+default_type=handle
+sem_type=handle
+multivalue=false
 OpenvinoInfer(Handle,DictHandle)
 short.ascii=Laplace Filter.
 keywords=UserExtensions

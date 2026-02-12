@@ -1,2 +1,5 @@
+inimage,outimage,acceleration:userextensions:UserExtensions:
+inimage,outimage:userextensions:UserExtensions:
+hv_DictHandle:userextensions:UserExtensions:
 Handle,DictHandle:userextensions:UserExtensions:
 DictHandle,Handle:userextensions:UserExtensions:

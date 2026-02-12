@@ -23,6 +23,12 @@
 extern "C" {
 #endif
 
+HUserExport Herror T_PNGIn(const Hobject inimage, Hobject *outimage, const Htuple acceleration);
+HUserExport Herror PNGIn(const Hobject inimage, Hobject *outimage, Hlong acceleration);
+HUserExport Herror T_PNGOut(const Hobject inimage, Hobject *outimage);
+HUserExport Herror PNGOut(const Hobject inimage, Hobject *outimage);
+HUserExport Herror T_remap(const Htuple hv_DictHandle);
+HUserExport Herror remap(Hlong hv_DictHandle);
 HUserExport Herror T_OpenvinoInfer(const Htuple Handle, const Htuple DictHandle);
 HUserExport Herror OpenvinoInfer(Hlong Handle, Hlong DictHandle);
 HUserExport Herror T_OpenvinoLoadModel(const Htuple DictHandle, Htuple *Handle);

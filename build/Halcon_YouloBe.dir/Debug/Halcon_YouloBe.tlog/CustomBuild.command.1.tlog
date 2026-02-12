@@ -1,10 +1,10 @@
-^C:\USERS\YOUNG\DESKTOP\SOURCE\HALCON_EXTENSION\HALCON_YOULOBE\BUILD\CMAKEFILES\7EDF3DBA5980A28D7E763161C1A61AEB\HHALCON_YOULOBE.C.RULE
+^D:\DESKTOP\SOURCE\HALCON_EXTENSION\HALCON_YOULOBE\BUILD\CMAKEFILES\009D96D4893F23211611ADFA4FB0EB8D\HHALCON_YOULOBE.C.RULE
 setlocal
-cd C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build
+cd D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe -u -H -pHalcon_YouloBe C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def
+C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe -u -H -pHalcon_YouloBe D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -12,9 +12,9 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\YOUNG\DESKTOP\SOURCE\HALCON_EXTENSION\HALCON_YOULOBE\CMAKELISTS.TXT
+^D:\DESKTOP\SOURCE\HALCON_EXTENSION\HALCON_YOULOBE\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe -BC:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build --check-stamp-file C:/Users/young/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Desktop/Source/Halcon_Extension/Halcon_YouloBe -BD:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build --check-stamp-file D:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

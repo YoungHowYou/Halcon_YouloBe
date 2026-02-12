@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="23.11.0.0">
+<procedure name="main">
+<interface/>
+<body>
+<c></c>
+<l>   CV_read_raw (outimage, 640, 512, 2, '../../../../../data/sc.raw')</l>
+<l>      CV_read_raw (outimage5, 640, 512, 2, '../../../../../data/20.raw')</l>
+<l>sub_image (outimage5, outimage, ImageSub, 1, 0)</l>
+<c>* </c>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+<procedure name="CV_read_raw">
+<interface>
+<oo>
+<par name="outimage" base_type="iconic" dimension="0"/>
+</oo>
+<ic>
+<par name="width" base_type="ctrl" dimension="0"/>
+<par name="height" base_type="ctrl" dimension="0"/>
+<par name="Type" base_type="ctrl" dimension="0"/>
+<par name="path" base_type="ctrl" dimension="0"/>
+</ic>
+</interface>
+<body>
+<l>CVread_Raw (outimage, width, height, Type, path)</l>
+<l>return ()</l>
+</body>
+<docu id="CV_read_raw">
+<parameters>
+<parameter id="Type">
+<default_type>integer</default_type>
+<sem_type>integer</sem_type>
+<type_list>
+<item>integer</item>
+</type_list>
+</parameter>
+<parameter id="height">
+<default_type>integer</default_type>
+<sem_type>integer</sem_type>
+<type_list>
+<item>integer</item>
+</type_list>
+</parameter>
+<parameter id="outimage"/>
+<parameter id="path">
+<default_type>string</default_type>
+<mixed_type>false</mixed_type>
+<sem_type>filename</sem_type>
+<type_list>
+<item>string</item>
+</type_list>
+</parameter>
+<parameter id="width">
+<default_type>integer</default_type>
+<sem_type>integer</sem_type>
+<type_list>
+<item>integer</item>
+</type_list>
+</parameter>
+</parameters>
+</docu>
+</procedure>
+</hdevelop>

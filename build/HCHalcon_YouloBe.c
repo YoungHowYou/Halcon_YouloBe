@@ -39,12 +39,57 @@ Herror HcPreCallUser(int proc_index_local, Hproc_handle *proc_handle)
   return HcPreCall(offset + proc_index_local, proc_handle);
 }
 
-HUserExport Herror T_OpenvinoInfer(const Htuple Handle, const Htuple DictHandle)
+HUserExport Herror T_PNGIn(const Hobject inimage, Hobject *outimage, const Htuple acceleration)
 {
   Hproc_handle ph;
   Herror err = H_MSG_OK;
 
   err = HcPreCallUser(0,&ph);
+  if (err == H_MSG_OK) err = HcStoreIO(ph,1,inimage);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&acceleration);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  err = HcStoreOO(ph,1,outimage,err);
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror T_PNGOut(const Hobject inimage, Hobject *outimage)
+{
+  Hproc_handle ph;
+  Herror err = H_MSG_OK;
+
+  err = HcPreCallUser(1,&ph);
+  if (err == H_MSG_OK) err = HcStoreIO(ph,1,inimage);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  err = HcStoreOO(ph,1,outimage,err);
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror T_remap(const Htuple hv_DictHandle)
+{
+  Hproc_handle ph;
+  Herror err = H_MSG_OK;
+
+  err = HcPreCallUser(2,&ph);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&hv_DictHandle);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror T_OpenvinoInfer(const Htuple Handle, const Htuple DictHandle)
+{
+  Hproc_handle ph;
+  Herror err = H_MSG_OK;
+
+  err = HcPreCallUser(3,&ph);
   if (err == H_MSG_OK) err = HcStoreICT(ph,0,&Handle);
   if (err == H_MSG_OK) err = HcStoreICT(ph,1,&DictHandle);
   if (err == H_MSG_OK)
@@ -59,7 +104,7 @@ HUserExport Herror T_OpenvinoLoadModel(const Htuple DictHandle, Htuple *Handle)
   Hproc_handle ph;
   Herror err = H_MSG_OK;
 
-  err = HcPreCallUser(1,&ph);
+  err = HcPreCallUser(4,&ph);
   if (err == H_MSG_OK) err = HcStoreICT(ph,0,&DictHandle);
   if (err == H_MSG_OK)
   {
@@ -70,11 +115,53 @@ HUserExport Herror T_OpenvinoLoadModel(const Htuple DictHandle, Htuple *Handle)
   return HcPostCall(ph,err);
 }
 
-HUserExport Herror OpenvinoInfer(Hlong Handle, Hlong DictHandle)
+HUserExport Herror PNGIn(const Hobject inimage, Hobject *outimage, Hlong acceleration)
 {
   Hproc_handle ph;
   Herror err;
   err = HcPreCallUser(0,&ph);
+  if (err == H_MSG_OK) err = HcStoreIO(ph,1,inimage);
+  if (err == H_MSG_OK) HcStoreICL(ph,0,acceleration);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  err = HcStoreOO(ph,1,outimage,err);
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror PNGOut(const Hobject inimage, Hobject *outimage)
+{
+  Hproc_handle ph;
+  Herror err;
+  err = HcPreCallUser(1,&ph);
+  if (err == H_MSG_OK) err = HcStoreIO(ph,1,inimage);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  err = HcStoreOO(ph,1,outimage,err);
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror remap(Hlong hv_DictHandle)
+{
+  Hproc_handle ph;
+  Herror err;
+  err = HcPreCallUser(2,&ph);
+  if (err == H_MSG_OK) HcStoreICL(ph,0,hv_DictHandle);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror OpenvinoInfer(Hlong Handle, Hlong DictHandle)
+{
+  Hproc_handle ph;
+  Herror err;
+  err = HcPreCallUser(3,&ph);
   if (err == H_MSG_OK) HcStoreICL(ph,0,Handle);
   if (err == H_MSG_OK) HcStoreICL(ph,1,DictHandle);
   if (err == H_MSG_OK)
@@ -88,7 +175,7 @@ HUserExport Herror OpenvinoLoadModel(Hlong DictHandle, Hlong *Handle)
 {
   Hproc_handle ph;
   Herror err;
-  err = HcPreCallUser(1,&ph);
+  err = HcPreCallUser(4,&ph);
   if (err == H_MSG_OK) HcStoreICL(ph,0,DictHandle);
   if (err == H_MSG_OK)
   {

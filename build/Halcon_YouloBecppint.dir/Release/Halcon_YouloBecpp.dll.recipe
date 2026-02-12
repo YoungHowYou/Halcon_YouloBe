@@ -2,22 +2,22 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\x64\Release\ZERO_CHECK</FullPath>
+      <FullPath>D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\x64\Release\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\x64\Release\Halcon_YouloBe_help_en_US</FullPath>
+      <FullPath>D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\x64\Release\Halcon_YouloBe_help_en_US</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\x64\Release\Halcon_YouloBe_help</FullPath>
+      <FullPath>D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\x64\Release\Halcon_YouloBe_help</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\x64\Release\Halcon_YouloBe_html</FullPath>
+      <FullPath>D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\x64\Release\Halcon_YouloBe_html</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\bin\Halcon_YouloBe.dll</FullPath>
+      <FullPath>D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\bin\Halcon_YouloBe.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_YouloBe\bin\Halcon_YouloBecpp.dll</FullPath>
+      <FullPath>D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\bin\Halcon_YouloBecpp.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

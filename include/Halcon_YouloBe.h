@@ -17,6 +17,10 @@ extern "C"
 
     Test_EXPORTS_API Herror Openvino加载模型(Hproc_handle proc_handle);
     Test_EXPORTS_API Herror Openvino推理模型(Hproc_handle proc_handle);
+    
+    Test_EXPORTS_API Herror HCremap(Hproc_handle proc_handle);
+    Test_EXPORTS_API Herror HPNGOut(Hproc_handle proc_handle);
+    Test_EXPORTS_API Herror HPNGIn(Hproc_handle proc_handle);
 
 #ifdef __cplusplus
 }

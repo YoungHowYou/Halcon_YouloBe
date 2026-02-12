@@ -51,12 +51,50 @@ Hproc_handle PreCallUser(int proc_index_local)
 
 
 
+#ifdef PNGIn
+# error An existing macro name conflicts with PNGIn
+#endif
+HUserExport void HalconCpp::PNGIn(const HObject& inimage, HObject* outimage, const HTuple& acceleration)
+{
+  Hproc_handle proc = PreCallUser(0);
+  HalconAPI::Store(proc,1,inimage);
+  HalconAPI::Store(proc,0,acceleration);
+  HalconAPI::InitOutp(proc,1);
+  HalconAPI::CallProcedure(proc);
+  HalconAPI::Load(proc,1,outimage);
+  HalconAPI::PostCall(proc);
+}
+
+#ifdef PNGOut
+# error An existing macro name conflicts with PNGOut
+#endif
+HUserExport void HalconCpp::PNGOut(const HObject& inimage, HObject* outimage)
+{
+  Hproc_handle proc = PreCallUser(1);
+  HalconAPI::Store(proc,1,inimage);
+  HalconAPI::InitOutp(proc,1);
+  HalconAPI::CallProcedure(proc);
+  HalconAPI::Load(proc,1,outimage);
+  HalconAPI::PostCall(proc);
+}
+
+#ifdef Remap
+# error An existing macro name conflicts with Remap
+#endif
+HUserExport void HalconCpp::Remap(const HTuple& hv_DictHandle)
+{
+  Hproc_handle proc = PreCallUser(2);
+  HalconAPI::Store(proc,0,hv_DictHandle);
+  HalconAPI::CallProcedure(proc);
+  HalconAPI::PostCall(proc);
+}
+
 #ifdef OpenvinoInfer
 # error An existing macro name conflicts with OpenvinoInfer
 #endif
 HUserExport void HalconCpp::OpenvinoInfer(const HTuple& Handle, const HTuple& DictHandle)
 {
-  Hproc_handle proc = PreCallUser(0);
+  Hproc_handle proc = PreCallUser(3);
   HalconAPI::Store(proc,0,Handle);
   HalconAPI::Store(proc,1,DictHandle);
   HalconAPI::CallProcedure(proc);
@@ -68,7 +106,7 @@ HUserExport void HalconCpp::OpenvinoInfer(const HTuple& Handle, const HTuple& Di
 #endif
 HUserExport void HalconCpp::OpenvinoLoadModel(const HTuple& DictHandle, HTuple* Handle)
 {
-  Hproc_handle proc = PreCallUser(1);
+  Hproc_handle proc = PreCallUser(4);
   HalconAPI::Store(proc,0,DictHandle);
   HalconAPI::InitOutp(proc,0);
   HalconAPI::CallProcedure(proc);

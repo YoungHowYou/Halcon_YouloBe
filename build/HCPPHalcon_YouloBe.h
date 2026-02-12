@@ -30,6 +30,15 @@ namespace HalconCpp
    ***************************************************************************/
 
 // Laplace Filter.
+HUserExport void PNGIn(const HObject& inimage, HObject* outimage, const HTuple& acceleration);
+
+// Laplace Filter.
+HUserExport void PNGOut(const HObject& inimage, HObject* outimage);
+
+// Laplace Filter.
+HUserExport void Remap(const HTuple& hv_DictHandle);
+
+// Laplace Filter.
 HUserExport void OpenvinoInfer(const HTuple& Handle, const HTuple& DictHandle);
 
 // Laplace Filter.
