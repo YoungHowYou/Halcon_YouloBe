@@ -11,3 +11,4 @@ CTestTestfile.cmake
 _deps
 CMakeUserPresets.json
 extension_package_programmers_manual.pdf
+*.bin
