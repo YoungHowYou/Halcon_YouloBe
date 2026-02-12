@@ -22,6 +22,14 @@ extern "C"
     Test_EXPORTS_API Herror HPNGOut(Hproc_handle proc_handle);
     Test_EXPORTS_API Herror HPNGIn(Hproc_handle proc_handle);
 
+    Test_EXPORTS_API Herror HCadd_roi(Hproc_handle proc_handle);
+    Test_EXPORTS_API Herror HCmul_roi(Hproc_handle proc_handle);
+    Test_EXPORTS_API Herror HCsub_B_roi(Hproc_handle proc_handle);
+    Test_EXPORTS_API Herror HCdiv_B_roi(Hproc_handle proc_handle);
+    Test_EXPORTS_API Herror HCdiv_A_roi(Hproc_handle proc_handle);
+    Test_EXPORTS_API Herror HCsub_A_roi(Hproc_handle proc_handle);
+    Test_EXPORTS_API Herror HCCLAHE_image(Hproc_handle proc_handle);
+
 #ifdef __cplusplus
 }
 #endif

@@ -29,3 +29,38 @@ Herror CHPNGIn(Hproc_handle proc_handle)
 	 return HPNGIn(proc_handle);
 
  }
+
+Herror Cadd_roi(Hproc_handle proc_handle)
+{
+	 return HCadd_roi(proc_handle);
+}
+
+Herror Cmul_roi(Hproc_handle proc_handle)
+{
+	 return HCmul_roi(proc_handle);
+}
+
+Herror Csub_B_roi(Hproc_handle proc_handle)
+{
+	 return HCsub_B_roi(proc_handle);
+}
+
+Herror Cdiv_B_roi(Hproc_handle proc_handle)
+{
+	 return HCdiv_B_roi(proc_handle);
+}
+
+Herror Cdiv_A_roi(Hproc_handle proc_handle)
+{
+	 return HCdiv_A_roi(proc_handle);
+}
+
+Herror Csub_A_roi(Hproc_handle proc_handle)
+{
+	 return HCsub_A_roi(proc_handle);
+}
+
+Herror CCLAHE_image(Hproc_handle proc_handle)
+{
+	 return HCCLAHE_image(proc_handle);
+}
