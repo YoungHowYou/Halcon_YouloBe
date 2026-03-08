@@ -189,7 +189,7 @@ parameter
   type_list:          integer;
 
 
-add_roi<-Cadd_roi[smallimage,bigimage::sy,sx,ew,eh]
+add_roi<-Cadd_roi[smallimage,bigimage::sy,sx,ew,eh:]
 short.german
   Add ROI to big image.;
   
@@ -253,7 +253,7 @@ parameter
   type_list:          integer;
 
 
-mul_roi<-Cmul_roi[smallimage,bigimage::sy,sx,ew,eh]
+mul_roi<-Cmul_roi[smallimage,bigimage::sy,sx,ew,eh:]
 short.german
   Multiply ROI to big image.;
   
@@ -317,7 +317,7 @@ parameter
   type_list:          integer;
 
 
-sub_B_roi<-Csub_B_roi[smallimage,bigimage::sy,sx,ew,eh]
+sub_B_roi<-Csub_B_roi[smallimage,bigimage::sy,sx,ew,eh:]
 short.german
   Subtract ROI from big image (B - small).;
   
@@ -381,7 +381,7 @@ parameter
   type_list:          integer;
 
 
-div_B_roi<-Cdiv_B_roi[smallimage,bigimage::sy,sx,ew,eh]
+div_B_roi<-Cdiv_B_roi[smallimage,bigimage::sy,sx,ew,eh:]
 short.german
   Divide ROI from big image (B / small).;
   
@@ -445,7 +445,7 @@ parameter
   type_list:          integer;
 
 
-div_A_roi<-Cdiv_A_roi[smallimage,bigimage::sy,sx,ew,eh]
+div_A_roi<-Cdiv_A_roi[smallimage,bigimage::sy,sx,ew,eh:]
 short.german
   Divide big image by ROI (small / B).;
   
@@ -509,7 +509,7 @@ parameter
   type_list:          integer;
 
 
-sub_A_roi<-Csub_A_roi[smallimage,bigimage::sy,sx,ew,eh]
+sub_A_roi<-Csub_A_roi[smallimage,bigimage::sy,sx,ew,eh:]
 short.german
   Subtract big image from ROI (small - B).;
   
@@ -573,7 +573,7 @@ parameter
   type_list:          integer;
 
 
-CLAHE_image<-CCLAHE_image[inimage:outimage:k_width,k_height,clipLimit]
+CLAHE_image<-CCLAHE_image[inimage:outimage:k_width,k_height,clipLimit:]
 short.german
   CLAHE image enhancement.;
   

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>div_B_roi [HALCON Operator Reference / Version 24.11.1.0]</title>
+<title>CLAHE_image [HALCON Operator Reference / Version 24.11.1.0]</title>
 <style type="text/css">
 
       body {
@@ -1083,31 +1083,31 @@ toggleLanguage(new_lang,1);return;}
 </div>
 <!--OP_REF_HEADER_END-->
 <h1 id="sec_name">
-<span data-if="hdevelop" style="display:inline;">div_B_roi</span><span data-if="c" style="display:none;">div_B_roi</span><span data-if="cpp" style="display:none;">DivBRoi</span><span data-if="dotnet" style="display:none;">DivBRoi</span><span data-if="python" style="display:none;">div_B_roi</span> (Operator)</h1>
+<span data-if="hdevelop" style="display:inline;">CLAHE_image</span><span data-if="c" style="display:none;">CLAHE_image</span><span data-if="cpp" style="display:none;">CLAHEImage</span><span data-if="dotnet" style="display:none;">CLAHEImage</span><span data-if="python" style="display:none;">CLAHE_image</span> (Operator)</h1>
 <h2>Name</h2>
-<p><code><span data-if="hdevelop" style="display:inline;">div_B_roi</span><span data-if="c" style="display:none;">div_B_roi</span><span data-if="cpp" style="display:none;">DivBRoi</span><span data-if="dotnet" style="display:none;">DivBRoi</span><span data-if="python" style="display:none;">div_B_roi</span></code> — Divide ROI from big image (B / small).</p>
+<p><code><span data-if="hdevelop" style="display:inline;">CLAHE_image</span><span data-if="c" style="display:none;">CLAHE_image</span><span data-if="cpp" style="display:none;">CLAHEImage</span><span data-if="dotnet" style="display:none;">CLAHEImage</span><span data-if="python" style="display:none;">CLAHE_image</span></code> — CLAHE image enhancement.</p>
 <h2 id="sec_synopsis">Signature</h2>
 <div data-if="hdevelop" style="display:inline;">
 <p>
-<code><b>div_B_roi</b>(<a href="#smallimage"><i>smallimage</i></a>, <a href="#bigimage"><i>bigimage</i></a> :  : <a href="#sy"><i>sy</i></a>, <a href="#sx"><i>sx</i></a>, <a href="#ew"><i>ew</i></a>, <a href="#eh"><i>eh</i></a> : )</code></p>
+<code><b>CLAHE_image</b>(<a href="#inimage"><i>inimage</i></a> : <a href="#outimage"><i>outimage</i></a> : <a href="#k_width"><i>k_width</i></a>, <a href="#k_height"><i>k_height</i></a>, <a href="#clipLimit"><i>clipLimit</i></a> : )</code></p>
 </div>
 <div data-if="c" style="display:none;">
 <p>
-<code>Herror <b>div_B_roi</b>(const Hobject <a href="#smallimage"><i>smallimage</i></a>, const Hobject <a href="#bigimage"><i>bigimage</i></a>, const Hlong <a href="#sy"><i>sy</i></a>, const Hlong <a href="#sx"><i>sx</i></a>, const Hlong <a href="#ew"><i>ew</i></a>, const Hlong <a href="#eh"><i>eh</i></a>)</code></p>
+<code>Herror <b>CLAHE_image</b>(const Hobject <a href="#inimage"><i>inimage</i></a>, Hobject* <a href="#outimage"><i>outimage</i></a>, const Hlong <a href="#k_width"><i>k_width</i></a>, const Hlong <a href="#k_height"><i>k_height</i></a>, const Hlong <a href="#clipLimit"><i>clipLimit</i></a>)</code></p>
 <p>
-<code>Herror <b>T_div_B_roi</b>(const Hobject <a href="#smallimage"><i>smallimage</i></a>, const Hobject <a href="#bigimage"><i>bigimage</i></a>, const Htuple <a href="#sy"><i>sy</i></a>, const Htuple <a href="#sx"><i>sx</i></a>, const Htuple <a href="#ew"><i>ew</i></a>, const Htuple <a href="#eh"><i>eh</i></a>)</code></p>
+<code>Herror <b>T_CLAHE_image</b>(const Hobject <a href="#inimage"><i>inimage</i></a>, Hobject* <a href="#outimage"><i>outimage</i></a>, const Htuple <a href="#k_width"><i>k_width</i></a>, const Htuple <a href="#k_height"><i>k_height</i></a>, const Htuple <a href="#clipLimit"><i>clipLimit</i></a>)</code></p>
 </div>
 <div data-if="cpp" style="display:none;">
 <p>
-<code>void <b>DivBRoi</b>(const HObject&amp; <a href="#smallimage"><i>smallimage</i></a>, const HObject&amp; <a href="#bigimage"><i>bigimage</i></a>, const HTuple&amp; <a href="#sy"><i>sy</i></a>, const HTuple&amp; <a href="#sx"><i>sx</i></a>, const HTuple&amp; <a href="#ew"><i>ew</i></a>, const HTuple&amp; <a href="#eh"><i>eh</i></a>)</code></p>
+<code>void <b>CLAHEImage</b>(const HObject&amp; <a href="#inimage"><i>inimage</i></a>, HObject* <a href="#outimage"><i>outimage</i></a>, const HTuple&amp; <a href="#k_width"><i>k_width</i></a>, const HTuple&amp; <a href="#k_height"><i>k_height</i></a>, const HTuple&amp; <a href="#clipLimit"><i>clipLimit</i></a>)</code></p>
 </div>
 <div data-if="dotnet" style="display:none;">
 <p>
-<code>static void <a href="HHalconYouloBe.html">HHalconYouloBe</a>.<b>DivBRoi</b>(<a href="HObject.html">HObject</a> <a href="#smallimage"><i>smallimage</i></a>, <a href="HObject.html">HObject</a> <a href="#bigimage"><i>bigimage</i></a>, <a href="HTuple.html">HTuple</a> <a href="#sy"><i>sy</i></a>, <a href="HTuple.html">HTuple</a> <a href="#sx"><i>sx</i></a>, <a href="HTuple.html">HTuple</a> <a href="#ew"><i>ew</i></a>, <a href="HTuple.html">HTuple</a> <a href="#eh"><i>eh</i></a>)</code></p>
+<code>static void <a href="HHalconYouloBe.html">HHalconYouloBe</a>.<b>CLAHEImage</b>(<a href="HObject.html">HObject</a> <a href="#inimage"><i>inimage</i></a>, out <a href="HObject.html">HObject</a> <a href="#outimage"><i>outimage</i></a>, <a href="HTuple.html">HTuple</a> <a href="#k_width"><i>kWidth</i></a>, <a href="HTuple.html">HTuple</a> <a href="#k_height"><i>kHeight</i></a>, <a href="HTuple.html">HTuple</a> <a href="#clipLimit"><i>clipLimit</i></a>)</code></p>
 </div>
 <div data-if="python" style="display:none;">
 <p>
-<code>def <b>div_B_roi</b>(<a href="#smallimage"><i>smallimage</i></a>: HObject, <a href="#bigimage"><i>bigimage</i></a>: HObject, <a href="#sy"><i>sy</i></a>: int, <a href="#sx"><i>sx</i></a>: int, <a href="#ew"><i>ew</i></a>: int, <a href="#eh"><i>eh</i></a>: int) -&gt; None</code></p>
+<code>def <b>CLAHE_image</b>(<a href="#inimage"><i>inimage</i></a>: HObject, <a href="#k_width"><i>k_width</i></a>: int, <a href="#k_height"><i>k_height</i></a>: int, <a href="#clipLimit"><i>clip_limit</i></a>: int) -&gt; HObject</code></p>
 </div>
 <h2 id="sec_execution">Execution Information</h2>
 <ul>
@@ -1118,37 +1118,31 @@ toggleLanguage(new_lang,1);return;}
 <h2 id="sec_parameters">Parameters</h2>
   <div class="par">
 <div class="parhead">
-<span id="smallimage" class="parname"><b><code><span data-if="hdevelop" style="display:inline">smallimage</span><span data-if="c" style="display:none">smallimage</span><span data-if="cpp" style="display:none">smallimage</span><span data-if="dotnet" style="display:none">smallimage</span><span data-if="python" style="display:none">smallimage</span></code></b> (input_object)  </span><span>image(-array) <code>→</code> <span data-if="hdevelop" style="display:inline">object</span><span data-if="dotnet" style="display:none">HObject</span><span data-if="python" style="display:none">HObject</span><span data-if="cpp" style="display:none">HObject</span><span data-if="c" style="display:none">Hobject</span></span>
+<span id="inimage" class="parname"><b><code><span data-if="hdevelop" style="display:inline">inimage</span><span data-if="c" style="display:none">inimage</span><span data-if="cpp" style="display:none">inimage</span><span data-if="dotnet" style="display:none">inimage</span><span data-if="python" style="display:none">inimage</span></code></b> (input_object)  </span><span>image(-array) <code>→</code> <span data-if="hdevelop" style="display:inline">object</span><span data-if="dotnet" style="display:none">HObject</span><span data-if="python" style="display:none">HObject</span><span data-if="cpp" style="display:none">HObject</span><span data-if="c" style="display:none">Hobject</span></span>
 </div>
 <p class="pardesc"></p>
 </div>
   <div class="par">
 <div class="parhead">
-<span id="bigimage" class="parname"><b><code><span data-if="hdevelop" style="display:inline">bigimage</span><span data-if="c" style="display:none">bigimage</span><span data-if="cpp" style="display:none">bigimage</span><span data-if="dotnet" style="display:none">bigimage</span><span data-if="python" style="display:none">bigimage</span></code></b> (input_object)  </span><span>image(-array) <code>→</code> <span data-if="hdevelop" style="display:inline">object</span><span data-if="dotnet" style="display:none">HObject</span><span data-if="python" style="display:none">HObject</span><span data-if="cpp" style="display:none">HObject</span><span data-if="c" style="display:none">Hobject</span></span>
+<span id="outimage" class="parname"><b><code><span data-if="hdevelop" style="display:inline">outimage</span><span data-if="c" style="display:none">outimage</span><span data-if="cpp" style="display:none">outimage</span><span data-if="dotnet" style="display:none">outimage</span><span data-if="python" style="display:none">outimage</span></code></b> (output_object)  </span><span>image(-array) <code>→</code> <span data-if="hdevelop" style="display:inline">object</span><span data-if="dotnet" style="display:none">HObject</span><span data-if="python" style="display:none">HObject</span><span data-if="cpp" style="display:none">HObject</span><span data-if="c" style="display:none">Hobject *</span></span>
 </div>
 <p class="pardesc"></p>
 </div>
   <div class="par">
 <div class="parhead">
-<span id="sy" class="parname"><b><code><span data-if="hdevelop" style="display:inline">sy</span><span data-if="c" style="display:none">sy</span><span data-if="cpp" style="display:none">sy</span><span data-if="dotnet" style="display:none">sy</span><span data-if="python" style="display:none">sy</span></code></b> (input_control)  </span><span>number <code>→</code> <span data-if="dotnet" style="display:none">HTuple</span><span data-if="python" style="display:none">int</span><span data-if="cpp" style="display:none">HTuple</span><span data-if="c" style="display:none">Htuple</span><span data-if="hdevelop" style="display:inline"> (integer)</span><span data-if="dotnet" style="display:none"> (<i>int</i> / </span><span data-if="dotnet" style="display:none">long)</span><span data-if="cpp" style="display:none"> (<i>Hlong</i>)</span><span data-if="c" style="display:none"> (<i>Hlong</i>)</span></span>
+<span id="k_width" class="parname"><b><code><span data-if="hdevelop" style="display:inline">k_width</span><span data-if="c" style="display:none">k_width</span><span data-if="cpp" style="display:none">k_width</span><span data-if="dotnet" style="display:none">kWidth</span><span data-if="python" style="display:none">k_width</span></code></b> (input_control)  </span><span>number <code>→</code> <span data-if="dotnet" style="display:none">HTuple</span><span data-if="python" style="display:none">int</span><span data-if="cpp" style="display:none">HTuple</span><span data-if="c" style="display:none">Htuple</span><span data-if="hdevelop" style="display:inline"> (integer)</span><span data-if="dotnet" style="display:none"> (<i>int</i> / </span><span data-if="dotnet" style="display:none">long)</span><span data-if="cpp" style="display:none"> (<i>Hlong</i>)</span><span data-if="c" style="display:none"> (<i>Hlong</i>)</span></span>
 </div>
 <p class="pardesc"></p>
 </div>
   <div class="par">
 <div class="parhead">
-<span id="sx" class="parname"><b><code><span data-if="hdevelop" style="display:inline">sx</span><span data-if="c" style="display:none">sx</span><span data-if="cpp" style="display:none">sx</span><span data-if="dotnet" style="display:none">sx</span><span data-if="python" style="display:none">sx</span></code></b> (input_control)  </span><span>number <code>→</code> <span data-if="dotnet" style="display:none">HTuple</span><span data-if="python" style="display:none">int</span><span data-if="cpp" style="display:none">HTuple</span><span data-if="c" style="display:none">Htuple</span><span data-if="hdevelop" style="display:inline"> (integer)</span><span data-if="dotnet" style="display:none"> (<i>int</i> / </span><span data-if="dotnet" style="display:none">long)</span><span data-if="cpp" style="display:none"> (<i>Hlong</i>)</span><span data-if="c" style="display:none"> (<i>Hlong</i>)</span></span>
+<span id="k_height" class="parname"><b><code><span data-if="hdevelop" style="display:inline">k_height</span><span data-if="c" style="display:none">k_height</span><span data-if="cpp" style="display:none">k_height</span><span data-if="dotnet" style="display:none">kHeight</span><span data-if="python" style="display:none">k_height</span></code></b> (input_control)  </span><span>number <code>→</code> <span data-if="dotnet" style="display:none">HTuple</span><span data-if="python" style="display:none">int</span><span data-if="cpp" style="display:none">HTuple</span><span data-if="c" style="display:none">Htuple</span><span data-if="hdevelop" style="display:inline"> (integer)</span><span data-if="dotnet" style="display:none"> (<i>int</i> / </span><span data-if="dotnet" style="display:none">long)</span><span data-if="cpp" style="display:none"> (<i>Hlong</i>)</span><span data-if="c" style="display:none"> (<i>Hlong</i>)</span></span>
 </div>
 <p class="pardesc"></p>
 </div>
   <div class="par">
 <div class="parhead">
-<span id="ew" class="parname"><b><code><span data-if="hdevelop" style="display:inline">ew</span><span data-if="c" style="display:none">ew</span><span data-if="cpp" style="display:none">ew</span><span data-if="dotnet" style="display:none">ew</span><span data-if="python" style="display:none">ew</span></code></b> (input_control)  </span><span>number <code>→</code> <span data-if="dotnet" style="display:none">HTuple</span><span data-if="python" style="display:none">int</span><span data-if="cpp" style="display:none">HTuple</span><span data-if="c" style="display:none">Htuple</span><span data-if="hdevelop" style="display:inline"> (integer)</span><span data-if="dotnet" style="display:none"> (<i>int</i> / </span><span data-if="dotnet" style="display:none">long)</span><span data-if="cpp" style="display:none"> (<i>Hlong</i>)</span><span data-if="c" style="display:none"> (<i>Hlong</i>)</span></span>
-</div>
-<p class="pardesc"></p>
-</div>
-  <div class="par">
-<div class="parhead">
-<span id="eh" class="parname"><b><code><span data-if="hdevelop" style="display:inline">eh</span><span data-if="c" style="display:none">eh</span><span data-if="cpp" style="display:none">eh</span><span data-if="dotnet" style="display:none">eh</span><span data-if="python" style="display:none">eh</span></code></b> (input_control)  </span><span>number <code>→</code> <span data-if="dotnet" style="display:none">HTuple</span><span data-if="python" style="display:none">int</span><span data-if="cpp" style="display:none">HTuple</span><span data-if="c" style="display:none">Htuple</span><span data-if="hdevelop" style="display:inline"> (integer)</span><span data-if="dotnet" style="display:none"> (<i>int</i> / </span><span data-if="dotnet" style="display:none">long)</span><span data-if="cpp" style="display:none"> (<i>Hlong</i>)</span><span data-if="c" style="display:none"> (<i>Hlong</i>)</span></span>
+<span id="clipLimit" class="parname"><b><code><span data-if="hdevelop" style="display:inline">clipLimit</span><span data-if="c" style="display:none">clipLimit</span><span data-if="cpp" style="display:none">clipLimit</span><span data-if="dotnet" style="display:none">clipLimit</span><span data-if="python" style="display:none">clip_limit</span></code></b> (input_control)  </span><span>number <code>→</code> <span data-if="dotnet" style="display:none">HTuple</span><span data-if="python" style="display:none">int</span><span data-if="cpp" style="display:none">HTuple</span><span data-if="c" style="display:none">Htuple</span><span data-if="hdevelop" style="display:inline"> (integer)</span><span data-if="dotnet" style="display:none"> (<i>int</i> / </span><span data-if="dotnet" style="display:none">long)</span><span data-if="cpp" style="display:none"> (<i>Hlong</i>)</span><span data-if="c" style="display:none"> (<i>Hlong</i>)</span></span>
 </div>
 <p class="pardesc"></p>
 </div>

@@ -1,3 +1,10 @@
+inimage,outimage,k_width,k_height,clipLimit:userextensions:UserExtensions:
+smallimage,bigimage,sy,sx,ew,eh:userextensions:UserExtensions:
+smallimage,bigimage,sy,sx,ew,eh:userextensions:UserExtensions:
+smallimage,bigimage,sy,sx,ew,eh:userextensions:UserExtensions:
+smallimage,bigimage,sy,sx,ew,eh:userextensions:UserExtensions:
+smallimage,bigimage,sy,sx,ew,eh:userextensions:UserExtensions:
+smallimage,bigimage,sy,sx,ew,eh:userextensions:UserExtensions:
 inimage,outimage,acceleration:userextensions:UserExtensions:
 inimage,outimage:userextensions:UserExtensions:
 hv_DictHandle:userextensions:UserExtensions:

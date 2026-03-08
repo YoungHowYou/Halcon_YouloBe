@@ -29,6 +29,27 @@ namespace HalconCpp
    * Operators                                                               *
    ***************************************************************************/
 
+// CLAHE image enhancement.
+HUserExport void CLAHEImage(const HObject& inimage, HObject* outimage, const HTuple& k_width, const HTuple& k_height, const HTuple& clipLimit);
+
+// Subtract big image from ROI (small - B).
+HUserExport void SubARoi(const HObject& smallimage, const HObject& bigimage, const HTuple& sy, const HTuple& sx, const HTuple& ew, const HTuple& eh);
+
+// Divide big image by ROI (small / B).
+HUserExport void DivARoi(const HObject& smallimage, const HObject& bigimage, const HTuple& sy, const HTuple& sx, const HTuple& ew, const HTuple& eh);
+
+// Divide ROI from big image (B / small).
+HUserExport void DivBRoi(const HObject& smallimage, const HObject& bigimage, const HTuple& sy, const HTuple& sx, const HTuple& ew, const HTuple& eh);
+
+// Subtract ROI from big image (B - small).
+HUserExport void SubBRoi(const HObject& smallimage, const HObject& bigimage, const HTuple& sy, const HTuple& sx, const HTuple& ew, const HTuple& eh);
+
+// Multiply ROI to big image.
+HUserExport void MulRoi(const HObject& smallimage, const HObject& bigimage, const HTuple& sy, const HTuple& sx, const HTuple& ew, const HTuple& eh);
+
+// Add ROI to big image.
+HUserExport void AddRoi(const HObject& smallimage, const HObject& bigimage, const HTuple& sy, const HTuple& sx, const HTuple& ew, const HTuple& eh);
+
 // Laplace Filter.
 HUserExport void PNGIn(const HObject& inimage, HObject* outimage, const HTuple& acceleration);
 

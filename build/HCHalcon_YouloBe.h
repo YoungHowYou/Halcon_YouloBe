@@ -23,6 +23,20 @@
 extern "C" {
 #endif
 
+HUserExport Herror T_CLAHE_image(const Hobject inimage, Hobject *outimage, const Htuple k_width, const Htuple k_height, const Htuple clipLimit);
+HUserExport Herror CLAHE_image(const Hobject inimage, Hobject *outimage, Hlong k_width, Hlong k_height, Hlong clipLimit);
+HUserExport Herror T_sub_A_roi(const Hobject smallimage, const Hobject bigimage, const Htuple sy, const Htuple sx, const Htuple ew, const Htuple eh);
+HUserExport Herror sub_A_roi(const Hobject smallimage, const Hobject bigimage, Hlong sy, Hlong sx, Hlong ew, Hlong eh);
+HUserExport Herror T_div_A_roi(const Hobject smallimage, const Hobject bigimage, const Htuple sy, const Htuple sx, const Htuple ew, const Htuple eh);
+HUserExport Herror div_A_roi(const Hobject smallimage, const Hobject bigimage, Hlong sy, Hlong sx, Hlong ew, Hlong eh);
+HUserExport Herror T_div_B_roi(const Hobject smallimage, const Hobject bigimage, const Htuple sy, const Htuple sx, const Htuple ew, const Htuple eh);
+HUserExport Herror div_B_roi(const Hobject smallimage, const Hobject bigimage, Hlong sy, Hlong sx, Hlong ew, Hlong eh);
+HUserExport Herror T_sub_B_roi(const Hobject smallimage, const Hobject bigimage, const Htuple sy, const Htuple sx, const Htuple ew, const Htuple eh);
+HUserExport Herror sub_B_roi(const Hobject smallimage, const Hobject bigimage, Hlong sy, Hlong sx, Hlong ew, Hlong eh);
+HUserExport Herror T_mul_roi(const Hobject smallimage, const Hobject bigimage, const Htuple sy, const Htuple sx, const Htuple ew, const Htuple eh);
+HUserExport Herror mul_roi(const Hobject smallimage, const Hobject bigimage, Hlong sy, Hlong sx, Hlong ew, Hlong eh);
+HUserExport Herror T_add_roi(const Hobject smallimage, const Hobject bigimage, const Htuple sy, const Htuple sx, const Htuple ew, const Htuple eh);
+HUserExport Herror add_roi(const Hobject smallimage, const Hobject bigimage, Hlong sy, Hlong sx, Hlong ew, Hlong eh);
 HUserExport Herror T_PNGIn(const Hobject inimage, Hobject *outimage, const Htuple acceleration);
 HUserExport Herror PNGIn(const Hobject inimage, Hobject *outimage, Hlong acceleration);
 HUserExport Herror T_PNGOut(const Hobject inimage, Hobject *outimage);

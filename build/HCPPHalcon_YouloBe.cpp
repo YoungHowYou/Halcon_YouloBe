@@ -51,12 +51,124 @@ Hproc_handle PreCallUser(int proc_index_local)
 
 
 
+#ifdef CLAHEImage
+# error An existing macro name conflicts with CLAHEImage
+#endif
+HUserExport void HalconCpp::CLAHEImage(const HObject& inimage, HObject* outimage, const HTuple& k_width, const HTuple& k_height, const HTuple& clipLimit)
+{
+  Hproc_handle proc = PreCallUser(0);
+  HalconAPI::Store(proc,1,inimage);
+  HalconAPI::Store(proc,0,k_width);
+  HalconAPI::Store(proc,1,k_height);
+  HalconAPI::Store(proc,2,clipLimit);
+  HalconAPI::InitOutp(proc,1);
+  HalconAPI::CallProcedure(proc);
+  HalconAPI::Load(proc,1,outimage);
+  HalconAPI::PostCall(proc);
+}
+
+#ifdef SubARoi
+# error An existing macro name conflicts with SubARoi
+#endif
+HUserExport void HalconCpp::SubARoi(const HObject& smallimage, const HObject& bigimage, const HTuple& sy, const HTuple& sx, const HTuple& ew, const HTuple& eh)
+{
+  Hproc_handle proc = PreCallUser(1);
+  HalconAPI::Store(proc,1,smallimage);
+  HalconAPI::Store(proc,2,bigimage);
+  HalconAPI::Store(proc,0,sy);
+  HalconAPI::Store(proc,1,sx);
+  HalconAPI::Store(proc,2,ew);
+  HalconAPI::Store(proc,3,eh);
+  HalconAPI::CallProcedure(proc);
+  HalconAPI::PostCall(proc);
+}
+
+#ifdef DivARoi
+# error An existing macro name conflicts with DivARoi
+#endif
+HUserExport void HalconCpp::DivARoi(const HObject& smallimage, const HObject& bigimage, const HTuple& sy, const HTuple& sx, const HTuple& ew, const HTuple& eh)
+{
+  Hproc_handle proc = PreCallUser(2);
+  HalconAPI::Store(proc,1,smallimage);
+  HalconAPI::Store(proc,2,bigimage);
+  HalconAPI::Store(proc,0,sy);
+  HalconAPI::Store(proc,1,sx);
+  HalconAPI::Store(proc,2,ew);
+  HalconAPI::Store(proc,3,eh);
+  HalconAPI::CallProcedure(proc);
+  HalconAPI::PostCall(proc);
+}
+
+#ifdef DivBRoi
+# error An existing macro name conflicts with DivBRoi
+#endif
+HUserExport void HalconCpp::DivBRoi(const HObject& smallimage, const HObject& bigimage, const HTuple& sy, const HTuple& sx, const HTuple& ew, const HTuple& eh)
+{
+  Hproc_handle proc = PreCallUser(3);
+  HalconAPI::Store(proc,1,smallimage);
+  HalconAPI::Store(proc,2,bigimage);
+  HalconAPI::Store(proc,0,sy);
+  HalconAPI::Store(proc,1,sx);
+  HalconAPI::Store(proc,2,ew);
+  HalconAPI::Store(proc,3,eh);
+  HalconAPI::CallProcedure(proc);
+  HalconAPI::PostCall(proc);
+}
+
+#ifdef SubBRoi
+# error An existing macro name conflicts with SubBRoi
+#endif
+HUserExport void HalconCpp::SubBRoi(const HObject& smallimage, const HObject& bigimage, const HTuple& sy, const HTuple& sx, const HTuple& ew, const HTuple& eh)
+{
+  Hproc_handle proc = PreCallUser(4);
+  HalconAPI::Store(proc,1,smallimage);
+  HalconAPI::Store(proc,2,bigimage);
+  HalconAPI::Store(proc,0,sy);
+  HalconAPI::Store(proc,1,sx);
+  HalconAPI::Store(proc,2,ew);
+  HalconAPI::Store(proc,3,eh);
+  HalconAPI::CallProcedure(proc);
+  HalconAPI::PostCall(proc);
+}
+
+#ifdef MulRoi
+# error An existing macro name conflicts with MulRoi
+#endif
+HUserExport void HalconCpp::MulRoi(const HObject& smallimage, const HObject& bigimage, const HTuple& sy, const HTuple& sx, const HTuple& ew, const HTuple& eh)
+{
+  Hproc_handle proc = PreCallUser(5);
+  HalconAPI::Store(proc,1,smallimage);
+  HalconAPI::Store(proc,2,bigimage);
+  HalconAPI::Store(proc,0,sy);
+  HalconAPI::Store(proc,1,sx);
+  HalconAPI::Store(proc,2,ew);
+  HalconAPI::Store(proc,3,eh);
+  HalconAPI::CallProcedure(proc);
+  HalconAPI::PostCall(proc);
+}
+
+#ifdef AddRoi
+# error An existing macro name conflicts with AddRoi
+#endif
+HUserExport void HalconCpp::AddRoi(const HObject& smallimage, const HObject& bigimage, const HTuple& sy, const HTuple& sx, const HTuple& ew, const HTuple& eh)
+{
+  Hproc_handle proc = PreCallUser(6);
+  HalconAPI::Store(proc,1,smallimage);
+  HalconAPI::Store(proc,2,bigimage);
+  HalconAPI::Store(proc,0,sy);
+  HalconAPI::Store(proc,1,sx);
+  HalconAPI::Store(proc,2,ew);
+  HalconAPI::Store(proc,3,eh);
+  HalconAPI::CallProcedure(proc);
+  HalconAPI::PostCall(proc);
+}
+
 #ifdef PNGIn
 # error An existing macro name conflicts with PNGIn
 #endif
 HUserExport void HalconCpp::PNGIn(const HObject& inimage, HObject* outimage, const HTuple& acceleration)
 {
-  Hproc_handle proc = PreCallUser(0);
+  Hproc_handle proc = PreCallUser(7);
   HalconAPI::Store(proc,1,inimage);
   HalconAPI::Store(proc,0,acceleration);
   HalconAPI::InitOutp(proc,1);
@@ -70,7 +182,7 @@ HUserExport void HalconCpp::PNGIn(const HObject& inimage, HObject* outimage, con
 #endif
 HUserExport void HalconCpp::PNGOut(const HObject& inimage, HObject* outimage)
 {
-  Hproc_handle proc = PreCallUser(1);
+  Hproc_handle proc = PreCallUser(8);
   HalconAPI::Store(proc,1,inimage);
   HalconAPI::InitOutp(proc,1);
   HalconAPI::CallProcedure(proc);
@@ -83,7 +195,7 @@ HUserExport void HalconCpp::PNGOut(const HObject& inimage, HObject* outimage)
 #endif
 HUserExport void HalconCpp::Remap(const HTuple& hv_DictHandle)
 {
-  Hproc_handle proc = PreCallUser(2);
+  Hproc_handle proc = PreCallUser(9);
   HalconAPI::Store(proc,0,hv_DictHandle);
   HalconAPI::CallProcedure(proc);
   HalconAPI::PostCall(proc);
@@ -94,7 +206,7 @@ HUserExport void HalconCpp::Remap(const HTuple& hv_DictHandle)
 #endif
 HUserExport void HalconCpp::OpenvinoInfer(const HTuple& Handle, const HTuple& DictHandle)
 {
-  Hproc_handle proc = PreCallUser(3);
+  Hproc_handle proc = PreCallUser(10);
   HalconAPI::Store(proc,0,Handle);
   HalconAPI::Store(proc,1,DictHandle);
   HalconAPI::CallProcedure(proc);
@@ -106,7 +218,7 @@ HUserExport void HalconCpp::OpenvinoInfer(const HTuple& Handle, const HTuple& Di
 #endif
 HUserExport void HalconCpp::OpenvinoLoadModel(const HTuple& DictHandle, HTuple* Handle)
 {
-  Hproc_handle proc = PreCallUser(4);
+  Hproc_handle proc = PreCallUser(11);
   HalconAPI::Store(proc,0,DictHandle);
   HalconAPI::InitOutp(proc,0);
   HalconAPI::CallProcedure(proc);
