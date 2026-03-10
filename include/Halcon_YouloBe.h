@@ -29,6 +29,7 @@ extern "C"
     Test_EXPORTS_API Herror HCdiv_A_roi(Hproc_handle proc_handle);
     Test_EXPORTS_API Herror HCsub_A_roi(Hproc_handle proc_handle);
     Test_EXPORTS_API Herror HCCLAHE_image(Hproc_handle proc_handle);
+    Test_EXPORTS_API Herror HCWriteImageExif(Hproc_handle proc_handle);
 
 #ifdef __cplusplus
 }

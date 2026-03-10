@@ -64,3 +64,8 @@ Herror CCLAHE_image(Hproc_handle proc_handle)
 {
 	 return HCCLAHE_image(proc_handle);
 }
+
+Herror CWriteImageExif(Hproc_handle proc_handle)
+{
+	 return HCWriteImageExif(proc_handle);
+}

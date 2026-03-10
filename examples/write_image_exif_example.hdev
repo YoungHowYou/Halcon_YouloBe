@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<c>* 示例程序：write_image_exif 算子使用示例</c>
+<c>* 功能：为图片写入 EXIF 元数据（GPS坐标、相机参数等）</c>
+<c></c>
+<c>* 设置测试图片路径（请修改为你的实际路径）</c>
+<l>ImagePath := 'D:/photo.jpg'</l>
+<c></c>
+<c>* 检查文件是否存在</c>
+<l>file_exists (ImagePath, FileExists)</l>
+<l>if (not FileExists)</l>
+<c>    * 创建一张测试图片</c>
+<l>    gen_image_const (TestImage, 'byte', 1920, 1080)</l>
+<l>    gen_circle (Circle, 540, 960, 200)</l>
+<l>    paint_region (Circle, TestImage, ImageWithCircle, 128, 'fill')</l>
+<l>    write_image (ImageWithCircle, 'jpeg', 0, ImagePath)</l>
+<l>endif</l>
+<c></c>
+<c>* 设置 GPS 坐标（北京天安门示例）</c>
+<l>Latitude := 39.9042</l>
+<l>Longitude := 116.4074</l>
+<l>Altitude := 50.0</l>
+<c></c>
+<c>* 设置相机参数</c>
+<l>Aperture := 2.8</l>
+<l>ShutterSpeed := 0.001</l>
+<l>ISO := 100</l>
+<l>FocalLength := 25.0</l>
+<c></c>
+<c>* 设置时间和相机信息</c>
+<l>DateTime := '2026:03:10 14:30:00'</l>
+<l>Make := '南京势创'</l>
+<l>Model := 'IRCamera'</l>
+<c></c>
+<c>* 调用 write_image_exif 算子</c>
+<l>write_image_exif (ImagePath, Latitude, Longitude, Altitude, Aperture, ShutterSpeed, ISO, FocalLength, DateTime, Make, Model)</l>
+<c></c>
+<c>* 显示结果</c>
+<l>dev_disp_text ('EXIF 元数据写入成功！', 'window', 10, 10, 'green', [], [])</l>
+<c></c>
+<c>* 读取并显示图片</c>
+<l>read_image (Image, ImagePath)</l>
+<l>dev_display (Image)</l>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>
