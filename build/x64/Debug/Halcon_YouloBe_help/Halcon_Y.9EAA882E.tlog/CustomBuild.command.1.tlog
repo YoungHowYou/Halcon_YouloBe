@@ -1,0 +1,10 @@
+^D:\DESKTOP\SOURCE\HALCON_EXTENSION\HALCON_YOULOBE\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Desktop/Source/Halcon_Extension/Halcon_YouloBe -BD:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build --check-stamp-file D:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

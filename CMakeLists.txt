@@ -96,6 +96,8 @@ target_include_directories(${ProjectName}
         #往后增加3方库的头文件目录
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/3rd/opencv/include>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/3rd/openvino/include>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/3rd/exiv/include>
+
 
 )
 # # Debug 相关配置
@@ -104,6 +106,8 @@ target_include_directories(${ProjectName}
 #     #往后增加3方库的lib文件
 #     ${CMAKE_CURRENT_SOURCE_DIR}/3rd/opencv/lib/debug/*.lib
 #     ${CMAKE_CURRENT_SOURCE_DIR}/3rd/openvino/lib/debug/*.lib
+#    ${CMAKE_CURRENT_SOURCE_DIR}/3rd/exiv/lib/exiv2.lib
+
 # )
 # Release 相关配置
     target_link_libraries(${ProjectName} 
@@ -111,6 +115,7 @@ target_include_directories(${ProjectName}
     #往后增加3方库的lib文件
     ${CMAKE_CURRENT_SOURCE_DIR}/3rd/opencv/lib/release/*.lib
     ${CMAKE_CURRENT_SOURCE_DIR}/3rd/openvino/lib/release/*.lib
+    ${CMAKE_CURRENT_SOURCE_DIR}/3rd/exiv/lib/exiv2.lib
 )
 
 

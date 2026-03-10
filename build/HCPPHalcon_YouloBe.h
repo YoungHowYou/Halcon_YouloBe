@@ -29,6 +29,9 @@ namespace HalconCpp
    * Operators                                                               *
    ***************************************************************************/
 
+// Write EXIF metadata to image file.
+HUserExport void WriteImageExif(const HTuple& image_path, const HTuple& latitude, const HTuple& longitude, const HTuple& altitude, const HTuple& aperture, const HTuple& shutter_speed, const HTuple& iso_number, const HTuple& focal_length, const HTuple& date_time, const HTuple& camera_make, const HTuple& camera_model);
+
 // CLAHE image enhancement.
 HUserExport void CLAHEImage(const HObject& inimage, HObject* outimage, const HTuple& k_width, const HTuple& k_height, const HTuple& clipLimit);
 

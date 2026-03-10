@@ -23,6 +23,8 @@
 extern "C" {
 #endif
 
+HUserExport Herror T_write_image_exif(const Htuple image_path, const Htuple latitude, const Htuple longitude, const Htuple altitude, const Htuple aperture, const Htuple shutter_speed, const Htuple iso_number, const Htuple focal_length, const Htuple date_time, const Htuple camera_make, const Htuple camera_model);
+HUserExport Herror write_image_exif(const char *image_path, double latitude, double longitude, double altitude, double aperture, double shutter_speed, Hlong iso_number, double focal_length, const char *date_time, const char *camera_make, const char *camera_model);
 HUserExport Herror T_CLAHE_image(const Hobject inimage, Hobject *outimage, const Htuple k_width, const Htuple k_height, const Htuple clipLimit);
 HUserExport Herror CLAHE_image(const Hobject inimage, Hobject *outimage, Hlong k_width, Hlong k_height, Hlong clipLimit);
 HUserExport Herror T_sub_A_roi(const Hobject smallimage, const Hobject bigimage, const Htuple sy, const Htuple sx, const Htuple ew, const Htuple eh);

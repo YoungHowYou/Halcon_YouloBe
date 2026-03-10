@@ -14,6 +14,7 @@
 #include <string>
 #include <fstream>
 #include < algorithm >
+#include <exiv2/exiv2.hpp>
 #include "Halcon_YouloBe.h"
 
 using namespace std;
