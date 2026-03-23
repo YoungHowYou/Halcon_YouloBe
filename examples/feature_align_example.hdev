@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>dev_update_off()</l>
+<l>read_object (RegionUnion, 'D:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/examples/Region.hobj')</l>
+<c></c>
+<l as_id="image_acquisition" as_name="Image Acquisition 01" as_grp="[1,2]" as_ord="1">list_files ('D:/Desktop/DJI_DPLEL/Image/7', ['files','follow_links','recursive'], ImageFiles)</l>
+<l as_id="image_acquisition" as_name="Image Acquisition 01" as_grp="[1,3]" as_ord="1">tuple_regexp_select (ImageFiles, ['\\.(tif|tiff|gif|bmp|jpg|jpeg|jp2|png|pcx|pgm|ppm|pbm|xwd|ima|hobj)$','ignore_case'], ImageFiles)</l>
+<l>read_image (Image, ImageFiles[0])</l>
+<l>for Index := 1 to |ImageFiles| - 1 by 1</l>
+<l>    read_image (ImageTarget, ImageFiles[Index])</l>
+<l>    concat_obj (Image, ImageTarget, Image)</l>
+<c></c>
+<l>endfor </l>
+<l>Wave (Image, RegionUnion, ELObject)</l>
+<l>emphasize (ELObject, ImageEmphasize, 7, 7, 1)</l>
+<l>dev_clear_window()</l>
+<l>dev_display (ELObject)</l>
+<l>* read_object (Image, 'D:/Desktop/DJI_DPLEL/20260306124429415 - 副本.hobj')</l>
+<c></c>
+<l>* highpass_image (Image, EdgeImage, 64, 64)</l>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+<procedure name="ORB_create">
+<interface>
+<io>
+<par name="ImageRefEnhanced" base_type="iconic" dimension="0"/>
+</io>
+<ic>
+<par name="NFeatures" base_type="ctrl" dimension="0"/>
+</ic>
+<oc>
+<par name="DictRef" base_type="ctrl" dimension="0"/>
+</oc>
+</interface>
+<body>
+<l>create_dict (DictRef)</l>
+<l>set_dict_object (ImageRefEnhanced, DictRef, 'InputImage')</l>
+<l>set_dict_tuple (DictRef, 'NFeatures', NFeatures)//撒3000个点</l>
+<l>cv_orb_detect (DictRef)//执行找特征点</l>
+<c></c>
+<l>return ()</l>
+</body>
+<docu id="ORB_create">
+<parameters>
+<parameter id="DictRef"/>
+<parameter id="ImageRefEnhanced"/>
+<parameter id="NFeatures"/>
+</parameters>
+</docu>
+</procedure>
+<procedure name="Find_ORB">
+<interface>
+<io>
+<par name="ImageTargetEnhanced" base_type="iconic" dimension="0"/>
+</io>
+<ic>
+<par name="DictRef" base_type="ctrl" dimension="0"/>
+<par name="RatioThresh" base_type="ctrl" dimension="0"/>
+<par name="RansacThreshold" base_type="ctrl" dimension="0"/>
+</ic>
+<oc>
+<par name="MatchedRefRow" base_type="ctrl" dimension="0"/>
+<par name="MatchedRefCol" base_type="ctrl" dimension="0"/>
+<par name="MatchedTargetRow" base_type="ctrl" dimension="0"/>
+<par name="MatchedTargetCol" base_type="ctrl" dimension="0"/>
+<par name="HomMat2D" base_type="ctrl" dimension="0"/>
+</oc>
+</interface>
+<body>
+<l>get_dict_tuple (DictRef, 'NumKeypoints', NumKPRef)//可做特征点的数量</l>
+<l>get_dict_object (DescRef, DictRef, 'Descriptors')//特征点描述矩阵32维矩阵</l>
+<l>get_dict_tuple (DictRef, 'KeypointsRow', KPRefRow)//点纵坐标</l>
+<l>get_dict_tuple (DictRef, 'KeypointsCol', KPRefCol)//点横坐标</l>
+<l>get_dict_tuple (DictRef, 'NFeatures', nfeatures)//撒3000个点</l>
+<l>get_image_size (DescRef, DescRefWidth, DescRefHeight)</l>
+<l>create_dict (DictTarget)</l>
+<l>set_dict_object (ImageTargetEnhanced, DictTarget, 'InputImage')</l>
+<l>set_dict_tuple (DictTarget, 'NFeatures', nfeatures)//撒3000个点</l>
+<l>cv_orb_detect (DictTarget)//执行找特征点</l>
+<l>get_dict_tuple (DictTarget, 'NumKeypoints', NumKPTarget)//可做特征点的数量</l>
+<l>get_dict_object (DescTarget, DictTarget, 'Descriptors')//特征点描述矩阵32维矩阵</l>
+<l>get_dict_tuple (DictTarget, 'KeypointsRow', KPTargetRow)//点纵坐标</l>
+<l>get_dict_tuple (DictTarget, 'KeypointsCol', KPTargetCol)//点横坐标</l>
+<c>* ============================================================</c>
+<c>* 阶段3: BF 暴力匹配 + Ratio Test</c>
+<c>* 对应 Python: cv2.BFMatcher(cv2.NORM_HAMMING) + knnMatch + ratio test</c>
+<c>* ============================================================</c>
+<l>create_dict (DictMatch)</l>
+<c>* 从检测结果中取出描述子</c>
+<l>set_dict_object (DescRef, DictMatch, 'DescriptorsRef')</l>
+<l>set_dict_object (DescTarget, DictMatch, 'DescriptorsTarget')</l>
+<l>set_dict_tuple (DictMatch, 'RatioThresh', RatioThresh)//匹配阈值</l>
+<l>set_dict_tuple (DictMatch, 'DescWidth', DescRefWidth)//匹配维数</l>
+<l>cv_bf_knn_match (DictMatch)//开始匹配</l>
+<l>get_dict_tuple (DictMatch, 'NumGoodMatches', NumGoodMatches)//成功点数量</l>
+<l>if (NumGoodMatches &lt; 4)</l>
+<c>    * 匹配点不足，跳过对齐</c>
+<l>    throw('匹配点不足4个，跳过对齐')</l>
+<l>endif</l>
+<l>get_dict_tuple (DictMatch, 'MatchIdxRef', MatchIdxRef)//原图匹配成功的点序号</l>
+<l>tuple_select (KPRefRow, MatchIdxRef, MatchedRefRow)</l>
+<l>tuple_select (KPRefCol, MatchIdxRef, MatchedRefCol)</l>
+<c></c>
+<l>get_dict_tuple (DictMatch, 'MatchIdxTarget', MatchIdxTarget)//目标图匹配成功的点序号</l>
+<l>tuple_select (KPTargetRow, MatchIdxTarget, MatchedTargetRow)</l>
+<l>tuple_select (KPTargetCol, MatchIdxTarget, MatchedTargetCol)</l>
+<c></c>
+<c></c>
+<c>* 构造估计字典</c>
+<l>create_dict (DictAffine)</l>
+<l>set_dict_tuple (DictAffine, 'SrcRow', MatchedTargetRow)</l>
+<l>set_dict_tuple (DictAffine, 'SrcCol', MatchedTargetCol)</l>
+<l>set_dict_tuple (DictAffine, 'DstRow', MatchedRefRow)</l>
+<l>set_dict_tuple (DictAffine, 'DstCol', MatchedRefCol)</l>
+<l>set_dict_tuple (DictAffine, 'RansacThreshold',RansacThreshold)</l>
+<l>cv_estimate_affine_partial2d (DictAffine)</l>
+<l>get_dict_tuple (DictAffine, 'Success', AffineSuccess)</l>
+<l>if (AffineSuccess == 0)</l>
+<c>    * RANSAC 失败，跳过对齐</c>
+<l>    throw('RANSAC矩阵求解失败，跳过对齐')</l>
+<l>    return()</l>
+<l>endif</l>
+<c>* 取出仿射矩阵</c>
+<l>get_dict_tuple (DictAffine, 'HomMat2D', HomMat2D)</l>
+<l>return ()</l>
+</body>
+<docu id="Find_ORB">
+<parameters>
+<parameter id="DictRef"/>
+<parameter id="HomMat2D"/>
+<parameter id="ImageTargetEnhanced"/>
+<parameter id="MatchedRefCol"/>
+<parameter id="MatchedRefRow"/>
+<parameter id="MatchedTargetCol"/>
+<parameter id="MatchedTargetRow"/>
+<parameter id="RansacThreshold"/>
+<parameter id="RatioThresh"/>
+</parameters>
+</docu>
+</procedure>
+<procedure name="digitalPLL">
+<interface>
+<io>
+<par name="ImageRef" base_type="iconic" dimension="0"/>
+</io>
+<oo>
+<par name="ELObject" base_type="iconic" dimension="0"/>
+</oo>
+<ic>
+<par name="V" base_type="ctrl" dimension="0"/>
+</ic>
+</interface>
+<body>
+<l>count_obj (ImageRef, Number)</l>
+<l>TMin:=min(V)</l>
+<l>TMax:=max(V)</l>
+<l>Rang:=max(V)-min(V)</l>
+<l>gen_empty_obj (LightObject)</l>
+<l>Ln:=0</l>
+<l>Dn:=0</l>
+<l>for Index := 1 to Number by 1</l>
+<l>    select_obj (ImageRef, ImageSelect, Index)</l>
+<l>    if(Index=1)</l>
+<l>        get_image_size (ImageSelect, Width, Height)</l>
+<l>        gen_image_const (DarkObject, 'uint2', Width, Height)</l>
+<c></c>
+<l>    endif</l>
+<c></c>
+<l>    if(V[Index-1]&gt;max(V)-Rang*0.7)</l>
+<l>        concat_obj (LightObject, ImageSelect, LightObject)</l>
+<l>        Ln:=Ln+1</l>
+<l>    elseif(V[Index-1]&lt;min(V)+Rang*0.1)</l>
+<l>        add_image (DarkObject, ImageSelect, DarkObject, 1, 0)</l>
+<l>        Dn:=Dn+1</l>
+<l>    endif</l>
+<l>endfor</l>
+<l>scale_image (DarkObject, DarkObject, 1/real(Dn), 0)</l>
+<l>count_obj (LightObject, Number)</l>
+<l>gen_image_const (ELObject, 'uint2', Width, Height)</l>
+<c></c>
+<l>for Index := 1 to Number by 1</l>
+<l>    select_obj (LightObject, ImageSelect, Index)</l>
+<l>    sub_image (ImageSelect, DarkObject, ImageSub, 1, 0)</l>
+<l>    add_image (ELObject,ImageSub,  ELObject, 1, 0)</l>
+<l>endfor</l>
+<c></c>
+<l>return ()</l>
+</body>
+<docu id="digitalPLL">
+<parameters>
+<parameter id="ELObject"/>
+<parameter id="ImageRef"/>
+<parameter id="V"/>
+</parameters>
+</docu>
+</procedure>
+<procedure name="Wave">
+<interface>
+<io>
+<par name="Image" base_type="iconic" dimension="0"/>
+<par name="RegionUnion" base_type="iconic" dimension="0"/>
+</io>
+<oo>
+<par name="ELObject" base_type="iconic" dimension="0"/>
+</oo>
+</interface>
+<body>
+<l>crop_part (Image, ImagePar, 0, 0, 2592/2,2056 )</l>
+<c></c>
+<l>sobel_amp (ImagePar, EdgeImage, 'sum_abs', 3)</l>
+<c></c>
+<l>scale_image_max (EdgeImage, EdgeImageRefGray)//映射到8位深</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<l>select_obj(EdgeImageRefGray,SelectEdgeImageRefGray,1)</l>
+<l>CLAHE_image (SelectEdgeImageRefGray, ImageRefEnhanced, 8, 8, 3)</l>
+<l>ORB_create(ImageRefEnhanced,5000, DictRef)</l>
+<l>select_obj(Image,ImageRef,1)</l>
+<c></c>
+<c></c>
+<l>gray_features (RegionUnion, ImageRef, 'mean', V)</l>
+<l>count_obj (Image, Number)</l>
+<l as_id="image_acquisition" as_name="Image Acquisition 01" as_grp="[2,2]" as_ord="1">for Index := 2 to Number by 1</l>
+<l>    select_obj (EdgeImageRefGray, ImageTarget, Index)</l>
+<l>    CLAHE_image (ImageTarget, ImageTargetEnhanced, 8, 8, 3)</l>
+<l>    Find_ORB (ImageTargetEnhanced, DictRef, 0.75, 3.0, RefRow, RefCol, TargetRow, TargetCol, HomMat2D)</l>
+<c>    </c>
+<l>*     concat_obj (ImageRefEnhanced, ImageTargetEnhanced, ObjectsConcat)</l>
+<l>*     tile_images (ObjectsConcat, TiledImage, 2, 'vertical')</l>
+<l>*     gen_region_line (ROI_0, RefRow, RefCol, TargetRow, TargetCol+2592)</l>
+<l>*     dev_display (TiledImage)</l>
+<l>*     dev_display (ROI_0)</l>
+<c></c>
+<l>    select_obj (Image, ImageTarget, Index)</l>
+<l>    affine_trans_image (ImageTarget, ImageAligned, HomMat2D, 'bilinear', 'false')</l>
+<l>    concat_obj (ImageRef, ImageAligned, ImageRef)</l>
+<l>    gray_features (RegionUnion, ImageTarget, 'mean', Value)</l>
+<l>    V:=[V,Value]</l>
+<l>endfor</l>
+<c></c>
+<c></c>
+<l>try</l>
+<l>    digitalPLL (ImageRef, ELObject, V)</l>
+<l>catch (Exception)</l>
+<l>endtry</l>
+<l>return ()</l>
+</body>
+<docu id="Wave">
+<parameters>
+<parameter id="ELObject"/>
+<parameter id="Image"/>
+<parameter id="RegionUnion"/>
+</parameters>
+</docu>
+</procedure>
+</hdevelop>

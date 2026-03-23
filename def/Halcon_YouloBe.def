@@ -740,3 +740,134 @@ parameter
   sem_type:           string;
   type_list:          string;
   default_value:      "Model";
+
+cv_orb_detect<- Ccv_orb_detect[::DictHandle:]
+short.german
+  ORB feature detection and descriptor computation using OpenCV.;
+
+short.english
+  ORB feature detection and descriptor computation using OpenCV.;
+
+module
+  foundation;
+
+chapter.german
+  BenutzerErweiterungen;
+
+chapter.english
+  UserExtensions;
+
+keywords.english
+  UserExtensions, ORB, Feature, Detection, OpenCV;
+
+parallelization
+  process_exclusively: false;
+  process_locally:     false;
+  process_mutual:      false;
+  method:              none;
+
+parameter
+  DictHandle:         input_control;
+  default_type:       handle;
+  multivalue:         false;
+  sem_type:           handle;
+  type_list:          handle;
+
+
+cv_akaze_detect<- Ccv_akaze_detect[::DictHandle:]
+short.german
+  AKAZE feature detection and descriptor computation using OpenCV.;
+
+short.english
+  AKAZE feature detection and descriptor computation using OpenCV.;
+
+module
+  foundation;
+
+chapter.german
+  BenutzerErweiterungen;
+
+chapter.english
+  UserExtensions;
+
+keywords.english
+  UserExtensions, AKAZE, Feature, Detection, OpenCV;
+
+parallelization
+  process_exclusively: false;
+  process_locally:     false;
+  process_mutual:      false;
+  method:              none;
+
+parameter
+  DictHandle:         input_control;
+  default_type:       handle;
+  multivalue:         false;
+  sem_type:           handle;
+  type_list:          handle;
+
+
+cv_bf_knn_match<- Ccv_bf_knn_match[::DictHandle:]
+short.german
+  BF brute-force KNN matching with Lowe ratio test using OpenCV.;
+
+short.english
+  BF brute-force KNN matching with Lowe ratio test using OpenCV.;
+
+module
+  foundation;
+
+chapter.german
+  BenutzerErweiterungen;
+
+chapter.english
+  UserExtensions;
+
+keywords.english
+  UserExtensions, BFMatcher, KNN, Match, OpenCV;
+
+parallelization
+  process_exclusively: false;
+  process_locally:     false;
+  process_mutual:      false;
+  method:              none;
+
+parameter
+  DictHandle:         input_control;
+  default_type:       handle;
+  multivalue:         false;
+  sem_type:           handle;
+  type_list:          handle;
+
+
+cv_estimate_affine_partial2d<- Ccv_estimate_affine_partial2d[::DictHandle:]
+short.german
+  Estimate partial affine transform (translation+rotation+scale) with RANSAC using OpenCV.;
+
+short.english
+  Estimate partial affine transform (translation+rotation+scale) with RANSAC using OpenCV.;
+
+module
+  foundation;
+
+chapter.german
+  BenutzerErweiterungen;
+
+chapter.english
+  UserExtensions;
+
+keywords.english
+  UserExtensions, Affine, RANSAC, Transform, OpenCV;
+
+parallelization
+  process_exclusively: false;
+  process_locally:     false;
+  process_mutual:      false;
+  method:              none;
+
+parameter
+  DictHandle:         input_control;
+  default_type:       handle;
+  multivalue:         false;
+  sem_type:           handle;
+  type_list:          handle;

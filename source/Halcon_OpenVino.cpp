@@ -1,4 +1,6 @@
 #include "Halcon_Def.h"
+#include <cmath>
+
 #define H_Openvino_TAG 0xC0FFEE70
 #define H_Openvino_SEM_TYPE "Openvino"
 extern "C"
@@ -788,5 +790,412 @@ Herror HCWriteImageExif(Hproc_handle proc_handle)
         return 30001;  // EXIF 写入失败错误码
     }
     
+    return H_MSG_TRUE;
+}
+
+
+
+
+
+
+/*=============================================================================
+ * 算子1: cv_orb_detect
+ *
+ * 功能: 对输入的 8 位灰度图执行 ORB 特征检测，输出关键点坐标和描述子矩阵。
+ *
+ * 字典输入:
+ *   "InputImage"   — HObject, 8位灰度图 (byte)
+ *   "NFeatures"    — HTuple(int), ORB 最大特征点数, 默认 3000
+ *
+ * 字典输出:
+ *   "KeypointsRow" — HTuple(real[]), 关键点行坐标 (y)
+ *   "KeypointsCol" — HTuple(real[]), 关键点列坐标 (x)
+ *   "Descriptors"  — HObject, 描述子矩阵存为图像 (byte, W=32, H=N)
+ *   "NumKeypoints" — HTuple(int), 检测到的关键点数量
+ *===========================================================================*/
+Herror HCcv_orb_detect(Hproc_handle proc_handle)
+{
+    Hcpar *dict;
+    INT4_8 num;
+    HAllocStringMem(proc_handle, 1024);
+    HGetPPar(proc_handle, 1, &dict, &num);
+    HTuple hv_DictHandle(dict, 1);
+
+    // 获取输入图像
+    HObject ho_InputImage;
+    GetDictObject(&ho_InputImage, hv_DictHandle, "InputImage");
+
+    HTuple hv_Pointer, hv_Type, hv_Width, hv_Height;
+    GetImagePointer1(ho_InputImage, &hv_Pointer, &hv_Type, &hv_Width, &hv_Height);
+
+    // 构造 cv::Mat (零拷贝)
+    cv::Mat img((int)hv_Height.L(), (int)hv_Width.L(), CV_8UC1,
+                (uchar *)hv_Pointer.L());
+
+    // 获取参数 NFeatures
+    HTuple hv_NFeatures;
+    try {
+        GetDictTuple(hv_DictHandle, "NFeatures", &hv_NFeatures);
+    } catch (...) {
+        hv_NFeatures = 3000;
+    }
+    int nFeatures = (int)hv_NFeatures.L();
+
+    // 创建 ORB 检测器
+    cv::Ptr<cv::ORB> orb = cv::ORB::create(nFeatures);
+
+    // 检测关键点并计算描述子
+    std::vector<cv::KeyPoint> keypoints;
+    cv::Mat descriptors;
+    orb->detectAndCompute(img, cv::noArray(), keypoints, descriptors);
+
+    int nKP = (int)keypoints.size();
+
+    // 输出关键点坐标
+    HTuple hv_Rows, hv_Cols;
+    for (int i = 0; i < nKP; i++)
+    {
+        hv_Rows[i] = (double)keypoints[i].pt.y;
+        hv_Cols[i] = (double)keypoints[i].pt.x;
+    }
+    SetDictTuple(hv_DictHandle, "KeypointsRow", hv_Rows);
+    SetDictTuple(hv_DictHandle, "KeypointsCol", hv_Cols);
+    SetDictTuple(hv_DictHandle, "NumKeypoints", (Hlong)nKP);
+
+    // 输出描述子矩阵为 byte 图像 (H=nKP, W=32)
+    if (nKP > 0 && !descriptors.empty())
+    {
+        // ORB 描述子: CV_8UC1, 每行 32 字节
+        HObject ho_Desc;
+        GenImage1(&ho_Desc, "byte", 32, nKP, (Hlong)descriptors.data);
+
+        // 由于 GenImage1 会拷贝数据，这里是安全的
+        SetDictObject(ho_Desc, hv_DictHandle, "Descriptors");
+    }
+
+    return H_MSG_TRUE;
+}
+
+/*=============================================================================
+ * 算子2: cv_akaze_detect
+ *
+ * 功能: 对输入的 8 位灰度图执行 AKAZE 特征检测，输出关键点坐标和描述子矩阵。
+ *
+ * 字典输入:
+ *   "InputImage"   — HObject, 8位灰度图 (byte)
+ *
+ * 字典输出:
+ *   "KeypointsRow" — HTuple(real[]), 关键点行坐标 (y)
+ *   "KeypointsCol" — HTuple(real[]), 关键点列坐标 (x)
+ *   "Descriptors"  — HObject, 描述子矩阵存为图像 (byte, W=61, H=N)
+ *   "NumKeypoints" — HTuple(int), 检测到的关键点数量
+ *   "DescWidth"    — HTuple(int), 描述子宽度 (AKAZE 可能不固定)
+ *===========================================================================*/
+Herror HCcv_akaze_detect(Hproc_handle proc_handle)
+{
+    Hcpar *dict;
+    INT4_8 num;
+    HAllocStringMem(proc_handle, 1024);
+    HGetPPar(proc_handle, 1, &dict, &num);
+    HTuple hv_DictHandle(dict, 1);
+
+    // 获取输入图像
+    HObject ho_InputImage;
+    GetDictObject(&ho_InputImage, hv_DictHandle, "InputImage");
+
+    HTuple hv_Pointer, hv_Type, hv_Width, hv_Height;
+    GetImagePointer1(ho_InputImage, &hv_Pointer, &hv_Type, &hv_Width, &hv_Height);
+
+    cv::Mat img((int)hv_Height.L(), (int)hv_Width.L(), CV_8UC1,
+                (uchar *)hv_Pointer.L());
+
+    // 创建 AKAZE 检测器
+    cv::Ptr<cv::AKAZE> akaze = cv::AKAZE::create();
+
+    std::vector<cv::KeyPoint> keypoints;
+    cv::Mat descriptors;
+    akaze->detectAndCompute(img, cv::noArray(), keypoints, descriptors);
+
+    int nKP = (int)keypoints.size();
+
+    // 输出关键点坐标
+    HTuple hv_Rows, hv_Cols;
+    for (int i = 0; i < nKP; i++)
+    {
+        hv_Rows[i] = (double)keypoints[i].pt.y;
+        hv_Cols[i] = (double)keypoints[i].pt.x;
+    }
+    SetDictTuple(hv_DictHandle, "KeypointsRow", hv_Rows);
+    SetDictTuple(hv_DictHandle, "KeypointsCol", hv_Cols);
+    SetDictTuple(hv_DictHandle, "NumKeypoints", (Hlong)nKP);
+
+    // AKAZE 描述子: 默认 MLDB 二进制, CV_8UC1
+    // 描述子宽度可能是 61 字节 (AKAZE 默认)
+    if (nKP > 0 && !descriptors.empty())
+    {
+        int descWidth = descriptors.cols;
+
+        // 确保是 CV_8U 类型 (二进制描述子)
+        cv::Mat descU8;
+        if (descriptors.type() != CV_8UC1)
+            descriptors.convertTo(descU8, CV_8UC1);
+        else
+            descU8 = descriptors;
+
+        HObject ho_Desc;
+        GenImage1(&ho_Desc, "byte", descWidth, nKP, (Hlong)descU8.data);
+        SetDictObject(ho_Desc, hv_DictHandle, "Descriptors");
+        SetDictTuple(hv_DictHandle, "DescWidth", (Hlong)descWidth);
+    }
+
+    return H_MSG_TRUE;
+}
+
+/*=============================================================================
+ * 算子3: cv_bf_knn_match
+ *
+ * 功能: 对两组二进制描述子执行 BF 暴力匹配 + Lowe's Ratio Test 筛选。
+ *
+ * 字典输入:
+ *   "DescriptorsRef"    — HObject, 参考图描述子 (byte 图像, W=descW, H=N1)
+ *   "DescriptorsTarget" — HObject, 目标图描述子 (byte 图像, W=descW, H=N2)
+ *   "RatioThresh"       — HTuple(real), Lowe's ratio 阈值, 默认 0.75
+ *   "DescWidth"         — HTuple(int), 描述子宽度 (ORB=32, AKAZE 可变)
+ *
+ * 字典输出:
+ *   "MatchIdxRef"       — HTuple(int[]), 匹配的参考图关键点索引
+ *   "MatchIdxTarget"    — HTuple(int[]), 匹配的目标图关键点索引
+ *   "NumGoodMatches"    — HTuple(int), 优质匹配数量
+ *===========================================================================*/
+Herror HCcv_bf_knn_match(Hproc_handle proc_handle)
+{
+    Hcpar *dict;
+    INT4_8 num;
+    HAllocStringMem(proc_handle, 1024);
+    HGetPPar(proc_handle, 1, &dict, &num);
+    HTuple hv_DictHandle(dict, 1);
+
+    // 获取参考图描述子
+    HObject ho_DescRef;
+    GetDictObject(&ho_DescRef, hv_DictHandle, "DescriptorsRef");
+    HTuple ptrRef, typeRef, wRef, hRef;
+    GetImagePointer1(ho_DescRef, &ptrRef, &typeRef, &wRef, &hRef);
+
+    // 获取目标图描述子
+    HObject ho_DescTarget;
+    GetDictObject(&ho_DescTarget, hv_DictHandle, "DescriptorsTarget");
+    HTuple ptrTarget, typeTarget, wTarget, hTarget;
+    GetImagePointer1(ho_DescTarget, &ptrTarget, &typeTarget, &wTarget, &hTarget);
+
+    // 获取描述子宽度
+    HTuple hv_DescWidth;
+    try {
+        GetDictTuple(hv_DictHandle, "DescWidth", &hv_DescWidth);
+    } catch (...) {
+        hv_DescWidth = 32; // 默认 ORB
+    }
+    int descWidth = (int)hv_DescWidth.L();
+
+    // 获取 ratio 阈值
+    HTuple hv_RatioThresh;
+    try {
+        GetDictTuple(hv_DictHandle, "RatioThresh", &hv_RatioThresh);
+    } catch (...) {
+        hv_RatioThresh = 0.75;
+    }
+    double ratioThresh = hv_RatioThresh.D();
+
+    int nRef = (int)hRef.L();
+    int nTarget = (int)hTarget.L();
+
+    // 构造 cv::Mat
+    cv::Mat matRef(nRef, descWidth, CV_8UC1, (uchar *)ptrRef.L());
+    cv::Mat matTarget(nTarget, descWidth, CV_8UC1, (uchar *)ptrTarget.L());
+
+    // BF 匹配
+    cv::BFMatcher bf(cv::NORM_HAMMING, false);
+    std::vector<std::vector<cv::DMatch>> knnMatches;
+
+    if (nRef < 2 || nTarget < 2)
+    {
+        SetDictTuple(hv_DictHandle, "NumGoodMatches", (Hlong)0);
+        return H_MSG_TRUE;
+    }
+
+    try {
+        bf.knnMatch(matRef, matTarget, knnMatches, 2);
+    } catch (const cv::Exception &) {
+        SetDictTuple(hv_DictHandle, "NumGoodMatches", (Hlong)0);
+        return H_MSG_TRUE;
+    }
+
+    // Lowe's Ratio Test
+    std::vector<int> goodIdxRef, goodIdxTarget;
+    for (size_t i = 0; i < knnMatches.size(); i++)
+    {
+        if (knnMatches[i].size() == 2)
+        {
+            const cv::DMatch &m = knnMatches[i][0];
+            const cv::DMatch &n = knnMatches[i][1];
+            if (m.distance < ratioThresh * n.distance)
+            {
+                goodIdxRef.push_back(m.queryIdx);
+                goodIdxTarget.push_back(m.trainIdx);
+            }
+        }
+    }
+
+    int nGood = (int)goodIdxRef.size();
+
+    // 输出匹配索引
+    HTuple hv_IdxRef, hv_IdxTarget;
+    for (int i = 0; i < nGood; i++)
+    {
+        hv_IdxRef[i] = (Hlong)goodIdxRef[i];
+        hv_IdxTarget[i] = (Hlong)goodIdxTarget[i];
+    }
+    SetDictTuple(hv_DictHandle, "MatchIdxRef", hv_IdxRef);
+    SetDictTuple(hv_DictHandle, "MatchIdxTarget", hv_IdxTarget);
+    SetDictTuple(hv_DictHandle, "NumGoodMatches", (Hlong)nGood);
+
+    return H_MSG_TRUE;
+}
+
+/*=============================================================================
+ * 算子4: cv_estimate_affine_partial2d
+ *
+ * 功能: 使用 RANSAC 估计部分仿射变换矩阵 (平移+旋转+均匀缩放)。
+ *       输入为两组对应点坐标，输出 2x3 仿射矩阵的 6 个元素。
+ *
+ * 字典输入:
+ *   "SrcRow"          — HTuple(real[]), 源点行坐标 (目标图关键点 y)
+ *   "SrcCol"          — HTuple(real[]), 源点列坐标 (目标图关键点 x)
+ *   "DstRow"          — HTuple(real[]), 目标点行坐标 (参考图关键点 y)
+ *   "DstCol"          — HTuple(real[]), 目标点列坐标 (参考图关键点 x)
+ *   "RansacThreshold" — HTuple(real), RANSAC 重投影阈值, 默认 3.0
+ *
+ * 字典输出:
+ *   "HomMat2D"        — HTuple(real[6]), 仿射矩阵 [a00,a01,a02, a10,a11,a12]
+ *                        可直接用于 Halcon 的 affine_trans_image
+ *   "InlierCount"     — HTuple(int), 内点数量
+ *   "Success"         — HTuple(int), 1=成功, 0=失败
+ *   "TranslateRow"    — HTuple(real), 平移量 ty
+ *   "TranslateCol"    — HTuple(real), 平移量 tx
+ *   "Angle"           — HTuple(real), 旋转角度 (弧度)
+ *   "Scale"           — HTuple(real), 缩放因子
+ *===========================================================================*/
+Herror HCcv_estimate_affine_partial2d(Hproc_handle proc_handle)
+{
+    Hcpar *dict;
+    INT4_8 num;
+    HAllocStringMem(proc_handle, 1024);
+    HGetPPar(proc_handle, 1, &dict, &num);
+    HTuple hv_DictHandle(dict, 1);
+
+    // 获取对应点坐标
+    HTuple hv_SrcRow, hv_SrcCol, hv_DstRow, hv_DstCol;
+    GetDictTuple(hv_DictHandle, "SrcRow", &hv_SrcRow);
+    GetDictTuple(hv_DictHandle, "SrcCol", &hv_SrcCol);
+    GetDictTuple(hv_DictHandle, "DstRow", &hv_DstRow);
+    GetDictTuple(hv_DictHandle, "DstCol", &hv_DstCol);
+
+    int nPts = (int)hv_SrcRow.Length();
+    if (nPts < 4)
+    {
+        SetDictTuple(hv_DictHandle, "Success", (Hlong)0);
+        SetDictTuple(hv_DictHandle, "InlierCount", (Hlong)0);
+        return H_MSG_TRUE;
+    }
+
+    // 获取 RANSAC 阈值
+    HTuple hv_RansacThresh;
+    try {
+        GetDictTuple(hv_DictHandle, "RansacThreshold", &hv_RansacThresh);
+    } catch (...) {
+        hv_RansacThresh = 3.0;
+    }
+    double ransacThresh = hv_RansacThresh.D();
+
+    // 构造 OpenCV 点数组
+    // 注意: OpenCV 的 estimateAffinePartial2D 参数是 (from, to)
+    // Python 代码中: estimateAffinePartial2D(dst_pts, src_pts) 即从目标到参考
+    // 这里 Src = 目标图点, Dst = 参考图点
+    std::vector<cv::Point2f> srcPts(nPts), dstPts(nPts);
+    for (int i = 0; i < nPts; i++)
+    {
+        //srcPts[i] = cv::Point2f((float)hv_SrcCol.D()[i], (float)hv_SrcRow.D()[i]);
+        //dstPts[i] = cv::Point2f((float)hv_DstCol.D()[i], (float)hv_DstRow.D()[i]);
+        srcPts[i] = cv::Point2f((float)hv_SrcCol[i].D(), (float)hv_SrcRow[i].D());
+        dstPts[i] = cv::Point2f((float)hv_DstCol[i].D(), (float)hv_DstRow[i].D());
+
+    }
+
+    // RANSAC 估计部分仿射变换
+    cv::Mat inlierMask;
+    cv::Mat M = cv::estimateAffinePartial2D(
+        srcPts, dstPts,
+        inlierMask,
+        cv::RANSAC,
+        ransacThresh
+    );
+
+    if (M.empty())
+    {
+        SetDictTuple(hv_DictHandle, "Success", (Hlong)0);
+        SetDictTuple(hv_DictHandle, "InlierCount", (Hlong)0);
+        return H_MSG_TRUE;
+    }
+
+    // 计算内点数
+    int inlierCount = 0;
+    if (!inlierMask.empty())
+    {
+        for (int i = 0; i < inlierMask.rows; i++)
+        {
+            if (inlierMask.at<uchar>(i, 0) != 0)
+                inlierCount++;
+        }
+    }
+
+    // 提取矩阵元素
+    // M = [a00, a01, a02]   即 [cos*s, -sin*s, tx]
+    //     [a10, a11, a12]      [sin*s,  cos*s, ty]
+    double a00 = M.at<double>(0, 0);
+    double a01 = M.at<double>(0, 1);
+    double a02 = M.at<double>(0, 2); // tx
+    double a10 = M.at<double>(1, 0);
+    double a11 = M.at<double>(1, 1);
+    double a12 = M.at<double>(1, 2); // ty
+
+    double angle = std::atan2(a10, a00);
+    double scale = std::sqrt(a00 * a00 + a10 * a10);
+
+    // 输出 HomMat2D: Halcon 的 hom_mat2d 格式是行优先的 [a00,a01,a02,a10,a11,a12]
+    // 但 Halcon affine_trans_image 需要的 HomMat2D 是一个 6 元素 tuple
+    // 格式: [ScaleR*cos, -ScaleC*sin, Tx, ScaleR*sin, ScaleC*cos, Ty]
+    // 即与 OpenCV 的 2x3 矩阵行优先展开一致
+    HTuple hv_HomMat2D;
+    //hv_HomMat2D[0] = a00;
+    //hv_HomMat2D[1] = a01;
+    //hv_HomMat2D[2] = a02;
+    //hv_HomMat2D[3] = a10;
+    //hv_HomMat2D[4] = a11;
+    //hv_HomMat2D[5] = a12;
+    // 修改后（正确：坐标系转换）
+    hv_HomMat2D[0] = a11;  // h00: row→row
+    hv_HomMat2D[1] = a10;  // h01: col→row
+    hv_HomMat2D[2] = a12;  // h02: row平移 (ty)
+    hv_HomMat2D[3] = a01;  // h10: row→col
+    hv_HomMat2D[4] = a00;  // h11: col→col
+    hv_HomMat2D[5] = a02;  // h12: col平移 (tx)
+    
+    SetDictTuple(hv_DictHandle, "HomMat2D", hv_HomMat2D);
+    SetDictTuple(hv_DictHandle, "Success", (Hlong)1);
+    SetDictTuple(hv_DictHandle, "InlierCount", (Hlong)inlierCount);
+    SetDictTuple(hv_DictHandle, "TranslateRow", a12);
+    SetDictTuple(hv_DictHandle, "TranslateCol", a02);
+    SetDictTuple(hv_DictHandle, "Angle", angle);
+    SetDictTuple(hv_DictHandle, "Scale", scale);
+
     return H_MSG_TRUE;
 }
