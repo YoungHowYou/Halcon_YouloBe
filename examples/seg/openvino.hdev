@@ -4,12 +4,12 @@
 <interface/>
 <body>
 <l>create_dict (DictHandle)</l>
-<l>set_dict_tuple(DictHandle, '工程路径', './end2end.xml')</l>
+<l>set_dict_tuple(DictHandle, '工程路径', './best.xml')</l>
 <l>set_dict_tuple(DictHandle, '使用设备','GPU')</l>
 <l>OpenvinoLoadModel (DictHandle, Handle)</l>
 <c></c>
 <l>read_image (Image, './52_1.png')</l>
-<l>zoom_image_size (Image, Image, 256, 256, 'constant')</l>
+<l>zoom_image_size (Image, Image, 640, 640, 'constant')</l>
 <c></c>
 <c></c>
 <l>OpenVinoInferImage (Image, OutImage, DictHandle, Handle)</l>

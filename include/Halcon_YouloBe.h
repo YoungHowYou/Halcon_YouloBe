@@ -38,7 +38,9 @@ extern "C"
     Test_EXPORTS_API Herror HCcv_akaze_detect(Hproc_handle proc_handle);
     Test_EXPORTS_API Herror HCcv_bf_knn_match(Hproc_handle proc_handle);
     Test_EXPORTS_API Herror HCcv_estimate_affine_partial2d(Hproc_handle proc_handle);
-
+    
+    // YOLO 实例分割检测
+    Test_EXPORTS_API Herror Openvino_YOLO_Seg_Detect(Hproc_handle proc_handle);
 #ifdef __cplusplus
 }
 #endif

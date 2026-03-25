@@ -101,21 +101,21 @@ target_include_directories(${ProjectName}
 
 )
 # # Debug 相关配置
-#     target_link_libraries(${ProjectName} 
-#     ${HALCON_LIB_DIR}/halconcpp.lib
-#     #往后增加3方库的lib文件
-#     ${CMAKE_CURRENT_SOURCE_DIR}/3rd/opencv/lib/debug/*.lib
-#     ${CMAKE_CURRENT_SOURCE_DIR}/3rd/openvino/lib/debug/*.lib
-#    ${CMAKE_CURRENT_SOURCE_DIR}/3rd/exiv/lib/exiv2.lib
+     target_link_libraries(${ProjectName} 
+     ${HALCON_LIB_DIR}/halconcpp.lib
+     #往后增加3方库的lib文件
+     ${CMAKE_CURRENT_SOURCE_DIR}/3rd/opencv/lib/debug/*.lib
+     ${CMAKE_CURRENT_SOURCE_DIR}/3rd/openvino/lib/debug/*.lib
+     ${CMAKE_CURRENT_SOURCE_DIR}/3rd/exiv/lib/exiv2.lib
 
-# )
+ )
 # Release 相关配置
-    target_link_libraries(${ProjectName} 
-    ${HALCON_LIB_DIR}/halconcpp.lib
-    #往后增加3方库的lib文件
-    ${CMAKE_CURRENT_SOURCE_DIR}/3rd/opencv/lib/release/*.lib
-    ${CMAKE_CURRENT_SOURCE_DIR}/3rd/openvino/lib/release/*.lib
-    ${CMAKE_CURRENT_SOURCE_DIR}/3rd/exiv/lib/exiv2.lib
-)
+#    target_link_libraries(${ProjectName} 
+#    ${HALCON_LIB_DIR}/halconcpp.lib
+#    #往后增加3方库的lib文件
+#    ${CMAKE_CURRENT_SOURCE_DIR}/3rd/opencv/lib/release/*.lib
+#    ${CMAKE_CURRENT_SOURCE_DIR}/3rd/openvino/lib/release/*.lib
+#    ${CMAKE_CURRENT_SOURCE_DIR}/3rd/exiv/lib/exiv2.lib
+#)
 
 

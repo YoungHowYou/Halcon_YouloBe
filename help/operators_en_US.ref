@@ -1,3 +1,59 @@
+yolo_seg_detect(Handle,DictHandle)
+short.ascii=YOLOv8 instance segmentation detection using OpenVINO.
+keywords=UserExtensionsYOLOSegmentationOpenVINODeep learning
+module=0 Foundation
+parameter=Handle
+parameter_class=input_control
+type_list=handle
+default_type=handle
+sem_type=handle
+multivalue=false
+parameter=DictHandle
+parameter_class=input_control
+type_list=handle
+default_type=handle
+sem_type=handle
+multivalue=false
+cv_estimate_affine_partial2d(DictHandle)
+short.ascii=Estimate partial affine transform (translation+rotation+scale) with RANSAC using OpenCV.
+keywords=UserExtensionsAffineRANSACTransformOpenCV
+module=0 Foundation
+parameter=DictHandle
+parameter_class=input_control
+type_list=handle
+default_type=handle
+sem_type=handle
+multivalue=false
+cv_bf_knn_match(DictHandle)
+short.ascii=BF brute-force KNN matching with Lowe ratio test using OpenCV.
+keywords=UserExtensionsBFMatcherKNNMatchOpenCV
+module=0 Foundation
+parameter=DictHandle
+parameter_class=input_control
+type_list=handle
+default_type=handle
+sem_type=handle
+multivalue=false
+cv_akaze_detect(DictHandle)
+short.ascii=AKAZE feature detection and descriptor computation using OpenCV.
+keywords=UserExtensionsAKAZEFeatureDetectionOpenCV
+module=0 Foundation
+parameter=DictHandle
+parameter_class=input_control
+type_list=handle
+default_type=handle
+sem_type=handle
+multivalue=false
+cv_orb_detect(DictHandle)
+short.ascii=ORB feature detection and descriptor computation using OpenCV.
+keywords=UserExtensionsORBFeatureDetectionOpenCV
+module=0 Foundation
+parameter=DictHandle
+parameter_class=input_control
+type_list=handle
+default_type=handle
+sem_type=handle
+multivalue=false
 write_image_exif(image_path,latitude,longitude,altitude,aperture,shutter_speed,iso_number,focal_length,date_time,camera_make,camera_model)
 short.ascii=Write EXIF metadata to image file.
 keywords=UserExtensionsEXIFMetadataGPS

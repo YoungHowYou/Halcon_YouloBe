@@ -39,12 +39,83 @@ Herror HcPreCallUser(int proc_index_local, Hproc_handle *proc_handle)
   return HcPreCall(offset + proc_index_local, proc_handle);
 }
 
-HUserExport Herror T_write_image_exif(const Htuple image_path, const Htuple latitude, const Htuple longitude, const Htuple altitude, const Htuple aperture, const Htuple shutter_speed, const Htuple iso_number, const Htuple focal_length, const Htuple date_time, const Htuple camera_make, const Htuple camera_model)
+HUserExport Herror T_yolo_seg_detect(const Htuple Handle, const Htuple DictHandle)
 {
   Hproc_handle ph;
   Herror err = H_MSG_OK;
 
   err = HcPreCallUser(0,&ph);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&Handle);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,1,&DictHandle);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror T_cv_estimate_affine_partial2d(const Htuple DictHandle)
+{
+  Hproc_handle ph;
+  Herror err = H_MSG_OK;
+
+  err = HcPreCallUser(1,&ph);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&DictHandle);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror T_cv_bf_knn_match(const Htuple DictHandle)
+{
+  Hproc_handle ph;
+  Herror err = H_MSG_OK;
+
+  err = HcPreCallUser(2,&ph);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&DictHandle);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror T_cv_akaze_detect(const Htuple DictHandle)
+{
+  Hproc_handle ph;
+  Herror err = H_MSG_OK;
+
+  err = HcPreCallUser(3,&ph);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&DictHandle);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror T_cv_orb_detect(const Htuple DictHandle)
+{
+  Hproc_handle ph;
+  Herror err = H_MSG_OK;
+
+  err = HcPreCallUser(4,&ph);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&DictHandle);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror T_write_image_exif(const Htuple image_path, const Htuple latitude, const Htuple longitude, const Htuple altitude, const Htuple aperture, const Htuple shutter_speed, const Htuple iso_number, const Htuple focal_length, const Htuple date_time, const Htuple camera_make, const Htuple camera_model)
+{
+  Hproc_handle ph;
+  Herror err = H_MSG_OK;
+
+  err = HcPreCallUser(5,&ph);
   if (err == H_MSG_OK) err = HcStoreICTEnc(ph,0,&image_path);
   if (err == H_MSG_OK) err = HcStoreICT(ph,1,&latitude);
   if (err == H_MSG_OK) err = HcStoreICT(ph,2,&longitude);
@@ -68,7 +139,7 @@ HUserExport Herror T_CLAHE_image(const Hobject inimage, Hobject *outimage, const
   Hproc_handle ph;
   Herror err = H_MSG_OK;
 
-  err = HcPreCallUser(1,&ph);
+  err = HcPreCallUser(6,&ph);
   if (err == H_MSG_OK) err = HcStoreIO(ph,1,inimage);
   if (err == H_MSG_OK) err = HcStoreICT(ph,0,&k_width);
   if (err == H_MSG_OK) err = HcStoreICT(ph,1,&k_height);
@@ -82,101 +153,6 @@ HUserExport Herror T_CLAHE_image(const Hobject inimage, Hobject *outimage, const
 }
 
 HUserExport Herror T_sub_A_roi(const Hobject smallimage, const Hobject bigimage, const Htuple sy, const Htuple sx, const Htuple ew, const Htuple eh)
-{
-  Hproc_handle ph;
-  Herror err = H_MSG_OK;
-
-  err = HcPreCallUser(2,&ph);
-  if (err == H_MSG_OK) err = HcStoreIO(ph,1,smallimage);
-  if (err == H_MSG_OK) err = HcStoreIO(ph,2,bigimage);
-  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&sy);
-  if (err == H_MSG_OK) err = HcStoreICT(ph,1,&sx);
-  if (err == H_MSG_OK) err = HcStoreICT(ph,2,&ew);
-  if (err == H_MSG_OK) err = HcStoreICT(ph,3,&eh);
-  if (err == H_MSG_OK)
-  {
-    err = HcCall(ph);
-  }
-  return HcPostCall(ph,err);
-}
-
-HUserExport Herror T_div_A_roi(const Hobject smallimage, const Hobject bigimage, const Htuple sy, const Htuple sx, const Htuple ew, const Htuple eh)
-{
-  Hproc_handle ph;
-  Herror err = H_MSG_OK;
-
-  err = HcPreCallUser(3,&ph);
-  if (err == H_MSG_OK) err = HcStoreIO(ph,1,smallimage);
-  if (err == H_MSG_OK) err = HcStoreIO(ph,2,bigimage);
-  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&sy);
-  if (err == H_MSG_OK) err = HcStoreICT(ph,1,&sx);
-  if (err == H_MSG_OK) err = HcStoreICT(ph,2,&ew);
-  if (err == H_MSG_OK) err = HcStoreICT(ph,3,&eh);
-  if (err == H_MSG_OK)
-  {
-    err = HcCall(ph);
-  }
-  return HcPostCall(ph,err);
-}
-
-HUserExport Herror T_div_B_roi(const Hobject smallimage, const Hobject bigimage, const Htuple sy, const Htuple sx, const Htuple ew, const Htuple eh)
-{
-  Hproc_handle ph;
-  Herror err = H_MSG_OK;
-
-  err = HcPreCallUser(4,&ph);
-  if (err == H_MSG_OK) err = HcStoreIO(ph,1,smallimage);
-  if (err == H_MSG_OK) err = HcStoreIO(ph,2,bigimage);
-  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&sy);
-  if (err == H_MSG_OK) err = HcStoreICT(ph,1,&sx);
-  if (err == H_MSG_OK) err = HcStoreICT(ph,2,&ew);
-  if (err == H_MSG_OK) err = HcStoreICT(ph,3,&eh);
-  if (err == H_MSG_OK)
-  {
-    err = HcCall(ph);
-  }
-  return HcPostCall(ph,err);
-}
-
-HUserExport Herror T_sub_B_roi(const Hobject smallimage, const Hobject bigimage, const Htuple sy, const Htuple sx, const Htuple ew, const Htuple eh)
-{
-  Hproc_handle ph;
-  Herror err = H_MSG_OK;
-
-  err = HcPreCallUser(5,&ph);
-  if (err == H_MSG_OK) err = HcStoreIO(ph,1,smallimage);
-  if (err == H_MSG_OK) err = HcStoreIO(ph,2,bigimage);
-  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&sy);
-  if (err == H_MSG_OK) err = HcStoreICT(ph,1,&sx);
-  if (err == H_MSG_OK) err = HcStoreICT(ph,2,&ew);
-  if (err == H_MSG_OK) err = HcStoreICT(ph,3,&eh);
-  if (err == H_MSG_OK)
-  {
-    err = HcCall(ph);
-  }
-  return HcPostCall(ph,err);
-}
-
-HUserExport Herror T_mul_roi(const Hobject smallimage, const Hobject bigimage, const Htuple sy, const Htuple sx, const Htuple ew, const Htuple eh)
-{
-  Hproc_handle ph;
-  Herror err = H_MSG_OK;
-
-  err = HcPreCallUser(6,&ph);
-  if (err == H_MSG_OK) err = HcStoreIO(ph,1,smallimage);
-  if (err == H_MSG_OK) err = HcStoreIO(ph,2,bigimage);
-  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&sy);
-  if (err == H_MSG_OK) err = HcStoreICT(ph,1,&sx);
-  if (err == H_MSG_OK) err = HcStoreICT(ph,2,&ew);
-  if (err == H_MSG_OK) err = HcStoreICT(ph,3,&eh);
-  if (err == H_MSG_OK)
-  {
-    err = HcCall(ph);
-  }
-  return HcPostCall(ph,err);
-}
-
-HUserExport Herror T_add_roi(const Hobject smallimage, const Hobject bigimage, const Htuple sy, const Htuple sx, const Htuple ew, const Htuple eh)
 {
   Hproc_handle ph;
   Herror err = H_MSG_OK;
@@ -195,12 +171,107 @@ HUserExport Herror T_add_roi(const Hobject smallimage, const Hobject bigimage, c
   return HcPostCall(ph,err);
 }
 
-HUserExport Herror T_PNGIn(const Hobject inimage, Hobject *outimage, const Htuple acceleration)
+HUserExport Herror T_div_A_roi(const Hobject smallimage, const Hobject bigimage, const Htuple sy, const Htuple sx, const Htuple ew, const Htuple eh)
 {
   Hproc_handle ph;
   Herror err = H_MSG_OK;
 
   err = HcPreCallUser(8,&ph);
+  if (err == H_MSG_OK) err = HcStoreIO(ph,1,smallimage);
+  if (err == H_MSG_OK) err = HcStoreIO(ph,2,bigimage);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&sy);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,1,&sx);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,2,&ew);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,3,&eh);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror T_div_B_roi(const Hobject smallimage, const Hobject bigimage, const Htuple sy, const Htuple sx, const Htuple ew, const Htuple eh)
+{
+  Hproc_handle ph;
+  Herror err = H_MSG_OK;
+
+  err = HcPreCallUser(9,&ph);
+  if (err == H_MSG_OK) err = HcStoreIO(ph,1,smallimage);
+  if (err == H_MSG_OK) err = HcStoreIO(ph,2,bigimage);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&sy);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,1,&sx);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,2,&ew);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,3,&eh);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror T_sub_B_roi(const Hobject smallimage, const Hobject bigimage, const Htuple sy, const Htuple sx, const Htuple ew, const Htuple eh)
+{
+  Hproc_handle ph;
+  Herror err = H_MSG_OK;
+
+  err = HcPreCallUser(10,&ph);
+  if (err == H_MSG_OK) err = HcStoreIO(ph,1,smallimage);
+  if (err == H_MSG_OK) err = HcStoreIO(ph,2,bigimage);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&sy);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,1,&sx);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,2,&ew);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,3,&eh);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror T_mul_roi(const Hobject smallimage, const Hobject bigimage, const Htuple sy, const Htuple sx, const Htuple ew, const Htuple eh)
+{
+  Hproc_handle ph;
+  Herror err = H_MSG_OK;
+
+  err = HcPreCallUser(11,&ph);
+  if (err == H_MSG_OK) err = HcStoreIO(ph,1,smallimage);
+  if (err == H_MSG_OK) err = HcStoreIO(ph,2,bigimage);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&sy);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,1,&sx);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,2,&ew);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,3,&eh);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror T_add_roi(const Hobject smallimage, const Hobject bigimage, const Htuple sy, const Htuple sx, const Htuple ew, const Htuple eh)
+{
+  Hproc_handle ph;
+  Herror err = H_MSG_OK;
+
+  err = HcPreCallUser(12,&ph);
+  if (err == H_MSG_OK) err = HcStoreIO(ph,1,smallimage);
+  if (err == H_MSG_OK) err = HcStoreIO(ph,2,bigimage);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&sy);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,1,&sx);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,2,&ew);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,3,&eh);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror T_PNGIn(const Hobject inimage, Hobject *outimage, const Htuple acceleration)
+{
+  Hproc_handle ph;
+  Herror err = H_MSG_OK;
+
+  err = HcPreCallUser(13,&ph);
   if (err == H_MSG_OK) err = HcStoreIO(ph,1,inimage);
   if (err == H_MSG_OK) err = HcStoreICT(ph,0,&acceleration);
   if (err == H_MSG_OK)
@@ -216,7 +287,7 @@ HUserExport Herror T_PNGOut(const Hobject inimage, Hobject *outimage)
   Hproc_handle ph;
   Herror err = H_MSG_OK;
 
-  err = HcPreCallUser(9,&ph);
+  err = HcPreCallUser(14,&ph);
   if (err == H_MSG_OK) err = HcStoreIO(ph,1,inimage);
   if (err == H_MSG_OK)
   {
@@ -231,7 +302,7 @@ HUserExport Herror T_remap(const Htuple hv_DictHandle)
   Hproc_handle ph;
   Herror err = H_MSG_OK;
 
-  err = HcPreCallUser(10,&ph);
+  err = HcPreCallUser(15,&ph);
   if (err == H_MSG_OK) err = HcStoreICT(ph,0,&hv_DictHandle);
   if (err == H_MSG_OK)
   {
@@ -245,7 +316,7 @@ HUserExport Herror T_OpenvinoInfer(const Htuple Handle, const Htuple DictHandle)
   Hproc_handle ph;
   Herror err = H_MSG_OK;
 
-  err = HcPreCallUser(11,&ph);
+  err = HcPreCallUser(16,&ph);
   if (err == H_MSG_OK) err = HcStoreICT(ph,0,&Handle);
   if (err == H_MSG_OK) err = HcStoreICT(ph,1,&DictHandle);
   if (err == H_MSG_OK)
@@ -260,7 +331,7 @@ HUserExport Herror T_OpenvinoLoadModel(const Htuple DictHandle, Htuple *Handle)
   Hproc_handle ph;
   Herror err = H_MSG_OK;
 
-  err = HcPreCallUser(12,&ph);
+  err = HcPreCallUser(17,&ph);
   if (err == H_MSG_OK) err = HcStoreICT(ph,0,&DictHandle);
   if (err == H_MSG_OK)
   {
@@ -271,11 +342,77 @@ HUserExport Herror T_OpenvinoLoadModel(const Htuple DictHandle, Htuple *Handle)
   return HcPostCall(ph,err);
 }
 
-HUserExport Herror write_image_exif(const char *image_path, double latitude, double longitude, double altitude, double aperture, double shutter_speed, Hlong iso_number, double focal_length, const char *date_time, const char *camera_make, const char *camera_model)
+HUserExport Herror yolo_seg_detect(Hlong Handle, Hlong DictHandle)
 {
   Hproc_handle ph;
   Herror err;
   err = HcPreCallUser(0,&ph);
+  if (err == H_MSG_OK) HcStoreICL(ph,0,Handle);
+  if (err == H_MSG_OK) HcStoreICL(ph,1,DictHandle);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror cv_estimate_affine_partial2d(Hlong DictHandle)
+{
+  Hproc_handle ph;
+  Herror err;
+  err = HcPreCallUser(1,&ph);
+  if (err == H_MSG_OK) HcStoreICL(ph,0,DictHandle);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror cv_bf_knn_match(Hlong DictHandle)
+{
+  Hproc_handle ph;
+  Herror err;
+  err = HcPreCallUser(2,&ph);
+  if (err == H_MSG_OK) HcStoreICL(ph,0,DictHandle);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror cv_akaze_detect(Hlong DictHandle)
+{
+  Hproc_handle ph;
+  Herror err;
+  err = HcPreCallUser(3,&ph);
+  if (err == H_MSG_OK) HcStoreICL(ph,0,DictHandle);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror cv_orb_detect(Hlong DictHandle)
+{
+  Hproc_handle ph;
+  Herror err;
+  err = HcPreCallUser(4,&ph);
+  if (err == H_MSG_OK) HcStoreICL(ph,0,DictHandle);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror write_image_exif(const char *image_path, double latitude, double longitude, double altitude, double aperture, double shutter_speed, Hlong iso_number, double focal_length, const char *date_time, const char *camera_make, const char *camera_model)
+{
+  Hproc_handle ph;
+  Herror err;
+  err = HcPreCallUser(5,&ph);
   if (err == H_MSG_OK) HcStoreICSEnc(ph,0,image_path);
   if (err == H_MSG_OK) HcStoreICD(ph,1,latitude);
   if (err == H_MSG_OK) HcStoreICD(ph,2,longitude);
@@ -298,7 +435,7 @@ HUserExport Herror CLAHE_image(const Hobject inimage, Hobject *outimage, Hlong k
 {
   Hproc_handle ph;
   Herror err;
-  err = HcPreCallUser(1,&ph);
+  err = HcPreCallUser(6,&ph);
   if (err == H_MSG_OK) err = HcStoreIO(ph,1,inimage);
   if (err == H_MSG_OK) HcStoreICL(ph,0,k_width);
   if (err == H_MSG_OK) HcStoreICL(ph,1,k_height);
@@ -312,96 +449,6 @@ HUserExport Herror CLAHE_image(const Hobject inimage, Hobject *outimage, Hlong k
 }
 
 HUserExport Herror sub_A_roi(const Hobject smallimage, const Hobject bigimage, Hlong sy, Hlong sx, Hlong ew, Hlong eh)
-{
-  Hproc_handle ph;
-  Herror err;
-  err = HcPreCallUser(2,&ph);
-  if (err == H_MSG_OK) err = HcStoreIO(ph,1,smallimage);
-  if (err == H_MSG_OK) err = HcStoreIO(ph,2,bigimage);
-  if (err == H_MSG_OK) HcStoreICL(ph,0,sy);
-  if (err == H_MSG_OK) HcStoreICL(ph,1,sx);
-  if (err == H_MSG_OK) HcStoreICL(ph,2,ew);
-  if (err == H_MSG_OK) HcStoreICL(ph,3,eh);
-  if (err == H_MSG_OK)
-  {
-    err = HcCall(ph);
-  }
-  return HcPostCall(ph,err);
-}
-
-HUserExport Herror div_A_roi(const Hobject smallimage, const Hobject bigimage, Hlong sy, Hlong sx, Hlong ew, Hlong eh)
-{
-  Hproc_handle ph;
-  Herror err;
-  err = HcPreCallUser(3,&ph);
-  if (err == H_MSG_OK) err = HcStoreIO(ph,1,smallimage);
-  if (err == H_MSG_OK) err = HcStoreIO(ph,2,bigimage);
-  if (err == H_MSG_OK) HcStoreICL(ph,0,sy);
-  if (err == H_MSG_OK) HcStoreICL(ph,1,sx);
-  if (err == H_MSG_OK) HcStoreICL(ph,2,ew);
-  if (err == H_MSG_OK) HcStoreICL(ph,3,eh);
-  if (err == H_MSG_OK)
-  {
-    err = HcCall(ph);
-  }
-  return HcPostCall(ph,err);
-}
-
-HUserExport Herror div_B_roi(const Hobject smallimage, const Hobject bigimage, Hlong sy, Hlong sx, Hlong ew, Hlong eh)
-{
-  Hproc_handle ph;
-  Herror err;
-  err = HcPreCallUser(4,&ph);
-  if (err == H_MSG_OK) err = HcStoreIO(ph,1,smallimage);
-  if (err == H_MSG_OK) err = HcStoreIO(ph,2,bigimage);
-  if (err == H_MSG_OK) HcStoreICL(ph,0,sy);
-  if (err == H_MSG_OK) HcStoreICL(ph,1,sx);
-  if (err == H_MSG_OK) HcStoreICL(ph,2,ew);
-  if (err == H_MSG_OK) HcStoreICL(ph,3,eh);
-  if (err == H_MSG_OK)
-  {
-    err = HcCall(ph);
-  }
-  return HcPostCall(ph,err);
-}
-
-HUserExport Herror sub_B_roi(const Hobject smallimage, const Hobject bigimage, Hlong sy, Hlong sx, Hlong ew, Hlong eh)
-{
-  Hproc_handle ph;
-  Herror err;
-  err = HcPreCallUser(5,&ph);
-  if (err == H_MSG_OK) err = HcStoreIO(ph,1,smallimage);
-  if (err == H_MSG_OK) err = HcStoreIO(ph,2,bigimage);
-  if (err == H_MSG_OK) HcStoreICL(ph,0,sy);
-  if (err == H_MSG_OK) HcStoreICL(ph,1,sx);
-  if (err == H_MSG_OK) HcStoreICL(ph,2,ew);
-  if (err == H_MSG_OK) HcStoreICL(ph,3,eh);
-  if (err == H_MSG_OK)
-  {
-    err = HcCall(ph);
-  }
-  return HcPostCall(ph,err);
-}
-
-HUserExport Herror mul_roi(const Hobject smallimage, const Hobject bigimage, Hlong sy, Hlong sx, Hlong ew, Hlong eh)
-{
-  Hproc_handle ph;
-  Herror err;
-  err = HcPreCallUser(6,&ph);
-  if (err == H_MSG_OK) err = HcStoreIO(ph,1,smallimage);
-  if (err == H_MSG_OK) err = HcStoreIO(ph,2,bigimage);
-  if (err == H_MSG_OK) HcStoreICL(ph,0,sy);
-  if (err == H_MSG_OK) HcStoreICL(ph,1,sx);
-  if (err == H_MSG_OK) HcStoreICL(ph,2,ew);
-  if (err == H_MSG_OK) HcStoreICL(ph,3,eh);
-  if (err == H_MSG_OK)
-  {
-    err = HcCall(ph);
-  }
-  return HcPostCall(ph,err);
-}
-
-HUserExport Herror add_roi(const Hobject smallimage, const Hobject bigimage, Hlong sy, Hlong sx, Hlong ew, Hlong eh)
 {
   Hproc_handle ph;
   Herror err;
@@ -419,11 +466,101 @@ HUserExport Herror add_roi(const Hobject smallimage, const Hobject bigimage, Hlo
   return HcPostCall(ph,err);
 }
 
-HUserExport Herror PNGIn(const Hobject inimage, Hobject *outimage, Hlong acceleration)
+HUserExport Herror div_A_roi(const Hobject smallimage, const Hobject bigimage, Hlong sy, Hlong sx, Hlong ew, Hlong eh)
 {
   Hproc_handle ph;
   Herror err;
   err = HcPreCallUser(8,&ph);
+  if (err == H_MSG_OK) err = HcStoreIO(ph,1,smallimage);
+  if (err == H_MSG_OK) err = HcStoreIO(ph,2,bigimage);
+  if (err == H_MSG_OK) HcStoreICL(ph,0,sy);
+  if (err == H_MSG_OK) HcStoreICL(ph,1,sx);
+  if (err == H_MSG_OK) HcStoreICL(ph,2,ew);
+  if (err == H_MSG_OK) HcStoreICL(ph,3,eh);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror div_B_roi(const Hobject smallimage, const Hobject bigimage, Hlong sy, Hlong sx, Hlong ew, Hlong eh)
+{
+  Hproc_handle ph;
+  Herror err;
+  err = HcPreCallUser(9,&ph);
+  if (err == H_MSG_OK) err = HcStoreIO(ph,1,smallimage);
+  if (err == H_MSG_OK) err = HcStoreIO(ph,2,bigimage);
+  if (err == H_MSG_OK) HcStoreICL(ph,0,sy);
+  if (err == H_MSG_OK) HcStoreICL(ph,1,sx);
+  if (err == H_MSG_OK) HcStoreICL(ph,2,ew);
+  if (err == H_MSG_OK) HcStoreICL(ph,3,eh);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror sub_B_roi(const Hobject smallimage, const Hobject bigimage, Hlong sy, Hlong sx, Hlong ew, Hlong eh)
+{
+  Hproc_handle ph;
+  Herror err;
+  err = HcPreCallUser(10,&ph);
+  if (err == H_MSG_OK) err = HcStoreIO(ph,1,smallimage);
+  if (err == H_MSG_OK) err = HcStoreIO(ph,2,bigimage);
+  if (err == H_MSG_OK) HcStoreICL(ph,0,sy);
+  if (err == H_MSG_OK) HcStoreICL(ph,1,sx);
+  if (err == H_MSG_OK) HcStoreICL(ph,2,ew);
+  if (err == H_MSG_OK) HcStoreICL(ph,3,eh);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror mul_roi(const Hobject smallimage, const Hobject bigimage, Hlong sy, Hlong sx, Hlong ew, Hlong eh)
+{
+  Hproc_handle ph;
+  Herror err;
+  err = HcPreCallUser(11,&ph);
+  if (err == H_MSG_OK) err = HcStoreIO(ph,1,smallimage);
+  if (err == H_MSG_OK) err = HcStoreIO(ph,2,bigimage);
+  if (err == H_MSG_OK) HcStoreICL(ph,0,sy);
+  if (err == H_MSG_OK) HcStoreICL(ph,1,sx);
+  if (err == H_MSG_OK) HcStoreICL(ph,2,ew);
+  if (err == H_MSG_OK) HcStoreICL(ph,3,eh);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror add_roi(const Hobject smallimage, const Hobject bigimage, Hlong sy, Hlong sx, Hlong ew, Hlong eh)
+{
+  Hproc_handle ph;
+  Herror err;
+  err = HcPreCallUser(12,&ph);
+  if (err == H_MSG_OK) err = HcStoreIO(ph,1,smallimage);
+  if (err == H_MSG_OK) err = HcStoreIO(ph,2,bigimage);
+  if (err == H_MSG_OK) HcStoreICL(ph,0,sy);
+  if (err == H_MSG_OK) HcStoreICL(ph,1,sx);
+  if (err == H_MSG_OK) HcStoreICL(ph,2,ew);
+  if (err == H_MSG_OK) HcStoreICL(ph,3,eh);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror PNGIn(const Hobject inimage, Hobject *outimage, Hlong acceleration)
+{
+  Hproc_handle ph;
+  Herror err;
+  err = HcPreCallUser(13,&ph);
   if (err == H_MSG_OK) err = HcStoreIO(ph,1,inimage);
   if (err == H_MSG_OK) HcStoreICL(ph,0,acceleration);
   if (err == H_MSG_OK)
@@ -438,7 +575,7 @@ HUserExport Herror PNGOut(const Hobject inimage, Hobject *outimage)
 {
   Hproc_handle ph;
   Herror err;
-  err = HcPreCallUser(9,&ph);
+  err = HcPreCallUser(14,&ph);
   if (err == H_MSG_OK) err = HcStoreIO(ph,1,inimage);
   if (err == H_MSG_OK)
   {
@@ -452,7 +589,7 @@ HUserExport Herror remap(Hlong hv_DictHandle)
 {
   Hproc_handle ph;
   Herror err;
-  err = HcPreCallUser(10,&ph);
+  err = HcPreCallUser(15,&ph);
   if (err == H_MSG_OK) HcStoreICL(ph,0,hv_DictHandle);
   if (err == H_MSG_OK)
   {
@@ -465,7 +602,7 @@ HUserExport Herror OpenvinoInfer(Hlong Handle, Hlong DictHandle)
 {
   Hproc_handle ph;
   Herror err;
-  err = HcPreCallUser(11,&ph);
+  err = HcPreCallUser(16,&ph);
   if (err == H_MSG_OK) HcStoreICL(ph,0,Handle);
   if (err == H_MSG_OK) HcStoreICL(ph,1,DictHandle);
   if (err == H_MSG_OK)
@@ -479,7 +616,7 @@ HUserExport Herror OpenvinoLoadModel(Hlong DictHandle, Hlong *Handle)
 {
   Hproc_handle ph;
   Herror err;
-  err = HcPreCallUser(12,&ph);
+  err = HcPreCallUser(17,&ph);
   if (err == H_MSG_OK) HcStoreICL(ph,0,DictHandle);
   if (err == H_MSG_OK)
   {

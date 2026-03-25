@@ -871,3 +871,43 @@ parameter
   multivalue:         false;
   sem_type:           handle;
   type_list:          handle;
+
+
+yolo_seg_detect<- Openvino_YOLO_Seg_Detect[::Handle,DictHandle:]
+short.german
+  YOLOv8 instance segmentation detection using OpenVINO.;
+
+short.english
+  YOLOv8 instance segmentation detection using OpenVINO.;
+
+module
+  foundation;
+
+chapter.german
+  BenutzerErweiterungen;
+
+chapter.english
+  UserExtensions;
+
+keywords.english
+  UserExtensions, YOLO, Segmentation, OpenVINO, DeepLearning;
+
+parallelization
+  process_exclusively: false;
+  process_locally:     false;
+  process_mutual:      false;
+  method:              none;
+
+parameter
+  Handle:             input_control;
+  default_type:       handle;
+  multivalue:         false;
+  sem_type:           handle;
+  type_list:          handle;
+
+parameter
+  DictHandle:         input_control;
+  default_type:       handle;
+  multivalue:         false;
+  sem_type:           handle;
+  type_list:          handle;

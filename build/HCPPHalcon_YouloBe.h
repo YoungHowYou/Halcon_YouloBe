@@ -29,6 +29,21 @@ namespace HalconCpp
    * Operators                                                               *
    ***************************************************************************/
 
+// YOLOv8 instance segmentation detection using OpenVINO.
+HUserExport void YoloSegDetect(const HTuple& Handle, const HTuple& DictHandle);
+
+// Estimate partial affine transform (translation+rotation+scale) with RANSAC using OpenCV.
+HUserExport void CvEstimateAffinePartial2d(const HTuple& DictHandle);
+
+// BF brute-force KNN matching with Lowe ratio test using OpenCV.
+HUserExport void CvBfKnnMatch(const HTuple& DictHandle);
+
+// AKAZE feature detection and descriptor computation using OpenCV.
+HUserExport void CvAkazeDetect(const HTuple& DictHandle);
+
+// ORB feature detection and descriptor computation using OpenCV.
+HUserExport void CvOrbDetect(const HTuple& DictHandle);
+
 // Write EXIF metadata to image file.
 HUserExport void WriteImageExif(const HTuple& image_path, const HTuple& latitude, const HTuple& longitude, const HTuple& altitude, const HTuple& aperture, const HTuple& shutter_speed, const HTuple& iso_number, const HTuple& focal_length, const HTuple& date_time, const HTuple& camera_make, const HTuple& camera_model);
 

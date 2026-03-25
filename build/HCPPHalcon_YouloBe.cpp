@@ -51,12 +51,68 @@ Hproc_handle PreCallUser(int proc_index_local)
 
 
 
+#ifdef YoloSegDetect
+# error An existing macro name conflicts with YoloSegDetect
+#endif
+HUserExport void HalconCpp::YoloSegDetect(const HTuple& Handle, const HTuple& DictHandle)
+{
+  Hproc_handle proc = PreCallUser(0);
+  HalconAPI::Store(proc,0,Handle);
+  HalconAPI::Store(proc,1,DictHandle);
+  HalconAPI::CallProcedure(proc);
+  HalconAPI::PostCall(proc);
+}
+
+#ifdef CvEstimateAffinePartial2d
+# error An existing macro name conflicts with CvEstimateAffinePartial2d
+#endif
+HUserExport void HalconCpp::CvEstimateAffinePartial2d(const HTuple& DictHandle)
+{
+  Hproc_handle proc = PreCallUser(1);
+  HalconAPI::Store(proc,0,DictHandle);
+  HalconAPI::CallProcedure(proc);
+  HalconAPI::PostCall(proc);
+}
+
+#ifdef CvBfKnnMatch
+# error An existing macro name conflicts with CvBfKnnMatch
+#endif
+HUserExport void HalconCpp::CvBfKnnMatch(const HTuple& DictHandle)
+{
+  Hproc_handle proc = PreCallUser(2);
+  HalconAPI::Store(proc,0,DictHandle);
+  HalconAPI::CallProcedure(proc);
+  HalconAPI::PostCall(proc);
+}
+
+#ifdef CvAkazeDetect
+# error An existing macro name conflicts with CvAkazeDetect
+#endif
+HUserExport void HalconCpp::CvAkazeDetect(const HTuple& DictHandle)
+{
+  Hproc_handle proc = PreCallUser(3);
+  HalconAPI::Store(proc,0,DictHandle);
+  HalconAPI::CallProcedure(proc);
+  HalconAPI::PostCall(proc);
+}
+
+#ifdef CvOrbDetect
+# error An existing macro name conflicts with CvOrbDetect
+#endif
+HUserExport void HalconCpp::CvOrbDetect(const HTuple& DictHandle)
+{
+  Hproc_handle proc = PreCallUser(4);
+  HalconAPI::Store(proc,0,DictHandle);
+  HalconAPI::CallProcedure(proc);
+  HalconAPI::PostCall(proc);
+}
+
 #ifdef WriteImageExif
 # error An existing macro name conflicts with WriteImageExif
 #endif
 HUserExport void HalconCpp::WriteImageExif(const HTuple& image_path, const HTuple& latitude, const HTuple& longitude, const HTuple& altitude, const HTuple& aperture, const HTuple& shutter_speed, const HTuple& iso_number, const HTuple& focal_length, const HTuple& date_time, const HTuple& camera_make, const HTuple& camera_model)
 {
-  Hproc_handle proc = PreCallUser(0);
+  Hproc_handle proc = PreCallUser(5);
   HalconAPI::StoreEnc(proc,0,image_path);
   HalconAPI::Store(proc,1,latitude);
   HalconAPI::Store(proc,2,longitude);
@@ -77,7 +133,7 @@ HUserExport void HalconCpp::WriteImageExif(const HTuple& image_path, const HTupl
 #endif
 HUserExport void HalconCpp::CLAHEImage(const HObject& inimage, HObject* outimage, const HTuple& k_width, const HTuple& k_height, const HTuple& clipLimit)
 {
-  Hproc_handle proc = PreCallUser(1);
+  Hproc_handle proc = PreCallUser(6);
   HalconAPI::Store(proc,1,inimage);
   HalconAPI::Store(proc,0,k_width);
   HalconAPI::Store(proc,1,k_height);
@@ -93,7 +149,7 @@ HUserExport void HalconCpp::CLAHEImage(const HObject& inimage, HObject* outimage
 #endif
 HUserExport void HalconCpp::SubARoi(const HObject& smallimage, const HObject& bigimage, const HTuple& sy, const HTuple& sx, const HTuple& ew, const HTuple& eh)
 {
-  Hproc_handle proc = PreCallUser(2);
+  Hproc_handle proc = PreCallUser(7);
   HalconAPI::Store(proc,1,smallimage);
   HalconAPI::Store(proc,2,bigimage);
   HalconAPI::Store(proc,0,sy);
@@ -109,7 +165,7 @@ HUserExport void HalconCpp::SubARoi(const HObject& smallimage, const HObject& bi
 #endif
 HUserExport void HalconCpp::DivARoi(const HObject& smallimage, const HObject& bigimage, const HTuple& sy, const HTuple& sx, const HTuple& ew, const HTuple& eh)
 {
-  Hproc_handle proc = PreCallUser(3);
+  Hproc_handle proc = PreCallUser(8);
   HalconAPI::Store(proc,1,smallimage);
   HalconAPI::Store(proc,2,bigimage);
   HalconAPI::Store(proc,0,sy);
@@ -125,7 +181,7 @@ HUserExport void HalconCpp::DivARoi(const HObject& smallimage, const HObject& bi
 #endif
 HUserExport void HalconCpp::DivBRoi(const HObject& smallimage, const HObject& bigimage, const HTuple& sy, const HTuple& sx, const HTuple& ew, const HTuple& eh)
 {
-  Hproc_handle proc = PreCallUser(4);
+  Hproc_handle proc = PreCallUser(9);
   HalconAPI::Store(proc,1,smallimage);
   HalconAPI::Store(proc,2,bigimage);
   HalconAPI::Store(proc,0,sy);
@@ -141,7 +197,7 @@ HUserExport void HalconCpp::DivBRoi(const HObject& smallimage, const HObject& bi
 #endif
 HUserExport void HalconCpp::SubBRoi(const HObject& smallimage, const HObject& bigimage, const HTuple& sy, const HTuple& sx, const HTuple& ew, const HTuple& eh)
 {
-  Hproc_handle proc = PreCallUser(5);
+  Hproc_handle proc = PreCallUser(10);
   HalconAPI::Store(proc,1,smallimage);
   HalconAPI::Store(proc,2,bigimage);
   HalconAPI::Store(proc,0,sy);
@@ -157,7 +213,7 @@ HUserExport void HalconCpp::SubBRoi(const HObject& smallimage, const HObject& bi
 #endif
 HUserExport void HalconCpp::MulRoi(const HObject& smallimage, const HObject& bigimage, const HTuple& sy, const HTuple& sx, const HTuple& ew, const HTuple& eh)
 {
-  Hproc_handle proc = PreCallUser(6);
+  Hproc_handle proc = PreCallUser(11);
   HalconAPI::Store(proc,1,smallimage);
   HalconAPI::Store(proc,2,bigimage);
   HalconAPI::Store(proc,0,sy);
@@ -173,7 +229,7 @@ HUserExport void HalconCpp::MulRoi(const HObject& smallimage, const HObject& big
 #endif
 HUserExport void HalconCpp::AddRoi(const HObject& smallimage, const HObject& bigimage, const HTuple& sy, const HTuple& sx, const HTuple& ew, const HTuple& eh)
 {
-  Hproc_handle proc = PreCallUser(7);
+  Hproc_handle proc = PreCallUser(12);
   HalconAPI::Store(proc,1,smallimage);
   HalconAPI::Store(proc,2,bigimage);
   HalconAPI::Store(proc,0,sy);
@@ -189,7 +245,7 @@ HUserExport void HalconCpp::AddRoi(const HObject& smallimage, const HObject& big
 #endif
 HUserExport void HalconCpp::PNGIn(const HObject& inimage, HObject* outimage, const HTuple& acceleration)
 {
-  Hproc_handle proc = PreCallUser(8);
+  Hproc_handle proc = PreCallUser(13);
   HalconAPI::Store(proc,1,inimage);
   HalconAPI::Store(proc,0,acceleration);
   HalconAPI::InitOutp(proc,1);
@@ -203,7 +259,7 @@ HUserExport void HalconCpp::PNGIn(const HObject& inimage, HObject* outimage, con
 #endif
 HUserExport void HalconCpp::PNGOut(const HObject& inimage, HObject* outimage)
 {
-  Hproc_handle proc = PreCallUser(9);
+  Hproc_handle proc = PreCallUser(14);
   HalconAPI::Store(proc,1,inimage);
   HalconAPI::InitOutp(proc,1);
   HalconAPI::CallProcedure(proc);
@@ -216,7 +272,7 @@ HUserExport void HalconCpp::PNGOut(const HObject& inimage, HObject* outimage)
 #endif
 HUserExport void HalconCpp::Remap(const HTuple& hv_DictHandle)
 {
-  Hproc_handle proc = PreCallUser(10);
+  Hproc_handle proc = PreCallUser(15);
   HalconAPI::Store(proc,0,hv_DictHandle);
   HalconAPI::CallProcedure(proc);
   HalconAPI::PostCall(proc);
@@ -227,7 +283,7 @@ HUserExport void HalconCpp::Remap(const HTuple& hv_DictHandle)
 #endif
 HUserExport void HalconCpp::OpenvinoInfer(const HTuple& Handle, const HTuple& DictHandle)
 {
-  Hproc_handle proc = PreCallUser(11);
+  Hproc_handle proc = PreCallUser(16);
   HalconAPI::Store(proc,0,Handle);
   HalconAPI::Store(proc,1,DictHandle);
   HalconAPI::CallProcedure(proc);
@@ -239,7 +295,7 @@ HUserExport void HalconCpp::OpenvinoInfer(const HTuple& Handle, const HTuple& Di
 #endif
 HUserExport void HalconCpp::OpenvinoLoadModel(const HTuple& DictHandle, HTuple* Handle)
 {
-  Hproc_handle proc = PreCallUser(12);
+  Hproc_handle proc = PreCallUser(17);
   HalconAPI::Store(proc,0,DictHandle);
   HalconAPI::InitOutp(proc,0);
   HalconAPI::CallProcedure(proc);

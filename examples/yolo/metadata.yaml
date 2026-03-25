@@ -1,7 +1,7 @@
-description: Ultralytics YOLOv8n-seg model trained on yoloseg_dataset/data.yaml
+description: Ultralytics YOLO26s-seg model trained on config/dataset.yaml
 author: Ultralytics
-date: '2025-09-16T17:52:43.265948'
-version: 8.3.199
+date: '2026-03-25T16:15:40.095019'
+version: 8.4.26
 license: AGPL-3.0 License (https://ultralytics.com/license)
 docs: https://docs.ultralytics.com
 stride: 32
@@ -11,9 +11,9 @@ imgsz:
 - 640
 - 640
 names:
-  0: 硅脱
-  1: 缺口
-  2: 隐裂
+  0: defect_1
+  1: defect_2
+  2: defect_3
 args:
   batch: 1
   fraction: 1.0
@@ -22,3 +22,4 @@ args:
   dynamic: false
   nms: false
 channels: 3
+end2end: true

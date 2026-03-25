@@ -20,6 +20,15 @@
 using namespace std;
 using namespace HalconCpp;
 
+// YOLO 检测结果结构体
+struct YOLODetection
+{
+    float x1, y1, x2, y2;  // 边界框坐标（相对于原始图像）
+    float confidence;       // 置信度
+    int class_id;          // 类别ID
+    float mask_coeffs[32]; // 分割掩码系数（最多32个）
+    bool has_mask;         // 是否有分割掩码
+};
 
 class OpenVINOModel
 {
@@ -98,6 +107,65 @@ public:
         catch (const std::exception &e)
         {
             // std::cerr << "推理失败: " << e.what() << std::endl;
+            return false;
+        }
+    }
+
+    // YOLO 实例分割推理 - 返回检测结果和分割原型
+    bool infer_yolo_seg(const cv::Mat &input_image, 
+                        ov::Tensor &det_output, 
+                        ov::Tensor &proto_output,
+                        float &scale_x, float &scale_y)
+    {
+        try
+        {
+            // 记录原始尺寸
+            int orig_w = input_image.cols;
+            int orig_h = input_image.rows;
+            scale_x = (float)orig_w / input_width;
+            scale_y = (float)orig_h / input_height;
+
+            // 预处理：调整尺寸并创建blob
+            cv::Mat resized, blob;
+            cv::resize(input_image, resized, cv::Size(input_width, input_height));
+
+            cv::dnn::blobFromImage(
+                resized,
+                blob,
+                1.0 / 255.0, // 归一化到[0,1]
+                cv::Size(input_width, input_height),
+                cv::Scalar(0, 0, 0),
+                true,  // swapRB: BGR->RGB
+                false, // crop
+                CV_32F // 输出类型
+            );
+
+            // 设置输入张量
+            ov::Tensor input_tensor(ov::element::f32, input_shape, blob.ptr<float>());
+            infer_request.set_input_tensor(input_tensor);
+
+            // 执行推理
+            infer_request.infer();
+
+            // 获取两个输出
+            auto outputs = compiled_model.outputs();
+            // 根据形状判断输出类型
+            for (size_t i = 0; i < outputs.size(); i++) {
+                auto tensor = infer_request.get_output_tensor(i);
+                auto shape = tensor.get_shape();
+                if (shape.size() == 3) {
+                    // [1, 300, 38] - 检测结果
+                    det_output = tensor;
+                } else if (shape.size() == 4) {
+                    // [1, 32, 160, 160] - 分割原型
+                    proto_output = tensor;
+                }
+            }
+
+            return true;
+        }
+        catch (const std::exception &e)
+        {
             return false;
         }
     }
