@@ -14,6 +14,7 @@
 #include <string>
 #include <fstream>
 #include < algorithm >
+#include <cstring>  // for std::memcpy
 #include <exiv2/exiv2.hpp>
 #include "Halcon_YouloBe.h"
 
@@ -42,7 +43,7 @@ public:
     int input_width;  // 修正命名规范
     int input_height; // 修正拼写错误
 
-    // 修改1: 修正拼写，正确处理FP16配置
+    // 修改1: 强制 GPU 使用 FP32 推理精度，防止 YOLO 坐标溢出
     bool load_model(HTuple hv_Path, HTuple hv_Device)
     {
         try
@@ -50,9 +51,16 @@ public:
             // 获取模型路径和设备
             std::string model_path = hv_Path.S().Text();
             std::string device = hv_Device.S().Text();
-            //bool enable_fp16 = (hv_FP16ENABLE == HTuple("true") || hv_FP16ENABLE == HTuple("True"));
-            // 修改3: 传递配置参数
-            compiled_model = core.compile_model(model_path, device);
+            
+            // ==========================================
+            // 关键修复：强制 GPU 使用 FP32 推理精度，防止 YOLO 坐标溢出
+            // GPU 默认 FP16 会导致 NMS 后处理节点数值溢出
+            // ==========================================
+            ov::AnyMap config;
+            config[ov::hint::inference_precision.name()] = ov::element::f32;
+            config[ov::hint::execution_mode.name()] = ov::hint::ExecutionMode::ACCURACY;
+            
+            compiled_model = core.compile_model(model_path, device, config);
 
             // 获取并保存输入形状
             input_shape = compiled_model.input().get_shape();
@@ -72,7 +80,7 @@ public:
         }
     }
 
-    // 修改4: 完整推理流程
+    // 修改4: 完整推理流程 - 兼容 CPU/GPU/NPU
     bool infer(const cv::Mat &input_image, ov::Tensor & output_tensor)
     {
         try
@@ -92,26 +100,31 @@ public:
                 CV_32F // 输出类型
             );
 
-            // 设置输入张量
-            ov::Tensor input_tensor(ov::element::f32, input_shape, blob.ptr<float>());
-            infer_request.set_input_tensor(input_tensor);
+            // ==========================================
+            // 修复: 使用 get_input_tensor() + memcpy 兼容 NPU/GPU
+            // ==========================================
+            ov::Tensor input_tensor = infer_request.get_input_tensor();
+            std::memcpy(input_tensor.data<float>(), blob.ptr<float>(), blob.total() * sizeof(float));
 
             // 执行推理
             infer_request.infer();
 
-            // 获取输出
-            output_tensor = infer_request.get_output_tensor();
+            // ==========================================
+            // 修复: 深拷贝输出 Tensor 确保数据在 Host 内存
+            // ==========================================
+            auto tensor = infer_request.get_output_tensor();
+            output_tensor = ov::Tensor(tensor.get_element_type(), tensor.get_shape());
+            tensor.copy_to(output_tensor);
 
             return true;
         }
         catch (const std::exception &e)
         {
-            // std::cerr << "推理失败: " << e.what() << std::endl;
             return false;
         }
     }
 
-    // YOLO 实例分割推理 - 返回检测结果和分割原型
+    // YOLO 实例分割推理 - 兼容 CPU/GPU/NPU
     bool infer_yolo_seg(const cv::Mat &input_image, 
                         ov::Tensor &det_output, 
                         ov::Tensor &proto_output,
@@ -140,25 +153,34 @@ public:
                 CV_32F // 输出类型
             );
 
-            // 设置输入张量
-            ov::Tensor input_tensor(ov::element::f32, input_shape, blob.ptr<float>());
-            infer_request.set_input_tensor(input_tensor);
+            // ==========================================
+            // 修复1: 使用 get_input_tensor() + memcpy 兼容 NPU/GPU
+            // ==========================================
+            ov::Tensor input_tensor = infer_request.get_input_tensor();
+            std::memcpy(input_tensor.data<float>(), blob.ptr<float>(), blob.total() * sizeof(float));
 
             // 执行推理
             infer_request.infer();
 
-            // 获取两个输出
+            // ==========================================
+            // 修复2: 强制内存同步，解决 GPU 输出全0
+            // 使用 memcpy 强制触发 Host-Device 内存同步
+            // ==========================================
             auto outputs = compiled_model.outputs();
-            // 根据形状判断输出类型
             for (size_t i = 0; i < outputs.size(); i++) {
                 auto tensor = infer_request.get_output_tensor(i);
                 auto shape = tensor.get_shape();
+                
                 if (shape.size() == 3) {
                     // [1, 300, 38] - 检测结果
-                    det_output = tensor;
+                    det_output = ov::Tensor(tensor.get_element_type(), shape);
+                    // 强制使用 memcpy 触发数据同步 (tensor.data() 会强制同步 GPU->Host)
+                    std::memcpy(det_output.data<float>(), tensor.data<float>(), tensor.get_byte_size());
                 } else if (shape.size() == 4) {
                     // [1, 32, 160, 160] - 分割原型
-                    proto_output = tensor;
+                    proto_output = ov::Tensor(tensor.get_element_type(), shape);
+                    // 强制使用 memcpy 触发数据同步
+                    std::memcpy(proto_output.data<float>(), tensor.data<float>(), tensor.get_byte_size());
                 }
             }
 
