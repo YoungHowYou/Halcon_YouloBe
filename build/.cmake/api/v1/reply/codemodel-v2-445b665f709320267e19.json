@@ -1,0 +1,700 @@
+{
+	"configurations" : 
+	[
+		{
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "HALCON::CInt::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HALCON__CInt-Debug-78351ab85927836037ec.json",
+					"name" : "HALCON::CInt",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HALCON::CppInt::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HALCON__CppInt-Debug-f764ae663f64f1aaea08.json",
+					"name" : "HALCON::CppInt",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HALCON::DL::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HALCON__DL-Debug-0caa028125ce4340cc0d.json",
+					"name" : "HALCON::DL",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HALCON::HCanvas::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HALCON__HCanvas-Debug-8f2ad3376a9d026aea41.json",
+					"name" : "HALCON::HCanvas",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HALCON::HDevEngine::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HALCON__HDevEngine-Debug-d02d08952de29ed6d286.json",
+					"name" : "HALCON::HDevEngine",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HALCON::Halcon::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HALCON__Halcon-Debug-ab7a3ec58c6d6a4c78c6.json",
+					"name" : "HALCON::Halcon",
+					"projectIndex" : 0
+				}
+			],
+			"directories" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					],
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-a4d15fd37b95cf5cf9c8.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "4.1.1"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Halcon_YouloBe",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-Debug-4d0b2c7e55ccc8f6ed01.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBe::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBe-Debug-932f6f3a9712f97c59d9.json",
+					"name" : "Halcon_YouloBe",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBe_help::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBe_help-Debug-ee2cd4891fcd4f6d257e.json",
+					"name" : "Halcon_YouloBe_help",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBe_help_en_US::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBe_help_en_US-Debug-4efb0732e1bdae5c1a61.json",
+					"name" : "Halcon_YouloBe_help_en_US",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBe_html::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBe_html-Debug-a28ae418b5a71a57dd92.json",
+					"name" : "Halcon_YouloBe_html",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBecint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBecint-Debug-c1fa713759ffe339158e.json",
+					"name" : "Halcon_YouloBecint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBecppint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBecppint-Debug-481422af8f452f2c76b3.json",
+					"name" : "Halcon_YouloBecppint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-Debug-530d50518b01ce0262f8.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "HALCON::CInt::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HALCON__CInt-Release-78351ab85927836037ec.json",
+					"name" : "HALCON::CInt",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HALCON::CppInt::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HALCON__CppInt-Release-f764ae663f64f1aaea08.json",
+					"name" : "HALCON::CppInt",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HALCON::DL::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HALCON__DL-Release-0caa028125ce4340cc0d.json",
+					"name" : "HALCON::DL",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HALCON::HCanvas::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HALCON__HCanvas-Release-8f2ad3376a9d026aea41.json",
+					"name" : "HALCON::HCanvas",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HALCON::HDevEngine::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HALCON__HDevEngine-Release-d02d08952de29ed6d286.json",
+					"name" : "HALCON::HDevEngine",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HALCON::Halcon::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HALCON__Halcon-Release-ab7a3ec58c6d6a4c78c6.json",
+					"name" : "HALCON::Halcon",
+					"projectIndex" : 0
+				}
+			],
+			"directories" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					],
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Release-a4d15fd37b95cf5cf9c8.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "4.1.1"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Halcon_YouloBe",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-Release-4d0b2c7e55ccc8f6ed01.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBe::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBe-Release-ba9718292ef29d9e9f1f.json",
+					"name" : "Halcon_YouloBe",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBe_help::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBe_help-Release-ee2cd4891fcd4f6d257e.json",
+					"name" : "Halcon_YouloBe_help",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBe_help_en_US::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBe_help_en_US-Release-4efb0732e1bdae5c1a61.json",
+					"name" : "Halcon_YouloBe_help_en_US",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBe_html::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBe_html-Release-a28ae418b5a71a57dd92.json",
+					"name" : "Halcon_YouloBe_html",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBecint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBecint-Release-51add5e6ff52682f9260.json",
+					"name" : "Halcon_YouloBecint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBecppint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBecppint-Release-9e1150e3e33520c88a20.json",
+					"name" : "Halcon_YouloBecppint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-Release-530d50518b01ce0262f8.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "HALCON::CInt::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HALCON__CInt-MinSizeRel-78351ab85927836037ec.json",
+					"name" : "HALCON::CInt",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HALCON::CppInt::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HALCON__CppInt-MinSizeRel-f764ae663f64f1aaea08.json",
+					"name" : "HALCON::CppInt",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HALCON::DL::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HALCON__DL-MinSizeRel-0caa028125ce4340cc0d.json",
+					"name" : "HALCON::DL",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HALCON::HCanvas::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HALCON__HCanvas-MinSizeRel-8f2ad3376a9d026aea41.json",
+					"name" : "HALCON::HCanvas",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HALCON::HDevEngine::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HALCON__HDevEngine-MinSizeRel-d02d08952de29ed6d286.json",
+					"name" : "HALCON::HDevEngine",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HALCON::Halcon::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HALCON__Halcon-MinSizeRel-ab7a3ec58c6d6a4c78c6.json",
+					"name" : "HALCON::Halcon",
+					"projectIndex" : 0
+				}
+			],
+			"directories" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					],
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-MinSizeRel-f39fea4df6fd560dea19.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "4.1.1"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"name" : "MinSizeRel",
+			"projects" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Halcon_YouloBe",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-MinSizeRel-4d0b2c7e55ccc8f6ed01.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBe::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBe-MinSizeRel-8a6bcd5e1ae1afb826b4.json",
+					"name" : "Halcon_YouloBe",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBe_help::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBe_help-MinSizeRel-ee2cd4891fcd4f6d257e.json",
+					"name" : "Halcon_YouloBe_help",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBe_help_en_US::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBe_help_en_US-MinSizeRel-4efb0732e1bdae5c1a61.json",
+					"name" : "Halcon_YouloBe_help_en_US",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBe_html::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBe_html-MinSizeRel-a28ae418b5a71a57dd92.json",
+					"name" : "Halcon_YouloBe_html",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBecint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBecint-MinSizeRel-1f996f79ac8b57c041e3.json",
+					"name" : "Halcon_YouloBecint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBecppint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBecppint-MinSizeRel-d602972436fab9574690.json",
+					"name" : "Halcon_YouloBecppint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-MinSizeRel-530d50518b01ce0262f8.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "HALCON::CInt::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HALCON__CInt-RelWithDebInfo-78351ab85927836037ec.json",
+					"name" : "HALCON::CInt",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HALCON::CppInt::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HALCON__CppInt-RelWithDebInfo-f764ae663f64f1aaea08.json",
+					"name" : "HALCON::CppInt",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HALCON::DL::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HALCON__DL-RelWithDebInfo-0caa028125ce4340cc0d.json",
+					"name" : "HALCON::DL",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HALCON::HCanvas::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HALCON__HCanvas-RelWithDebInfo-8f2ad3376a9d026aea41.json",
+					"name" : "HALCON::HCanvas",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HALCON::HDevEngine::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HALCON__HDevEngine-RelWithDebInfo-d02d08952de29ed6d286.json",
+					"name" : "HALCON::HDevEngine",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HALCON::Halcon::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HALCON__Halcon-RelWithDebInfo-ab7a3ec58c6d6a4c78c6.json",
+					"name" : "HALCON::Halcon",
+					"projectIndex" : 0
+				}
+			],
+			"directories" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					],
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-RelWithDebInfo-1064e76fd6016fce9da7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "4.1.1"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"name" : "RelWithDebInfo",
+			"projects" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Halcon_YouloBe",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-RelWithDebInfo-4d0b2c7e55ccc8f6ed01.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBe::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBe-RelWithDebInfo-074ab9a8e82bfe3e19f0.json",
+					"name" : "Halcon_YouloBe",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBe_help::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBe_help-RelWithDebInfo-ee2cd4891fcd4f6d257e.json",
+					"name" : "Halcon_YouloBe_help",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBe_help_en_US::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBe_help_en_US-RelWithDebInfo-4efb0732e1bdae5c1a61.json",
+					"name" : "Halcon_YouloBe_help_en_US",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBe_html::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBe_html-RelWithDebInfo-a28ae418b5a71a57dd92.json",
+					"name" : "Halcon_YouloBe_html",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBecint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBecint-RelWithDebInfo-c6522dd879f8a686a919.json",
+					"name" : "Halcon_YouloBecint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBecppint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBecppint-RelWithDebInfo-da058c7eb5f990605e6f.json",
+					"name" : "Halcon_YouloBecppint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-RelWithDebInfo-530d50518b01ce0262f8.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build",
+		"source" : "D:/Desktop/Source/Halcon_Extension/Halcon_YouloBe"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	}
+}

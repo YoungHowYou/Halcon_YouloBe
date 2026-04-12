@@ -204,6 +204,7 @@ Herror Openvino_YOLO_Seg_Detect(Hproc_handle proc_handle)
     }
 
     std::vector<DetectResult> all_results;
+    all_results.reserve(64); // 预分配，避免 push_back 触发多次重分配
 
     // 内部 Lambda：执行推理并解析当前窗口结果
     auto DoInference = [&](const cv::Mat& input_img, int offset_x, int offset_y, float ratio_x, float ratio_y) {
@@ -222,8 +223,12 @@ Herror Openvino_YOLO_Seg_Detect(Hproc_handle proc_handle)
         int proto_h = (int)proto_shape[2]; // 160
         int proto_w = (int)proto_shape[3]; // 160
 
-        // 将 proto_data 包装为 OpenCV Mat [32, 25600]
+        // 将 proto_data 包装为 OpenCV Mat [32, 25600]（零拷贝）
         cv::Mat proto_mat(proto_c, proto_h * proto_w, CV_32FC1, proto_data);
+
+        // 预计算合并后的缩放系数，减少循环内乘法次数
+        const float fx = scale_x * ratio_x;
+        const float fy = scale_y * ratio_y;
 
         for (int i = 0; i < num_dets; i++) {
             float* det = det_data + i * det_dims;
@@ -233,17 +238,11 @@ Herror Openvino_YOLO_Seg_Detect(Hproc_handle proc_handle)
             int cls = (int)det[5];
             float px1 = det[0], py1 = det[1], px2 = det[2], py2 = det[3];
 
-            // 映射到输入图坐标
-            int ix1 = (int)(px1 * scale_x);
-            int iy1 = (int)(py1 * scale_y);
-            int ix2 = (int)(px2 * scale_x);
-            int iy2 = (int)(py2 * scale_y);
-
-            // 映射回原图绝对坐标 (考虑缩放和偏移)
-            int x1 = (int)(ix1 * ratio_x) + offset_x;
-            int y1 = (int)(iy1 * ratio_y) + offset_y;
-            int x2 = (int)(ix2 * ratio_x) + offset_x;
-            int y2 = (int)(iy2 * ratio_y) + offset_y;
+            // 一步映射到原图绝对坐标（合并 scale 和 ratio 两次乘法）
+            int x1 = (int)(px1 * fx) + offset_x;
+            int y1 = (int)(py1 * fy) + offset_y;
+            int x2 = (int)(px2 * fx) + offset_x;
+            int y2 = (int)(py2 * fy) + offset_y;
 
             x1 = std::max(0, std::min(x1, orig_w - 1));
             y1 = std::max(0, std::min(y1, orig_h - 1));
@@ -340,23 +339,20 @@ Herror Openvino_YOLO_Seg_Detect(Hproc_handle proc_handle)
             hv_Row2[i] = (double)(res.box.y + res.box.height);
             hv_Col2[i] = (double)(res.box.x + res.box.width);
 
-            // 恢复并填充 Mask
+            // 恢复并填充 Mask：用 OpenCV ROI + copyTo 替代逐像素循环
             if (!res.mask_roi.empty() && res.box.width > 0 && res.box.height > 0) {
                 cv::Mat mask_up;
                 cv::resize(res.mask_roi, mask_up, cv::Size(res.box.width, res.box.height), 0, 0, cv::INTER_LINEAR);
-                cv::Mat mask_bin = mask_up > 0.0f;
+                cv::Mat mask_bin = mask_up > 0.0f; // CV_8UC1
 
-                ushort fill_val = (ushort)(res.class_id + 1);
-                for (int py = 0; py < res.box.height; py++) {
-                    int dst_y = res.box.y + py;
-                    if (dst_y >= orig_h) break;
-                    const uchar* src_ptr = mask_bin.ptr<uchar>(py);
-                    ushort* dst_ptr = label_data + dst_y * orig_w + res.box.x;
-                    for (int px = 0; px < res.box.width; px++) {
-                        if (res.box.x + px >= orig_w) break;
-                        if (src_ptr[px]) dst_ptr[px] = fill_val;
-                    }
-                }
+                // 将 label_data 包装为 Mat（零拷贝），取出对应 ROI
+                cv::Mat label_mat(orig_h, orig_w, CV_16UC1, label_data);
+                cv::Mat dst_roi = label_mat(res.box);
+
+                // 用 fill_val 填充 mask 为 true 的像素，其余保持不变
+                cv::Mat fill_mat(res.box.height, res.box.width, CV_16UC1,
+                                 cv::Scalar((ushort)(res.class_id + 1)));
+                fill_mat.copyTo(dst_roi, mask_bin);
             }
         }
 

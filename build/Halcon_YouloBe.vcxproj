@@ -92,12 +92,14 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/younghowyou/AppData/Local/Programs/MVTec/HALCON-24.11-Progress-Steady/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
       <CallingConvention></CallingConvention>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
       <FloatingPointModel></FloatingPointModel>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
@@ -115,10 +117,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";Halcon_YouloBe_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\include;C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\include;C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -126,7 +128,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halcon.lib;C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halconcpp.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\lib\release\*.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\lib\release\*.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\lib\exiv2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halcon.lib;C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halconcpp.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\lib\release\*.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\lib\release\*.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\lib\exiv2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DataExecutionPrevention></DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -145,11 +147,13 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/younghowyou/AppData/Local/Programs/MVTec/HALCON-24.11-Progress-Steady/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
       <CallingConvention></CallingConvention>
       <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
       <FloatingPointModel></FloatingPointModel>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -169,10 +173,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";Halcon_YouloBe_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\include;C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\include;C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -180,7 +184,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halcon.lib;C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halconcpp.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\lib\release\*.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\lib\release\*.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\lib\exiv2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halcon.lib;C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halconcpp.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\lib\release\*.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\lib\release\*.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\lib\exiv2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DataExecutionPrevention></DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -199,11 +203,13 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/younghowyou/AppData/Local/Programs/MVTec/HALCON-24.11-Progress-Steady/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
       <CallingConvention></CallingConvention>
       <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
       <FloatingPointModel></FloatingPointModel>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -223,10 +229,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";Halcon_YouloBe_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\include;C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\include;C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -234,7 +240,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halcon.lib;C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halconcpp.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\lib\release\*.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\lib\release\*.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\lib\exiv2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halcon.lib;C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halconcpp.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\lib\release\*.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\lib\release\*.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\lib\exiv2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DataExecutionPrevention></DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -253,12 +259,14 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/younghowyou/AppData/Local/Programs/MVTec/HALCON-24.11-Progress-Steady/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
       <CallingConvention></CallingConvention>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
       <FloatingPointModel></FloatingPointModel>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -276,10 +284,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";Halcon_YouloBe_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\include;C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include\halconcpp;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\include;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\include;C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -287,7 +295,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halcon.lib;C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halconcpp.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\lib\release\*.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\lib\release\*.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\lib\exiv2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halcon.lib;C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\lib\x64-win64\halconcpp.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\opencv\lib\release\*.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\openvino\lib\release\*.lib;D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\3rd\exiv\lib\exiv2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DataExecutionPrevention></DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -312,7 +320,7 @@ cd D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build
 if %errorlevel% neq 0 goto :cmEnd
 D:
 if %errorlevel% neq 0 goto :cmEnd
-C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe -u -H -pHalcon_YouloBe D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def
+C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe -u -H -pHalcon_YouloBe D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -320,7 +328,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def;C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\HHalcon_YouloBe.c</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</BuildInParallel>
@@ -330,7 +338,7 @@ cd D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build
 if %errorlevel% neq 0 goto :cmEnd
 D:
 if %errorlevel% neq 0 goto :cmEnd
-C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe -u -H -pHalcon_YouloBe D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def
+C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe -u -H -pHalcon_YouloBe D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -338,7 +346,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def;C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\HHalcon_YouloBe.c</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</BuildInParallel>
@@ -348,7 +356,7 @@ cd D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build
 if %errorlevel% neq 0 goto :cmEnd
 D:
 if %errorlevel% neq 0 goto :cmEnd
-C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe -u -H -pHalcon_YouloBe D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def
+C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe -u -H -pHalcon_YouloBe D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -356,7 +364,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def;C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\HHalcon_YouloBe.c</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</BuildInParallel>
@@ -366,7 +374,7 @@ cd D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build
 if %errorlevel% neq 0 goto :cmEnd
 D:
 if %errorlevel% neq 0 goto :cmEnd
-C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe -u -H -pHalcon_YouloBe D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def
+C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe -u -H -pHalcon_YouloBe D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -374,7 +382,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def;C:\Users\young\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def;C:\Users\younghowyou\AppData\Local\Programs\MVTec\HALCON-24.11-Progress-Steady\bin\x64-win64\hcomp.exe;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\build\HHalcon_YouloBe.c</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>

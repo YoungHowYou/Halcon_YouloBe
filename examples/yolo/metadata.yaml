@@ -1,7 +1,7 @@
 description: Ultralytics YOLO26s-seg model trained on D:\Desktop\AIProjectTemp\明畅隐裂\temp\dataset.yaml
 author: Ultralytics
-date: '2026-03-30T00:04:24.744595'
-version: 8.4.27
+date: '2026-04-12T01:01:21.313956'
+version: 8.4.33
 license: AGPL-3.0 License (https://ultralytics.com/license)
 docs: https://docs.ultralytics.com
 stride: 32
@@ -17,8 +17,8 @@ names:
 args:
   batch: 1
   fraction: 1.0
-  half: true
-  int8: false
+  half: false
+  int8: true
   dynamic: false
   nms: false
 channels: 3
