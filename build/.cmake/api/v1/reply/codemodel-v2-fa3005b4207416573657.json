@@ -1,0 +1,106 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Release-d1e8e6d3f84e1670ad6b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Halcon_YouloBe",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBe::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBe-Release-7306ab9040a0d1a9e301.json",
+					"name" : "Halcon_YouloBe",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBe_help::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBe_help-Release-2e03d9db51a4fecedbf4.json",
+					"name" : "Halcon_YouloBe_help",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBe_help_en_US::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBe_help_en_US-Release-9b72ae4228a33b8f428f.json",
+					"name" : "Halcon_YouloBe_help_en_US",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBe_html::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBe_html-Release-fdd283a55aa5b7b7f464.json",
+					"name" : "Halcon_YouloBe_html",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBecint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBecint-Release-dc28006cb22ac2755442.json",
+					"name" : "Halcon_YouloBecint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_YouloBecppint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_YouloBecppint-Release-85f19b101bac3ffe320b.json",
+					"name" : "Halcon_YouloBecppint",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/build",
+		"source" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

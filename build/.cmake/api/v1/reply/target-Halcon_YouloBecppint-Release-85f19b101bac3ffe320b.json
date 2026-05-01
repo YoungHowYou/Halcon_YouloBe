@@ -1,0 +1,1297 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/bin/libHalcon_YouloBecpp.so"
+		}
+	],
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"HALCON_AddExtensionPackage",
+			"install",
+			"target_link_options",
+			"target_link_libraries",
+			"set_property",
+			"find_package",
+			"include",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"/home/njsc/MVTec/HALCON-24.11-Progress-Steady/examples/cmake/UseHALCON.cmake",
+			"CMakeLists.txt",
+			"/home/njsc/MVTec/HALCON-24.11-Progress-Steady/examples/cmake/FindHALCON.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 71,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 453,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 480,
+				"parent" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 273,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 465,
+				"parent" : 1
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 238,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 403,
+				"parent" : 1
+			},
+			{
+				"command" : 7,
+				"file" : 1,
+				"line" : 64,
+				"parent" : 0
+			},
+			{
+				"file" : 0,
+				"parent" : 8
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 33,
+				"parent" : 9
+			},
+			{
+				"file" : 2,
+				"parent" : 10
+			},
+			{
+				"command" : 5,
+				"file" : 2,
+				"line" : 855,
+				"parent" : 11
+			},
+			{
+				"command" : 5,
+				"file" : 2,
+				"line" : 858,
+				"parent" : 11
+			},
+			{
+				"command" : 8,
+				"file" : 0,
+				"line" : 454,
+				"parent" : 1
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-O3 -DNDEBUG -fPIC -fvisibility=hidden -fvisibility-inlines-hidden"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"define" : "Halcon_YouloBecppint_EXPORTS"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 14,
+					"path" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/build"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/include"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/include-linux"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/openvino/include-linux"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/exiv/include-linux"
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/include/halconcpp"
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/include"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 5,
+			"id" : "Halcon_YouloBe::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "Halcon_YouloBecppint::@6890427a1f51a3e7e1df",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 3,
+				"path" : "Halcon_YouloBe/lib/x64-linux"
+			},
+			{
+				"backtrace" : 3,
+				"path" : "Halcon_YouloBe/lib/x64-linux"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "/usr/local"
+		}
+	},
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "\"-Wl,-rpath,\\$ORIGIN\"",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "\"-Wl,-rpath,\\$ORIGIN/../../bin\"",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "\"-Wl,-rpath,\\$ORIGIN/../../3rd/opencv/lib/linux\"",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "\"-Wl,-rpath,\\$ORIGIN/../../3rd/openvino/lib/linux\"",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "\"-Wl,-rpath,\\$ORIGIN/../../3rd/exiv/lib/linux\"",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "\"-Wl,-rpath,\\$ORIGIN/../3rd/opencv/lib/linux\"",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "\"-Wl,-rpath,\\$ORIGIN/../3rd/openvino/lib/linux\"",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "\"-Wl,-rpath,\\$ORIGIN/../3rd/exiv/lib/linux\"",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wl,--disable-new-dtags",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/bin/libHalcon_YouloBe.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/lib/x64-linux/libhalconcpp.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/lib/x64-linux/libhalconcpp.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_alphamat.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_alphamat.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_alphamat.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_aruco.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_aruco.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_aruco.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_barcode.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_barcode.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_barcode.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_bgsegm.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_bgsegm.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_bgsegm.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_bioinspired.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_bioinspired.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_bioinspired.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_calib3d.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_calib3d.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_calib3d.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_ccalib.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_ccalib.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_ccalib.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_core.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_core.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_core.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_cvv.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_cvv.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_cvv.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_datasets.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_datasets.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_datasets.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_dnn.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_dnn.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_dnn.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_dnn_objdetect.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_dnn_objdetect.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_dnn_objdetect.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_dnn_superres.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_dnn_superres.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_dnn_superres.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_dpm.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_dpm.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_dpm.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_face.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_face.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_face.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_features2d.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_features2d.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_features2d.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_flann.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_flann.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_flann.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_freetype.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_freetype.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_freetype.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_fuzzy.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_fuzzy.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_fuzzy.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_hdf.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_hdf.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_hdf.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_hfs.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_hfs.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_hfs.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_highgui.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_highgui.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_highgui.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_img_hash.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_img_hash.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_img_hash.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_imgcodecs.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_imgcodecs.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_imgcodecs.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_imgproc.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_imgproc.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_imgproc.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_intensity_transform.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_intensity_transform.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_intensity_transform.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_line_descriptor.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_line_descriptor.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_line_descriptor.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_mcc.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_mcc.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_mcc.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_ml.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_ml.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_ml.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_objdetect.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_objdetect.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_objdetect.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_optflow.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_optflow.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_optflow.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_phase_unwrapping.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_phase_unwrapping.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_phase_unwrapping.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_photo.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_photo.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_photo.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_plot.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_plot.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_plot.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_quality.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_quality.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_quality.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_rapid.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_rapid.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_rapid.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_reg.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_reg.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_reg.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_rgbd.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_rgbd.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_rgbd.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_saliency.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_saliency.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_saliency.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_shape.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_shape.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_shape.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_stereo.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_stereo.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_stereo.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_stitching.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_stitching.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_stitching.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_structured_light.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_structured_light.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_structured_light.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_superres.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_superres.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_superres.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_surface_matching.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_surface_matching.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_surface_matching.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_text.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_text.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_text.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_tracking.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_tracking.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_tracking.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_video.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_video.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_video.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_videoio.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_videoio.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_videoio.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_videostab.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_videostab.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_videostab.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_viz.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_viz.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_viz.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_wechat_qrcode.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_wechat_qrcode.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_wechat_qrcode.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_ximgproc.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_ximgproc.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_ximgproc.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_xobjdetect.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_xobjdetect.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_xobjdetect.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_xphoto.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_xphoto.so.4.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/opencv/lib/linux/libopencv_xphoto.so.406",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/linux/libopenvino.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/linux/libopenvino.so.2024.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/linux/libopenvino.so.2460",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/linux/libopenvino_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/linux/libopenvino_c.so.2024.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/linux/libopenvino_c.so.2460",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/linux/libopenvino_ir_frontend.so.2024.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/linux/libopenvino_ir_frontend.so.2460",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/linux/libopenvino_onnx_frontend.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/linux/libopenvino_onnx_frontend.so.2024.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/linux/libopenvino_onnx_frontend.so.2460",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/linux/libopenvino_paddle_frontend.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/linux/libopenvino_paddle_frontend.so.2024.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/linux/libopenvino_paddle_frontend.so.2460",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/linux/libopenvino_pytorch_frontend.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/linux/libopenvino_pytorch_frontend.so.2024.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/linux/libopenvino_pytorch_frontend.so.2460",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/linux/libopenvino_tensorflow_frontend.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/linux/libopenvino_tensorflow_frontend.so.2024.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/linux/libopenvino_tensorflow_frontend.so.2460",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/linux/libopenvino_tensorflow_lite_frontend.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/linux/libopenvino_tensorflow_lite_frontend.so.2024.6.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/openvino/lib/linux/libopenvino_tensorflow_lite_frontend.so.2460",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/exiv/lib/linux/libexiv2.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/exiv/lib/linux/libexiv2.so.0.27.6",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_YouloBe/3rd/exiv/lib/linux/libexiv2.so.27",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 7,
+				"fragment" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/lib/x64-linux/libhalcon.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 12,
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 13,
+				"fragment" : "-ldl",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 13,
+				"fragment" : "-lrt",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "Halcon_YouloBecppint",
+	"nameOnDisk" : "libHalcon_YouloBecpp.so",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				1
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				2
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/HCPPHalcon_YouloBe.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"isGenerated" : true,
+			"path" : "build/HCPPHalcon_YouloBe.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/HCPPHalcon_YouloBe.cpp.rule",
+			"sourceGroupIndex" : 2
+		}
+	],
+	"type" : "SHARED_LIBRARY"
+}
