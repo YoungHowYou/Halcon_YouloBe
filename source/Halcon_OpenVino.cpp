@@ -31,10 +31,10 @@ extern "C"
 Herror Openvino加载模型(Hproc_handle proc_handle)
 {
 
-    Hcpar *容器;
+    const Hcpar *容器;
     INT4_8 参数个数; // 参数个数
     HGetPPar(proc_handle, 1, &容器, &参数个数);
-    HTuple hv_Dict(容器, 1);
+    HTuple hv_Dict(const_cast<Hcpar*>(容器), 1);
     HTuple hv_Path, hv_Device, hv_Index, FP16ENABLE;
     GetDictTuple(hv_Dict, u8"工程路径", &hv_Path);
     GetDictTuple(hv_Dict, u8"使用设备", &hv_Device);
@@ -55,11 +55,11 @@ Herror Openvino加载模型(Hproc_handle proc_handle)
 Herror Openvino推理模型(Hproc_handle proc_handle)
 {
 
-    Hcpar *容器;
+    const Hcpar *容器;
     INT4_8 参数个数; // 参数个数
     Def_INOpenvinoObject(1, handle_data);
     HGetPPar(proc_handle, 2, &容器, &参数个数);
-    HTuple hv_Dict(容器, 1);
+    HTuple hv_Dict(const_cast<Hcpar*>(容器), 1);
 
     HObject hv_Image;
     GetDictObject(&hv_Image, hv_Dict, "InputImage");
@@ -157,11 +157,11 @@ static void ApplyNMS(std::vector<DetectResult>& results, float nms_thresh) {
  *===========================================================================*/
 Herror Openvino_YOLO_Seg_Detect(Hproc_handle proc_handle)
 {
-    Hcpar *容器;
+    const Hcpar *容器;
     INT4_8 参数个数;
     Def_INOpenvinoObject(1, handle_data);
     HGetPPar(proc_handle, 2, &容器, &参数个数);
-    HTuple hv_Dict(容器, 1);
+    HTuple hv_Dict(const_cast<Hcpar*>(容器), 1);
 
     // 1. 获取输入图像与基本参数
     HObject hv_Image;
@@ -660,12 +660,12 @@ Herror HCsub_A_roi(Hproc_handle proc_handle)
 Herror HCremap(Hproc_handle proc_handle)
 {
 
-	Hcpar* dict;
+	const Hcpar* dict;
 	INT4_8 num;
 	HAllocStringMem(proc_handle, 1024);
 	HGetPPar(proc_handle, 1, &dict, &num);
 
-	HTuple hv_DictHandle(dict, 1);
+	HTuple hv_DictHandle(const_cast<Hcpar*>(dict), 1);
 	HTuple HandleIndex;
 
 	HObject iMAGE;
@@ -871,8 +871,10 @@ Herror HCCLAHE_image(Hproc_handle proc_handle)
 
 //using namespace std;
 
-// Windows UTF-8 路径转换
-string utf8Path(const wstring& wpath) 
+// Windows UTF-8 路径转换：仅 Windows 需要在 wstring 与 string 之间穿梭，
+// Linux 文件系统本身就是 UTF-8 字节序，path 在源码中始终保持 std::string。
+#if defined(_WIN32) || defined(_WIN64)
+string utf8Path(const wstring& wpath)
 {
     if (wpath.empty()) return "";
     int size = WideCharToMultiByte(CP_UTF8, 0, wpath.c_str(), -1, nullptr, 0, nullptr, nullptr);
@@ -881,7 +883,7 @@ string utf8Path(const wstring& wpath)
     return result;
 }
 
-wstring widePath(const string& path) 
+wstring widePath(const string& path)
 {
     if (path.empty()) return L"";
     int size = MultiByteToWideChar(CP_UTF8, 0, path.c_str(), -1, nullptr, 0);
@@ -889,6 +891,7 @@ wstring widePath(const string& path)
     MultiByteToWideChar(CP_UTF8, 0, path.c_str(), -1, &result[0], size);
     return result;
 }
+#endif
 
 // 将十进制坐标转为 "度/1 分/1 秒/100" 字符串（EXIF Rational 数组格式）
 string decimalToExifString(double decimal) 
@@ -930,8 +933,8 @@ bool writeImageExif(const string& imagePath,
 {
     try {
         // 打开图像
-        Exiv2::Image::UniquePtr image = Exiv2::ImageFactory::open(imagePath);
-        if (!image) {
+        ExivImagePtr image = Exiv2::ImageFactory::open(imagePath);
+        if (!image.get()) {
             cerr << "错误：无法打开图像 " << imagePath << endl;
             return false;
         }
@@ -943,14 +946,14 @@ bool writeImageExif(const string& imagePath,
         // 纬度
         eraseExifKey(exif, "Exif.GPSInfo.GPSLatitude");
         exif["Exif.GPSInfo.GPSLatitudeRef"] = (latitude >= 0) ? "N" : "S";
-        Exiv2::Value::UniquePtr latVal = Exiv2::Value::create(Exiv2::unsignedRational);
+        ExivValuePtr latVal = Exiv2::Value::create(Exiv2::unsignedRational);
         latVal->read(decimalToExifString(latitude));
         exif.add(Exiv2::ExifKey("Exif.GPSInfo.GPSLatitude"), latVal.get());
 
         // 经度
         eraseExifKey(exif, "Exif.GPSInfo.GPSLongitude");
         exif["Exif.GPSInfo.GPSLongitudeRef"] = (longitude >= 0) ? "E" : "W";
-        Exiv2::Value::UniquePtr lonVal = Exiv2::Value::create(Exiv2::unsignedRational);
+        ExivValuePtr lonVal = Exiv2::Value::create(Exiv2::unsignedRational);
         lonVal->read(decimalToExifString(longitude));
         exif.add(Exiv2::ExifKey("Exif.GPSInfo.GPSLongitude"), lonVal.get());
 
@@ -1101,11 +1104,11 @@ Herror HCWriteImageExif(Hproc_handle proc_handle)
  *===========================================================================*/
 Herror HCcv_orb_detect(Hproc_handle proc_handle)
 {
-    Hcpar *dict;
+    const Hcpar *dict;
     INT4_8 num;
     HAllocStringMem(proc_handle, 1024);
     HGetPPar(proc_handle, 1, &dict, &num);
-    HTuple hv_DictHandle(dict, 1);
+    HTuple hv_DictHandle(const_cast<Hcpar*>(dict), 1);
 
     // 获取输入图像
     HObject ho_InputImage;
@@ -1179,11 +1182,11 @@ Herror HCcv_orb_detect(Hproc_handle proc_handle)
  *===========================================================================*/
 Herror HCcv_akaze_detect(Hproc_handle proc_handle)
 {
-    Hcpar *dict;
+    const Hcpar *dict;
     INT4_8 num;
     HAllocStringMem(proc_handle, 1024);
     HGetPPar(proc_handle, 1, &dict, &num);
-    HTuple hv_DictHandle(dict, 1);
+    HTuple hv_DictHandle(const_cast<Hcpar*>(dict), 1);
 
     // 获取输入图像
     HObject ho_InputImage;
@@ -1255,11 +1258,11 @@ Herror HCcv_akaze_detect(Hproc_handle proc_handle)
  *===========================================================================*/
 Herror HCcv_bf_knn_match(Hproc_handle proc_handle)
 {
-    Hcpar *dict;
+    const Hcpar *dict;
     INT4_8 num;
     HAllocStringMem(proc_handle, 1024);
     HGetPPar(proc_handle, 1, &dict, &num);
-    HTuple hv_DictHandle(dict, 1);
+    HTuple hv_DictHandle(const_cast<Hcpar*>(dict), 1);
 
     // 获取参考图描述子
     HObject ho_DescRef;
@@ -1372,11 +1375,11 @@ Herror HCcv_bf_knn_match(Hproc_handle proc_handle)
  *===========================================================================*/
 Herror HCcv_estimate_affine_partial2d(Hproc_handle proc_handle)
 {
-    Hcpar *dict;
+    const Hcpar *dict;
     INT4_8 num;
     HAllocStringMem(proc_handle, 1024);
     HGetPPar(proc_handle, 1, &dict, &num);
-    HTuple hv_DictHandle(dict, 1);
+    HTuple hv_DictHandle(const_cast<Hcpar*>(dict), 1);
 
     // 获取对应点坐标
     HTuple hv_SrcRow, hv_SrcCol, hv_DstRow, hv_DstCol;

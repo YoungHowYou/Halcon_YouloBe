@@ -8,7 +8,12 @@
 #include <HALCONxl/Halcon.h>
 #endif
 #endif
-#define Test_EXPORTS_API __declspec(dllexport)
+
+#if defined(_WIN32) || defined(_WIN64)
+  #define Test_EXPORTS_API __declspec(dllexport)
+#else
+  #define Test_EXPORTS_API __attribute__((visibility("default")))
+#endif
 
 #ifdef __cplusplus
 extern "C"
