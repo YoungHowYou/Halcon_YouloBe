@@ -2,7 +2,7 @@
 setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build/help
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E chdir D:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build/help C:/Users/young/AppData/Local/Programs/MVTec/HALCON-24.11-Progress-Steady/bin/x64-win64/hcomp.exe -u -M -pHalcon_YouloBe -len_US D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def
+"C:\Program Files\CMake\bin\cmake.exe" -E chdir D:/Desktop/Source/Halcon_Extension/Halcon_YouloBe/build/help C:/Users/younghowyou/AppData/Local/Programs/MVTec/HALCON-24.11-Progress-Steady/bin/x64-win64/hcomp.exe -u -M -pHalcon_YouloBe -len_US D:\Desktop\Source\Halcon_Extension\Halcon_YouloBe\def\Halcon_YouloBe.def
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

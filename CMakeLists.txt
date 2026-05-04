@@ -46,16 +46,27 @@ set(ProjectName Halcon_YouloBe)
 if(NOT CMAKE_CONFIGURATION_TYPES AND NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Debug CACHE STRING "Build type" FORCE)
 endif()
-# 禁止生成 Debug/Release 子目录，直接输出到 bin
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "${CMAKE_SOURCE_DIR}/bin")
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE "${CMAKE_SOURCE_DIR}/bin")
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_DEBUG "${CMAKE_SOURCE_DIR}/bin")
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE "${CMAKE_SOURCE_DIR}/bin")
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG "${CMAKE_SOURCE_DIR}/bin")
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE "${CMAKE_SOURCE_DIR}/bin")
+# 禁止生成 Debug/Release 子目录。
+#   Windows：保持原有行为，统一输出到 bin/
+#   Linux  ：直接输出到 lib/<HALCONARCH>（默认 x64-linux），HALCON 直接从此处加载扩展
+if(WIN32)
+  set(_OUTPUT_DIR "${CMAKE_SOURCE_DIR}/bin")
+else()
+  if(DEFINED ENV{HALCONARCH})
+    set(_OUTPUT_DIR "${CMAKE_SOURCE_DIR}/lib/$ENV{HALCONARCH}")
+  else()
+    set(_OUTPUT_DIR "${CMAKE_SOURCE_DIR}/lib/x64-linux")
+  endif()
+endif()
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY         "${_OUTPUT_DIR}")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG   "${_OUTPUT_DIR}")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE "${_OUTPUT_DIR}")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY         "${_OUTPUT_DIR}")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_DEBUG   "${_OUTPUT_DIR}")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE "${_OUTPUT_DIR}")
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY         "${_OUTPUT_DIR}")
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG   "${_OUTPUT_DIR}")
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE "${_OUTPUT_DIR}")
 # Append HALCON's ikcmake directory to the module path. This requires the
 # HALCONEXAMPLES environment variable to be set.
 file(TO_CMAKE_PATH "$ENV{HALCONEXAMPLES}" HALCONEXAMPLES)
@@ -274,21 +285,6 @@ else()
         endif()
     endforeach()
 
-    # HALCON 期望按 lib/$HALCONARCH/libHalcon_YouloBe*.so 加载扩展包；
-    # 构建产物在 bin/，构建后把对应 .so 软链到 lib/${HALCON_ARCHITECTURE}/。
-    # 三个目标各自挂 POST_BUILD，避免在主目标完成时引用到尚未生成的 .so。
-    set(_HEXT_LIB_DIR "${CMAKE_SOURCE_DIR}/lib/${HALCON_ARCHITECTURE}")
-    foreach(_tgt ${ProjectName} ${ProjectName}cint ${ProjectName}cppint)
-        if(TARGET ${_tgt})
-            add_custom_command(TARGET ${_tgt} POST_BUILD
-                COMMAND ${CMAKE_COMMAND} -E make_directory "${_HEXT_LIB_DIR}"
-                COMMAND ${CMAKE_COMMAND} -E create_symlink
-                    "../../bin/$<TARGET_FILE_NAME:${_tgt}>"
-                    "${_HEXT_LIB_DIR}/$<TARGET_FILE_NAME:${_tgt}>"
-                COMMENT "Linking $<TARGET_FILE_NAME:${_tgt}> into lib/${HALCON_ARCHITECTURE}"
-            )
-        endif()
-    endforeach()
 endif()
 
 
