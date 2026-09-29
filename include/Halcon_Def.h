@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #if defined(_WIN32) || defined(_WIN64)
   #include <windows.h>
   #include <conio.h>
@@ -27,10 +27,11 @@
   typedef uint64_t UINT64;
 #endif
 
-// exiv2 0.28 以上把 Image::AutoPtr / Value::AutoPtr 改名为 UniquePtr，
-// Linux 上常见的发行版（含 Ubuntu 24.04）仍是 0.27.x，仅有 AutoPtr。
+// exiv2 0.28 以上把 Image::AutoPtr / Value::AutoPtr 改名为 UniquePtr。
 // 这里统一对外暴露 ExivImagePtr / ExivValuePtr，源码不再直接用 UniquePtr/AutoPtr。
-#if defined(EXIV2_TEST_VERSION) && EXIV2_TEST_VERSION(0,28,0)
+// 注意：0.28 起 EXIV2_TEST_VERSION 宏已删除，统一改用 EXIV2_VERSION + EXIV2_MAKE_VERSION 判断。
+#include <exiv2/version.hpp>
+#if defined(EXIV2_VERSION) && (EXIV2_VERSION >= EXIV2_MAKE_VERSION(0, 28, 0))
   using ExivImagePtr = Exiv2::Image::UniquePtr;
   using ExivValuePtr = Exiv2::Value::UniquePtr;
 #else

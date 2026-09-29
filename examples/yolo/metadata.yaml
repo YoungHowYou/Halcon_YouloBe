@@ -1,11 +1,12 @@
-description: Ultralytics YOLO26m-seg model trained on F:\Fangbang\YOULO\temp\dataset.yaml
+description: Ultralytics YOLO26l-seg model trained on C:\Users\16938\Desktop\yolo\丝印对位_annotations\temp\dataset.yaml
 author: Ultralytics
-date: '2026-04-26T12:39:02.534335'
-version: 8.4.33
+date: '2026-09-28T03:32:04.066333+08:00'
+version: 8.4.164
 license: AGPL-3.0 License (https://ultralytics.com/license)
 docs: https://docs.ultralytics.com
 stride: 32
 task: segment
+head: Segment26
 batch: 1
 imgsz:
 - 640
@@ -13,12 +14,13 @@ imgsz:
 names:
   0: defect_1
   1: defect_2
+  2: defect_3
 args:
+  data: null
   batch: 1
   fraction: 1.0
-  half: false
-  int8: false
+  quantize: null
+  nms: null
   dynamic: false
-  nms: false
 channels: 3
-end2end: true
+end2end: false

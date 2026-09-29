@@ -1,4 +1,4 @@
-#include "Halcon_YouloBe.h"
+﻿#include "Halcon_YouloBe.h"
 Herror OpenvinoLoadModel(Hproc_handle proc_handle)
 {
 

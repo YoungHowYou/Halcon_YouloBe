@@ -1,5 +1,6 @@
-#include "Halcon_Def.h"
+﻿#include "Halcon_Def.h"
 #include <cmath>
+#include <cstdio>
 
 #define H_Openvino_TAG 0xC0FFEE70
 #define H_Openvino_SEM_TYPE "Openvino"
@@ -12,7 +13,9 @@ extern "C"
 
     static Herror OpenvinoHUserHandleDestructor(Hproc_handle ph, OpenvinoHUserHandleData *data)
     {
+        // OpenVINOModel 是 placement new 构造的，需显式析构，否则 ov 内部资源泄漏
         data->OpenVINOModels.Release();
+        data->OpenVINOModels.~OpenVINOModel();
         return HFree(ph, data);
     }
     // 句柄类型描述符
@@ -45,6 +48,8 @@ Herror Openvino加载模型(Hproc_handle proc_handle)
         return 10000 * H__LINE__;
     }
     Def_OUTOpenvinoObject(1, handle_data);
+    // HAlloc 返回的是原始内存，OpenVINOModel 需 placement new 构造后才能赋值
+    new (&((*handle_data)->OpenVINOModels)) OpenVINOModel();
     (*handle_data)->OpenVINOModels = detect_model;
     SetDictTuple(hv_Dict, u8"高",detect_model.input_height);
     SetDictTuple(hv_Dict, u8"宽",detect_model.input_width);
@@ -135,13 +140,15 @@ static void ApplyNMS(std::vector<DetectResult>& results, float nms_thresh) {
 /*=============================================================================
  * 算子: Openvino_YOLO_Seg_Detect
  *
- * 模型输出格式 (best.xml):
- * - 检测结果 [1, 300, 38]: 
- *   - [0~3]: boxes (x1, y1, x2, y2) 相对于640x640
- *   - [4]: confidence
- *   - [5]: class_id
- *   - [6~37]: 32个mask系数
+ * 模型输出格式（自动识别两种）:
+ * - end2end（YOLO26 原生 NMS-free 导出，TopK 已烘焙进图）:
+ *     检测结果 [1, 300, D]: [x1,y1,x2,y2, conf, class_id, mask 系数 x32]
+ *     无需 NMS（one-to-one 输出不重叠）
+ * - raw（ultralytics 常规导出 end2end=False）:
+ *   channel-first，每列 [cx,cy,w,h, nc 个类别分(已 sigmoid), mask(proto_c 个系数)...]，框为中心点+宽高
+ *     单窗口内先做类别 argmax + 置信度阈值 + NMS（one-to-many 输出大量重叠）
  * - 分割原型 [1, 32, 160, 160]
+ *   框坐标均为模型输入尺寸（默认 640x640）下的绝对坐标，算子内映射回原图
  *
  * 输出:
  *   - BoundingBoxes: Region 数组 (每个检测一个矩形Region)
@@ -149,7 +156,7 @@ static void ApplyNMS(std::vector<DetectResult>& results, float nms_thresh) {
  *   - NumDetections: 检测数量
  *   - Confidences: 置信度数组
  *   - ClassIDs: 类别ID数组
- * 
+ *
  * 新增功能:
  *   - 支持滑窗检测大图 (通过字典参数 "步长X"/"步长Y" 或 "步长" 设置)
  *   - 支持小图自动缩放到模型尺寸
@@ -161,7 +168,7 @@ Herror Openvino_YOLO_Seg_Detect(Hproc_handle proc_handle)
     INT4_8 参数个数;
     Def_INOpenvinoObject(1, handle_data);
     HGetPPar(proc_handle, 2, &容器, &参数个数);
-    HTuple hv_Dict(const_cast<Hcpar*>(容器), 1);
+HTuple hv_Dict(const_cast<Hcpar*>(容器), 1);
 
     // 1. 获取输入图像与基本参数
     HObject hv_Image;
@@ -214,8 +221,7 @@ Herror Openvino_YOLO_Seg_Detect(Hproc_handle proc_handle)
 
         float* det_data = det_output.data<float>();
         auto det_shape = det_output.get_shape();
-        int num_dets = (int)det_shape[1];  // 300
-        int det_dims = (int)det_shape[2];  // 38
+        if (det_shape.size() != 3) return;
 
         float* proto_data = proto_output.data<float>();
         auto proto_shape = proto_output.get_shape();
@@ -230,13 +236,54 @@ Herror Openvino_YOLO_Seg_Detect(Hproc_handle proc_handle)
         const float fx = scale_x * ratio_x;
         const float fy = scale_y * ratio_y;
 
-        for (int i = 0; i < num_dets; i++) {
-            float* det = det_data + i * det_dims;
-            float conf = det[4];
-            if (conf < conf_thresh) continue;
+        // ---- 输出格式自动识别 ----
+        // end2end（YOLO26 原生 NMS-free，TopK 已烘焙进图）: [1, 300, D]
+        //   每行 [x1,y1,x2,y2, conf, class_id, mask(proto_c 个系数)...]（角点坐标）
+        // raw（ultralytics 常规导出 end2end=False）:        [1, D, 8400]（channel-first）
+        //   每列 [cx,cy,w,h, nc 个类别分(已 sigmoid), mask(proto_c 个系数)...]（中心点+宽高）
+        const bool raw_format = (det_shape[2] > det_shape[1]);
 
-            int cls = (int)det[5];
-            float px1 = det[0], py1 = det[1], px2 = det[2], py2 = det[3];
+        std::vector<DetectResult> window_results; // raw 格式先收集，窗口内 NMS 后再并入总结果
+
+        int num_dets, det_dims, num_classes = 0, mask_off = 6; // end2end: mask 系数偏移 = 4+1+1
+        cv::Mat det_transposed;                                // raw: [8400, D] 转置后的行优先视图
+
+        if (raw_format) {
+            det_dims = (int)det_shape[1];       // 4 + nc + proto_c
+            num_dets = (int)det_shape[2];       // 8400
+            num_classes = det_dims - 4 - proto_c;
+            if (num_classes <= 0) return;
+            mask_off = 4 + num_classes;
+            cv::transpose(cv::Mat(det_dims, num_dets, CV_32FC1, det_data), det_transposed);
+        } else {
+            num_dets = (int)det_shape[1];       // 300
+            det_dims = (int)det_shape[2];       // 38
+        }
+
+        for (int i = 0; i < num_dets; i++) {
+            const float* det = raw_format ? det_transposed.ptr<float>(i)
+                                          : det_data + i * det_dims;
+
+            float conf;
+            int cls;
+            if (raw_format) {
+                // raw：取 nc 个类别分中的最大值作为置信度
+                const float* scores = det + 4;
+                cls = 0;
+                conf = scores[0];
+                for (int c = 1; c < num_classes; c++) {
+                    if (scores[c] > conf) { conf = scores[c]; cls = c; }
+                }
+                if (conf < conf_thresh) continue;
+            } else {
+                conf = det[4];
+                if (conf < conf_thresh) continue;
+                cls = (int)det[5];
+            }
+
+            float pcx = det[0], pcy = det[1], pw = det[2], ph = det[3];
+            float px1 = pcx - pw * 0.5f, py1 = pcy - ph * 0.5f;
+            float px2 = pcx + pw * 0.5f, py2 = pcy + ph * 0.5f;
 
             // 一步映射到原图绝对坐标（合并 scale 和 ratio 两次乘法）
             int x1 = (int)(px1 * fx) + offset_x;
@@ -256,10 +303,10 @@ Herror Openvino_YOLO_Seg_Detect(Hproc_handle proc_handle)
             int mask_y1 = std::max(0, (int)(py1 / 4.0f));
             int mask_x2 = std::min(proto_w - 1, (int)(px2 / 4.0f));
             int mask_y2 = std::min(proto_h - 1, (int)(py2 / 4.0f));
-            
+
             if (mask_x2 - mask_x1 <= 0 || mask_y2 - mask_y1 <= 0) continue;
 
-            cv::Mat coeffs_mat(1, proto_c, CV_32FC1, det + 6);
+            cv::Mat coeffs_mat(1, proto_c, CV_32FC1, const_cast<float*>(det) + mask_off);
             cv::Mat mask_160_flat = coeffs_mat * proto_mat;
             cv::Mat mask_160 = mask_160_flat.reshape(1, proto_h);
             // 必须 clone，因为底层内存会被下一次推理覆盖
@@ -271,7 +318,14 @@ Herror Openvino_YOLO_Seg_Detect(Hproc_handle proc_handle)
             res.box = cv::Rect(x1, y1, x2 - x1, y2 - y1);
             res.mask_roi = mask_roi;
             res.mask_box = res.box;
-            all_results.push_back(res);
+            if (raw_format) window_results.push_back(res);
+            else            all_results.push_back(res);
+        }
+
+        // raw（one-to-many）输出单窗口内即大量重叠，必须 NMS；end2end（one-to-one）无需 NMS
+        if (raw_format && !window_results.empty()) {
+            ApplyNMS(window_results, nms_thresh);
+            all_results.insert(all_results.end(), window_results.begin(), window_results.end());
         }
     };
 
@@ -343,7 +397,7 @@ Herror Openvino_YOLO_Seg_Detect(Hproc_handle proc_handle)
             if (!res.mask_roi.empty() && res.box.width > 0 && res.box.height > 0) {
                 cv::Mat mask_up;
                 cv::resize(res.mask_roi, mask_up, cv::Size(res.box.width, res.box.height), 0, 0, cv::INTER_LINEAR);
-                cv::Mat mask_bin = mask_up > 0.0f; // CV_8UC1
+                cv::Mat mask_bin = mask_up > (float)mask_thresh; // CV_8UC1, threshold from dict MaskThreshold (default 0.5)
 
                 // 将 label_data 包装为 Mat（零拷贝），取出对应 ROI
                 cv::Mat label_mat(orig_h, orig_w, CV_16UC1, label_data);
@@ -369,19 +423,7 @@ Herror Openvino_YOLO_Seg_Detect(Hproc_handle proc_handle)
     return H_MSG_TRUE;
 }
 /*=============================================================================
- * 算子: Openvino_YOLO_Seg_Detect
- *
- * 模型输出格式 (best.xml):
- * - 检测结果 [1, 300, 38]: 
- *   - [0~3]: boxes (x_center, y_center, width, height) 相对于640x640
- *   - [4]: confidence
- *   - [5]: class_id
- *   - [6~37]: 32个mask系数
- * - 分割原型 [1, 32, 160, 160]
- *
- * 输出:
- *   - BoundingBoxes: Region 数组 (每个检测一个矩形Region)
- *   - ClassLabelImage: 灰度图像 (与原图同大小, 像素值=类别ID)
+ * 算子: Openvino_YOLO_Seg_Detect —— ROI 区域算术运算辅助函数
  *===========================================================================*/
 
 int roi_error(Himage small_image, Himage big_image, int x, int y, int w, int h)

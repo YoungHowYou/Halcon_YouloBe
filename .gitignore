@@ -12,3 +12,11 @@ _deps
 CMakeUserPresets.json
 extension_package_programmers_manual.pdf
 *.bin
+
+# 构建产物与本地缓存
+bin/
+lib/
+build/
+build-linux/
+vcpkg_installed/
+cache.json

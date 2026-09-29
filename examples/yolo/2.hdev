@@ -1,21 +1,21 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <hdevelop file_version="1.2" halcon_version="24.11.1.0">
 <procedure name="main">
 <interface/>
 <body>
 <c>* YOLO26-seg 实例分割示例（OpenVINO）</c>
-<c>* 模型: ./best.xml（本目录），end2end=True/False 两种导出格式均可</c>
-<c></c>
+<c>* 模型: ./best.xml（本目录，YOLO26l-seg raw 导出 [1,39,8400]），算子内置 NMS</c>
+<l>dev_update_off()</l>
 <l>ModelPath := './best.xml'</l>
-<l>Device := 'CPU'  * CPU / GPU / NPU</l>
+<l>Device := 'CPU'  // CPU / GPU / NPU</l>
 <c></c>
 <c>* 加载模型</c>
 <l>create_dict (DictHandle)</l>
 <l>set_dict_tuple (DictHandle, '工程路径', ModelPath)</l>
 <l>set_dict_tuple (DictHandle, '使用设备', Device)</l>
-<l>set_dict_tuple (DictHandle, 'ConfThreshold', 0.25)</l>
-<l>set_dict_tuple (DictHandle, 'MaskThreshold', 0.5)</l>
-<l>set_dict_tuple (DictHandle, 'NMSThreshold', 0.45)  * 仅 raw（end2end=False）模型需要</l>
+<l>set_dict_tuple (DictHandle, 'ConfThreshold', 0.15)</l>
+<l>set_dict_tuple (DictHandle, 'MaskThreshold', 0.15)</l>
+<l>set_dict_tuple (DictHandle, 'NMSThreshold', 0.45) // 仅 raw（end2end=False）模型需要</l>
 <l>OpenvinoLoadModel (DictHandle, ModelHandle)</l>
 <c></c>
 <c>* 大图滑窗检测：图像大于模型尺寸时自动启用，步长默认=模型尺寸，可覆盖：</c>
@@ -24,9 +24,9 @@
 <c>* set_dict_tuple (DictHandle, '步长Y', 384)</c>
 <c></c>
 <c>* 读取测试图像</c>
-<l>list_files ('F:/Fangbang/YN621B159192W20/8位_带缺陷', ['files','follow_links','recursive'], ImageFiles)</l>
-<l>tuple_regexp_select (ImageFiles, ['\.(tif|tiff|gif|bmp|jpg|jpeg|jp2|png|pcx|pgm|ppm|pbm|xwd|ima)$','ignore_case'], ImageFiles)</l>
-<l>for Index := 0 to |ImageFiles| - 1 by 1</l>
+<l>list_files ('D:/desk/data/newAA&amp;Keyence/keyence', ['files','follow_links','recursive'], ImageFiles)</l>
+<l>tuple_regexp_select (ImageFiles, ['(tif|tiff|gif|bmp|jpg|jpeg|jp2|png|pcx|pgm|ppm|pbm|xwd|ima)$','ignore_case'], ImageFiles)</l>
+<l>for Index := 150 to |ImageFiles| - 1 by 1</l>
 <l>    read_image (Image, ImageFiles[Index])</l>
 <l>    set_dict_object (Image, DictHandle, 'InputImage')</l>
 <l>    yolo_seg_detect (ModelHandle, DictHandle)</l>
@@ -40,7 +40,7 @@
 <l>        dev_display (Image)</l>
 <l>        dev_display (Regions)</l>
 <l>        dev_display (BOX)</l>
-<l>        stop()</l>
+<l>*         stop()</l>
 <l>    endif</l>
 <l>endfor</l>
 </body>
