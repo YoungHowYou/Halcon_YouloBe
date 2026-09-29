@@ -50,18 +50,11 @@ HALCON 算法扩展包，集成 OpenVINO 深度学习推理（YOLO26 实例分�
 
 ### 编译（Windows）
 
-前置：已安装 vcpkg 且设置 `VCPKG_ROOT` 环境变量（CMake 会自动找到工具链）。
+前置：已安装 vcpkg 且设置 `VCPKG_ROOT` 环境变量（CMake 会自动拾取工具链，无需显式指定）。
 
 ```powershell
-cmake --preset vs2022          # Visual Studio 2022（或 --preset vs2019）
-cmake --build build --config Release
-```
-
-不用 preset 也可以显式指定工具链：
-
-```bash
-cmake -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_TOOLCHAIN_FILE=%VCPKG_ROOT%/scripts/buildsystems/vcpkg.cmake
-cmake --build build --config Release
+cmake -B build
+cmake --build build --config Release      # Debug 同理
 ```
 
 编译产物输出到 `bin/`，包含 C / C++ / .NET 三种接口的 DLL，以及全部运行时依赖
@@ -81,13 +74,39 @@ cmake --build build --config Release
 ### 编译（Linux）
 
 ```bash
-cmake -B build -DCMAKE_TOOLCHAIN_FILE=$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake \
-      -DVCPKG_TARGET_TRIPLET=x64-linux -DCMAKE_BUILD_TYPE=Release
+cmake -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build
 ```
 
 需要 HALCON 环境变量（`HALCONROOT` / `HALCONEXAMPLES` / `HALCONARCH`），vcpkg 的 lib 目录
 会自动烧进 RPATH，HDevelop 无需 `LD_LIBRARY_PATH` 即可加载。
+
+## 脱离 HALCON 复用 yolo_core
+
+YOLO26-seg 推理核心在 `yolo_core/` 静态库（`yolo::Model`，OpenVINO + OpenCV，
+**不依赖 HALCON**），扩展包 supply 层只是它的薄封装。其他 C++ 项目可直接复用：
+
+```bash
+# 1) 安装到任意前缀（库 + 头文件 + CMake package config）
+cmake --install build --config Release --prefix D:/yolo_core
+
+# 2) 消费方 CMakeLists.txt
+find_package(yolo_core CONFIG REQUIRED)   # 自动 find_dependency OpenCV/OpenVINO
+target_link_libraries(app PRIVATE yolo::yolo_core)
+
+# 3) 配置消费方（安装前缀 + 本仓库的 vcpkg 依赖树）
+cmake -B build -DCMAKE_PREFIX_PATH="D:/yolo_core;<本仓库>/build/vcpkg_installed/x64-windows"
+```
+
+```cpp
+#include <yolo/yolo.hpp>
+yolo::Model m;
+std::string err;
+m.load("best.xml", "CPU", err);                 // 加载（CPU/GPU/NPU）
+yolo::InferParams p;                            // conf/nms/mask/滑窗步长/窗口尺寸
+std::vector<yolo::Detection> dets;
+m.detect(bgr_img, p, dets, err);                // 8UC1/8UC3 输入，原图绝对坐标+掩膜输出
+```
 
 ## 激活扩展包
 
@@ -155,12 +174,12 @@ Halcon_YouloBe/
 ├── include/                 # 头文件
 ├── def/                     # HALCON 算子定义文件
 ├── cmake/                   # 构建辅助脚本（OpenVINO 插件 DLL 拷贝）
+├── yolo_core/               # YOLO26-seg 推理核心静态库（yolo::Model，HALCON-free，可独立安装复用）
 ├── examples/                # 示例程序（.hdev）与测试模型
 ├── doc/                     # HTML 帮助
-├── help/                    # 算子签名数据库（改了 def 必须同步）
+├── help/                    # 算子签名数据库（构建时自动同步，HALCON 调用校验依赖）
 ├── bin/                     # 编译输出（含全部运行时 DLL）
 ├── vcpkg.json               # vcpkg 依赖清单
-├── CMakePresets.json        # VS2019 / VS2022 presets
 └── CMakeLists.txt
 ```
 

@@ -1,4 +1,5 @@
 ﻿#include "Halcon_Def.h"
+#include "yolo/yolo.hpp"   // YOLO26-seg 推理核心库（yolo_core，HALCON-free）
 #include <cmath>
 #include <cstdio>
 
@@ -8,14 +9,13 @@ extern "C"
 {
     typedef struct
     {
-        OpenVINOModel OpenVINOModels;
+        yolo::Model OpenVINOModels;
     } OpenvinoHUserHandleData;
 
     static Herror OpenvinoHUserHandleDestructor(Hproc_handle ph, OpenvinoHUserHandleData *data)
     {
-        // OpenVINOModel 是 placement new 构造的，需显式析构，否则 ov 内部资源泄漏
-        data->OpenVINOModels.Release();
-        data->OpenVINOModels.~OpenVINOModel();
+        // yolo::Model 是 placement new 构造的，需显式析构释放 ov 内部资源
+        data->OpenVINOModels.~Model();
         return HFree(ph, data);
     }
     // 句柄类型描述符
@@ -41,18 +41,18 @@ Herror Openvino加载模型(Hproc_handle proc_handle)
     HTuple hv_Path, hv_Device, hv_Index, FP16ENABLE;
     GetDictTuple(hv_Dict, u8"工程路径", &hv_Path);
     GetDictTuple(hv_Dict, u8"使用设备", &hv_Device);
-    OpenVINOModel detect_model;
-    if (!detect_model.load_model(hv_Path, hv_Device))
+    yolo::Model detect_model;
+    std::string load_err;
+    if (!detect_model.load(hv_Path.S().Text(), hv_Device.S().Text(), load_err))
     {
-        // std::cerr << "检测模型加载失败！" << std::endl;
         return 10000 * H__LINE__;
     }
     Def_OUTOpenvinoObject(1, handle_data);
-    // HAlloc 返回的是原始内存，OpenVINOModel 需 placement new 构造后才能赋值
-    new (&((*handle_data)->OpenVINOModels)) OpenVINOModel();
-    (*handle_data)->OpenVINOModels = detect_model;
-    SetDictTuple(hv_Dict, u8"高",detect_model.input_height);
-    SetDictTuple(hv_Dict, u8"宽",detect_model.input_width);
+    // HAlloc 返回的是原始内存，yolo::Model 需 placement new 构造后才能赋值
+    new (&((*handle_data)->OpenVINOModels)) yolo::Model();
+    (*handle_data)->OpenVINOModels = std::move(detect_model);
+    SetDictTuple(hv_Dict, u8"高",(*handle_data)->OpenVINOModels.input_height());
+    SetDictTuple(hv_Dict, u8"宽",(*handle_data)->OpenVINOModels.input_width());
 
     return H_MSG_TRUE;
 }
@@ -92,49 +92,13 @@ Herror Openvino推理模型(Hproc_handle proc_handle)
         cv::cvtColor(matR, img, cv::COLOR_GRAY2BGR);
     }
     ov::Tensor detect_result;
-    handle_data->OpenVINOModels.infer(img, detect_result);
+    handle_data->OpenVINOModels.infer_raw(img, detect_result);
     HObject ho_Image;
     const INT64 *data = detect_result.data<INT64>();
-    GenImage1(&ho_Image, "int8",  handle_data->OpenVINOModels.input_width,  handle_data->OpenVINOModels.input_height, (int64)data);
+    GenImage1(&ho_Image, "int8",  handle_data->OpenVINOModels.input_width(),  handle_data->OpenVINOModels.input_height(), (int64)data);
     SetDictObject(ho_Image, hv_Dict, "OutputImage");
 
     return H_MSG_TRUE;
-}
-
-/*=============================================================================
- * 辅助结构体：用于存储单次检测结果，方便后续做 NMS
- *===========================================================================*/
-struct DetectResult {
-    int class_id;
-    float conf;
-    cv::Rect box;       // 在原图中的绝对坐标
-    cv::Mat mask_roi;   // 160x160 尺度下截取的 mask (未上采样)
-    cv::Rect mask_box;  // mask 对应的原图绝对坐标
-};
-
-/*=============================================================================
- * 全局 NMS 函数
- *===========================================================================*/
-static void ApplyNMS(std::vector<DetectResult>& results, float nms_thresh) {
-    if (results.empty()) return;
-    
-    std::vector<int> class_ids;
-    std::vector<float> confidences;
-    std::vector<cv::Rect> boxes;
-    for (const auto& r : results) {
-        class_ids.push_back(r.class_id);
-        confidences.push_back(r.conf);
-        boxes.push_back(r.box);
-    }
-    std::vector<int> indices;
-    cv::dnn::NMSBoxes(boxes, confidences, 0.0f, nms_thresh, indices);
-    
-    std::vector<DetectResult> nms_results;
-    nms_results.reserve(indices.size());
-    for (int idx : indices) {
-        nms_results.push_back(results[idx]);
-    }
-    results = std::move(nms_results);
 }
 
 /*=============================================================================
@@ -170,26 +134,31 @@ Herror Openvino_YOLO_Seg_Detect(Hproc_handle proc_handle)
     HGetPPar(proc_handle, 2, &容器, &参数个数);
 HTuple hv_Dict(const_cast<Hcpar*>(容器), 1);
 
-    // 1. 获取输入图像与基本参数
+    // 1. 获取输入图像
     HObject hv_Image;
     GetDictObject(&hv_Image, hv_Dict, "InputImage");
 
-    double conf_thresh = 0.25, mask_thresh = 0.5, nms_thresh = 0.45;
-    try { HTuple hv_T; GetDictTuple(hv_Dict, "ConfThreshold", &hv_T); conf_thresh = hv_T.D(); } catch (...) {}
-    try { HTuple hv_T; GetDictTuple(hv_Dict, "MaskThreshold", &hv_T); mask_thresh = hv_T.D(); } catch (...) {}
-    try { HTuple hv_T; GetDictTuple(hv_Dict, "NMSThreshold", &hv_T); nms_thresh = hv_T.D(); } catch (...) {}
+    // 2. 推理参数（未设置的字典键取默认值，与 yolo_core::InferParams 一致）
+    yolo::InferParams params;
+    try { HTuple hv_T; GetDictTuple(hv_Dict, "ConfThreshold", &hv_T); params.conf_threshold = (float)hv_T.D(); } catch (...) {}
+    try { HTuple hv_T; GetDictTuple(hv_Dict, "MaskThreshold", &hv_T); params.mask_threshold = (float)hv_T.D(); } catch (...) {}
+    try { HTuple hv_T; GetDictTuple(hv_Dict, "NMSThreshold", &hv_T);  params.nms_threshold  = (float)hv_T.D(); } catch (...) {}
 
-    // 2. 获取模型宽高与滑窗步长
-    int model_w = handle_data->OpenVINOModels.input_width;
-    int model_h = handle_data->OpenVINOModels.input_height;
-    int step_x = model_w, step_y = model_h;
+    // 窗口尺寸与滑窗步长（默认 = 模型输入尺寸）
+    int model_w = handle_data->OpenVINOModels.input_width();
+    int model_h = handle_data->OpenVINOModels.input_height();
     try { HTuple hv_T; GetDictTuple(hv_Dict, u8"宽", &hv_T); model_w = hv_T.I(); } catch (...) {}
     try { HTuple hv_T; GetDictTuple(hv_Dict, u8"高", &hv_T); model_h = hv_T.I(); } catch (...) {}
+    params.win_w = model_w;
+    params.win_h = model_h;
+    int step_x = model_w, step_y = model_h;
     try { HTuple hv_T; GetDictTuple(hv_Dict, u8"步长", &hv_T); step_x = hv_T.I(); step_y = hv_T.I(); } catch (...) {}
     try { HTuple hv_T; GetDictTuple(hv_Dict, u8"步长X", &hv_T); step_x = hv_T.I(); } catch (...) {}
     try { HTuple hv_T; GetDictTuple(hv_Dict, u8"步长Y", &hv_T); step_y = hv_T.I(); } catch (...) {}
+    params.step_x = step_x;
+    params.step_y = step_y;
 
-    // 3. 图像转换 (Halcon -> OpenCV)
+    // 3. 图像转换 (Halcon -> OpenCV BGR)
     HTuple ptrR, ptrG, ptrB, w, h, type, Channelsnum;
     CountChannels(hv_Image, &Channelsnum);
     cv::Mat orig_img;
@@ -198,8 +167,8 @@ HTuple hv_Dict(const_cast<Hcpar*>(容器), 1);
         GetImagePointer3(hv_Image, &ptrR, &ptrG, &ptrB, &type, &w, &h);
         orig_w = w.I(); orig_h = h.I();
         cv::Mat planes[3] = {
-            cv::Mat(h, w, CV_8UC1, (uchar*)ptrB.L()), 
-            cv::Mat(h, w, CV_8UC1, (uchar*)ptrG.L()), 
+            cv::Mat(h, w, CV_8UC1, (uchar*)ptrB.L()),
+            cv::Mat(h, w, CV_8UC1, (uchar*)ptrG.L()),
             cv::Mat(h, w, CV_8UC1, (uchar*)ptrR.L())
         };
         cv::merge(planes, 3, orig_img);
@@ -210,161 +179,11 @@ HTuple hv_Dict(const_cast<Hcpar*>(容器), 1);
         cv::cvtColor(matR, orig_img, cv::COLOR_GRAY2BGR);
     }
 
-    std::vector<DetectResult> all_results;
-    all_results.reserve(64); // 预分配，避免 push_back 触发多次重分配
-
-    // 内部 Lambda：执行推理并解析当前窗口结果
-    auto DoInference = [&](const cv::Mat& input_img, int offset_x, int offset_y, float ratio_x, float ratio_y) {
-        ov::Tensor det_output, proto_output;
-        float scale_x, scale_y;
-        if (!handle_data->OpenVINOModels.infer_yolo_seg(input_img, det_output, proto_output, scale_x, scale_y)) return;
-
-        float* det_data = det_output.data<float>();
-        auto det_shape = det_output.get_shape();
-        if (det_shape.size() != 3) return;
-
-        float* proto_data = proto_output.data<float>();
-        auto proto_shape = proto_output.get_shape();
-        int proto_c = (int)proto_shape[1]; // 32
-        int proto_h = (int)proto_shape[2]; // 160
-        int proto_w = (int)proto_shape[3]; // 160
-
-        // 将 proto_data 包装为 OpenCV Mat [32, 25600]（零拷贝）
-        cv::Mat proto_mat(proto_c, proto_h * proto_w, CV_32FC1, proto_data);
-
-        // 预计算合并后的缩放系数，减少循环内乘法次数
-        const float fx = scale_x * ratio_x;
-        const float fy = scale_y * ratio_y;
-
-        // ---- 输出格式自动识别 ----
-        // end2end（YOLO26 原生 NMS-free，TopK 已烘焙进图）: [1, 300, D]
-        //   每行 [x1,y1,x2,y2, conf, class_id, mask(proto_c 个系数)...]（角点坐标）
-        // raw（ultralytics 常规导出 end2end=False）:        [1, D, 8400]（channel-first）
-        //   每列 [cx,cy,w,h, nc 个类别分(已 sigmoid), mask(proto_c 个系数)...]（中心点+宽高）
-        const bool raw_format = (det_shape[2] > det_shape[1]);
-
-        std::vector<DetectResult> window_results; // raw 格式先收集，窗口内 NMS 后再并入总结果
-
-        int num_dets, det_dims, num_classes = 0, mask_off = 6; // end2end: mask 系数偏移 = 4+1+1
-        cv::Mat det_transposed;                                // raw: [8400, D] 转置后的行优先视图
-
-        if (raw_format) {
-            det_dims = (int)det_shape[1];       // 4 + nc + proto_c
-            num_dets = (int)det_shape[2];       // 8400
-            num_classes = det_dims - 4 - proto_c;
-            if (num_classes <= 0) return;
-            mask_off = 4 + num_classes;
-            cv::transpose(cv::Mat(det_dims, num_dets, CV_32FC1, det_data), det_transposed);
-        } else {
-            num_dets = (int)det_shape[1];       // 300
-            det_dims = (int)det_shape[2];       // 38
-        }
-
-        for (int i = 0; i < num_dets; i++) {
-            const float* det = raw_format ? det_transposed.ptr<float>(i)
-                                          : det_data + i * det_dims;
-
-            float conf;
-            int cls;
-            if (raw_format) {
-                // raw：取 nc 个类别分中的最大值作为置信度
-                const float* scores = det + 4;
-                cls = 0;
-                conf = scores[0];
-                for (int c = 1; c < num_classes; c++) {
-                    if (scores[c] > conf) { conf = scores[c]; cls = c; }
-                }
-                if (conf < conf_thresh) continue;
-            } else {
-                conf = det[4];
-                if (conf < conf_thresh) continue;
-                cls = (int)det[5];
-            }
-
-            float pcx = det[0], pcy = det[1], pw = det[2], ph = det[3];
-            float px1 = pcx - pw * 0.5f, py1 = pcy - ph * 0.5f;
-            float px2 = pcx + pw * 0.5f, py2 = pcy + ph * 0.5f;
-
-            // 一步映射到原图绝对坐标（合并 scale 和 ratio 两次乘法）
-            int x1 = (int)(px1 * fx) + offset_x;
-            int y1 = (int)(py1 * fy) + offset_y;
-            int x2 = (int)(px2 * fx) + offset_x;
-            int y2 = (int)(py2 * fy) + offset_y;
-
-            x1 = std::max(0, std::min(x1, orig_w - 1));
-            y1 = std::max(0, std::min(y1, orig_h - 1));
-            x2 = std::max(0, std::min(x2, orig_w - 1));
-            y2 = std::max(0, std::min(y2, orig_h - 1));
-
-            if (x2 - x1 <= 0 || y2 - y1 <= 0) continue;
-
-            // Mask 计算
-            int mask_x1 = std::max(0, (int)(px1 / 4.0f));
-            int mask_y1 = std::max(0, (int)(py1 / 4.0f));
-            int mask_x2 = std::min(proto_w - 1, (int)(px2 / 4.0f));
-            int mask_y2 = std::min(proto_h - 1, (int)(py2 / 4.0f));
-
-            if (mask_x2 - mask_x1 <= 0 || mask_y2 - mask_y1 <= 0) continue;
-
-            cv::Mat coeffs_mat(1, proto_c, CV_32FC1, const_cast<float*>(det) + mask_off);
-            cv::Mat mask_160_flat = coeffs_mat * proto_mat;
-            cv::Mat mask_160 = mask_160_flat.reshape(1, proto_h);
-            // 必须 clone，因为底层内存会被下一次推理覆盖
-            cv::Mat mask_roi = mask_160(cv::Rect(mask_x1, mask_y1, mask_x2 - mask_x1, mask_y2 - mask_y1)).clone();
-
-            DetectResult res;
-            res.class_id = cls;
-            res.conf = conf;
-            res.box = cv::Rect(x1, y1, x2 - x1, y2 - y1);
-            res.mask_roi = mask_roi;
-            res.mask_box = res.box;
-            if (raw_format) window_results.push_back(res);
-            else            all_results.push_back(res);
-        }
-
-        // raw（one-to-many）输出单窗口内即大量重叠，必须 NMS；end2end（one-to-one）无需 NMS
-        if (raw_format && !window_results.empty()) {
-            ApplyNMS(window_results, nms_thresh);
-            all_results.insert(all_results.end(), window_results.begin(), window_results.end());
-        }
-    };
-
-    // 4. 核心逻辑：尺寸判断与滑窗
-    if (orig_w == model_w && orig_h == model_h) {
-        // 分支 1：尺寸相等，直接检测
-        DoInference(orig_img, 0, 0, 1.0f, 1.0f);
-    } 
-    else if (orig_w < model_w || orig_h < model_h) {
-        // 分支 2：尺寸偏小，缩放到模型尺寸
-        cv::Mat resized_img;
-        cv::resize(orig_img, resized_img, cv::Size(model_w, model_h));
-        float ratio_x = (float)orig_w / model_w;
-        float ratio_y = (float)orig_h / model_h;
-        DoInference(resized_img, 0, 0, ratio_x, ratio_y);
-    } 
-    else {
-        // 分支 3：尺寸偏大，滑窗检测
-        int start_y = 0; // 声明在外层循环作用域
-        for (int y = 0; y < orig_h; y += step_y) {
-            start_y = y;
-            int start_x = 0; // 声明在外层循环作用域
-            for (int x = 0; x < orig_w; x += step_x) {
-                start_x = x;
-                // 边界处理：如果剩余尺寸不足模型宽高，则向左/上平移保证窗口大小
-                if (start_x + model_w > orig_w) start_x = std::max(0, orig_w - model_w);
-                if (start_y + model_h > orig_h) start_y = std::max(0, orig_h - model_h);
-
-                cv::Rect roi(start_x, start_y, model_w, model_h);
-                cv::Mat crop_img = orig_img(roi);
-                
-                DoInference(crop_img, start_x, start_y, 1.0f, 1.0f);
-                
-                if (start_x + model_w >= orig_w) break; // 避免死循环
-            }
-            if (start_y + model_h >= orig_h) break; // 避免死循环
-        }
-        // 滑窗会导致重叠，必须进行 NMS
-        ApplyNMS(all_results, nms_thresh);
+    // 4. 调 yolo_core 核心库：输出格式自动识别 / argmax / NMS / 缩放 / 滑窗 / 掩膜全在库内
+    std::vector<yolo::Detection> all_results;
+    std::string infer_err;
+    if (!handle_data->OpenVINOModels.detect(orig_img, params, all_results, infer_err)) {
+        return 10000 * H__LINE__;
     }
 
     // 5. 整合结果并生成 Halcon 对象
@@ -393,12 +212,8 @@ HTuple hv_Dict(const_cast<Hcpar*>(容器), 1);
             hv_Row2[i] = (double)(res.box.y + res.box.height);
             hv_Col2[i] = (double)(res.box.x + res.box.width);
 
-            // 恢复并填充 Mask：用 OpenCV ROI + copyTo 替代逐像素循环
-            if (!res.mask_roi.empty() && res.box.width > 0 && res.box.height > 0) {
-                cv::Mat mask_up;
-                cv::resize(res.mask_roi, mask_up, cv::Size(res.box.width, res.box.height), 0, 0, cv::INTER_LINEAR);
-                cv::Mat mask_bin = mask_up > (float)mask_thresh; // CV_8UC1, threshold from dict MaskThreshold (default 0.5)
-
+            // 填充 Mask：yolo_core 返回的掩膜已是框尺寸的二值图（CV_8UC1），零拷贝叠加
+            if (!res.mask.empty() && res.box.width > 0 && res.box.height > 0) {
                 // 将 label_data 包装为 Mat（零拷贝），取出对应 ROI
                 cv::Mat label_mat(orig_h, orig_w, CV_16UC1, label_data);
                 cv::Mat dst_roi = label_mat(res.box);
@@ -406,7 +221,7 @@ HTuple hv_Dict(const_cast<Hcpar*>(容器), 1);
                 // 用 fill_val 填充 mask 为 true 的像素，其余保持不变
                 cv::Mat fill_mat(res.box.height, res.box.width, CV_16UC1,
                                  cv::Scalar((ushort)(res.class_id + 1)));
-                fill_mat.copyTo(dst_roi, mask_bin);
+                fill_mat.copyTo(dst_roi, res.mask);
             }
         }
 
